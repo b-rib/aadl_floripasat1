@@ -1,29 +1,9 @@
 package SAT_OBDH_devices
 public
-	with Buses::I2C, Buses::UART, Buses::SPI;
+	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Analog;
 	
-	device mcu
-		features
-			board_voltage: in data port;
-			board_current: in data port;
-			
-			-- Solar panel current measurements (analog)
-			solar_panel_1_current: in data port;
-			solar_panel_2_current: in data port;
-			solar_panel_3_current: in data port;
-			
-			-- Magnetorquer control current (up to 300mA)
-			solar_panel_1_current_driver: out data port;
-			solar_panel_2_current_driver: out data port;
-			solar_panel_3_current_driver: out data port;
-			
-			-- Enable payload signal
-			payload_enable: out data port;
-			
-			-- Voltage monitor (watchdog timer)
-			volt_monitor_out: out data port;
-			volt_monitor_in: in data port;
-			
+	processor mcu
+		features	
 			-- Gyro and temperature sensors, flash memory, TTC
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
 			
@@ -32,9 +12,11 @@ public
 			
 			-- Debug interface
 			uart_bus: requires bus access Buses::UART::UART.impl;
+			-- Analog bus from Solar Panels
+			analog_bus: requires bus access Buses::Analog::Analog.impl;
 	end mcu;
 	
-	device implementation mcu.impl
+	processor implementation mcu.impl
 	end mcu.impl;
 	
 	-- Flash memory
@@ -57,7 +39,10 @@ public
 	-- IMU número 1
 	device imu
 		features
+			data_out: out data port;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+		flows
+			f: flow source data_out; 
 	end imu;
 	
 	device implementation imu.impl
@@ -89,6 +74,8 @@ public
 		features
 			flow_in: in data port;
 			signal_out: out data port;
+		flows
+			f: flow source signal_out;
 	end current_sensor;
 	
 	device implementation current_sensor.impl
@@ -99,6 +86,8 @@ public
 		features
 			supply_in: in data port;
 			signal_out: out data port;
+		flows
+			f: flow source signal_out;
 	end voltage_sensor;
 	
 	device implementation voltage_sensor.impl

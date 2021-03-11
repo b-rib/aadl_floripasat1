@@ -1,0 +1,49 @@
+package SAT_OBDH_process
+public
+	process mcu
+		features
+			board_voltage: in data port;
+			board_current: in data port;
+			
+			-- Solar panel current measurements (analog)
+			solar_panel_1_current: in data port;
+			solar_panel_2_current: in data port;
+			solar_panel_3_current: in data port;
+			
+			-- Magnetorquer control current (up to 300mA)
+			solar_panel_1_current_driver: out data port;
+			solar_panel_2_current_driver: out data port;
+			solar_panel_3_current_driver: out data port;
+			
+			-- Enable payload signal
+			payload_enable: out data port;
+			
+			-- Voltage monitor (watchdog timer)
+			volt_monitor_out: out data port;
+			volt_monitor_in: in data port;
+			
+			-- Read IMU data
+			imu_1_data_in: in data port;
+			imu_2_data_in: in data port;
+	end mcu;
+	process implementation mcu.impl
+				
+	end mcu.impl;
+end SAT_OBDH_process;
+
+--		mcu_obdh: processor SAT_OBDH_devices::mcu;
+--		sd_card: device SAT_OBDH_devices::sd_card;
+--		ic_memory_1: device SAT_OBDH_devices::ic_memory;
+--		ic_memory_2: device SAT_OBDH_devices::ic_memory;
+--		ic_memory_3: device SAT_OBDH_devices::ic_memory;
+--		imu_1: device SAT_OBDH_devices::imu;
+--		imu_2: device SAT_OBDH_devices::imu;
+--		voltage_monitor: device SAT_OBDH_devices::voltage_monitor;
+--		current_driver_1: device SAT_OBDH_devices::current_driver;
+--		current_driver_2: device SAT_OBDH_devices::current_driver;
+--		current_driver_3: device SAT_OBDH_devices::current_driver;
+--		current_sensor_board: device SAT_OBDH_devices::current_sensor;
+--		current_sensor_1: device SAT_OBDH_devices::current_sensor;
+--		current_sensor_2: device SAT_OBDH_devices::current_sensor;
+--		current_sensor_3: device SAT_OBDH_devices::current_sensor;
+--		voltage_sensor_board: device SAT_OBDH_devices::voltage_sensor;

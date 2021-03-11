@@ -1,9 +1,8 @@
 package SAT_system
 public
-	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio;
-	with SAT_EPS_devices;
-	with SAT_EPS_process;
-	with SAT_OBDH_devices;
+	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio, Buses::Analog;
+	with SAT_EPS_devices, SAT_EPS_process;
+	with SAT_OBDH_devices, SAT_OBDH_process;
 	with SAT_Payloads;
 	with SAT_TTC_devices;
 system SAT1
@@ -21,7 +20,7 @@ system implementation SAT1.impl
 		temp_sensor: device SAT_EPS_devices::temp_sensor;
 		battery: device SAT_EPS_devices::battery;
 		heat_driver: device SAT_EPS_devices::heater_driver;
-		EPS: processor SAT_EPS_devices::MSP;
+		mcu_eps: processor SAT_EPS_devices::MSP;
 		EPS_firmware: process SAT_EPS_process::EPS_firmware.impl;
 		
 		-- TTC DEVICES
@@ -30,7 +29,7 @@ system implementation SAT1.impl
 		ttc_main_radio : device SAT_TTC_devices::main_radio;
 		
 		-- OBDH DEVICES
-		mcu_obdh: device SAT_OBDH_devices::mcu;
+		mcu_obdh: processor SAT_OBDH_devices::mcu;
 		sd_card: device SAT_OBDH_devices::sd_card;
 		ic_memory_1: device SAT_OBDH_devices::ic_memory;
 		ic_memory_2: device SAT_OBDH_devices::ic_memory;
@@ -46,29 +45,41 @@ system implementation SAT1.impl
 		current_sensor_2: device SAT_OBDH_devices::current_sensor;
 		current_sensor_3: device SAT_OBDH_devices::current_sensor;
 		voltage_sensor_board: device SAT_OBDH_devices::voltage_sensor;
+		OBDH_firmware: process SAT_OBDH_process::mcu.impl;
 		
 		-- PAYLOAD DEVICES
-		join_payload: device SAT_Payloads::Joinville_Payload;
-		rush_payload: device SAT_Payloads::RUSH_Payload;
+		join_payload: processor SAT_Payloads::Joinville_Payload;
+		rush_payload: processor SAT_Payloads::RUSH_Payload;
 		
 		-- BUSES
 		UART: bus Buses::UART::UART.impl;
 		I2C: bus Buses::I2C::I2C.impl;
 		SPI: bus Buses::SPI::SPI.impl;
 		RADIO: bus Buses::Radio::Radio.impl;
+		ANALOG: bus Buses::Analog::Analog.impl;
 	connections
 		-- BUS CONNECTIONS
 			-- EPS
-		Be1: bus access EPS.i2c_bus -> I2C;
-		Be2: bus access EPS.uart_bus -> UART;
-		Be3: bus access EPS.spi_bus -> SPI;
+		Be1: bus access mcu_eps.i2c_bus -> I2C;
+		Be2: bus access mcu_eps.uart_bus -> UART;
+		Be3: bus access mcu_eps.spi_bus -> SPI;
+			-- Analog Buses Solar Panels
+		Bs1: bus access solar_panels_1.analog_bus -> ANALOG;
+		Bs2: bus access solar_panels_2.analog_bus -> ANALOG;
+		Bs3: bus access solar_panels_3.analog_bus -> ANALOG;
+
 			-- TTC
 		Bt1: bus access beacon_radio.i2c_bus -> I2C;
 		Bt2: bus access beacon_radio.radio_bus -> RADIO;
 		Bt3: bus access mcu_ttc.uart_bus -> UART; 
 		Bt4: bus access mcu_ttc.spi_bus -> SPI;
 			-- OBDH
-			-- PAYLOADS
+		Bo1: bus access  mcu_obdh.spi_bus -> SPI;
+		Bo2: bus access mcu_obdh.i2c_bus -> I2C;
+		Bo3: bus access mcu_obdh.uart_bus -> UART;
+		Bo4: bus access mcu_obdh.analog_bus -> ANALOG;
+
+			-- PAYLOAD_
 		Bp1: bus access join_payload.i2c_bus -> I2C;
 		Bp2: bus access rush_payload.i2c_bus -> I2C;
 		
@@ -100,27 +111,32 @@ system implementation SAT1.impl
 		-- OBDH CONNECTIONS
 			-- Solar Panels Connections
 			C1_1: port solar_panels_1.current -> current_sensor_1.flow_in;
-			C1_2: port current_sensor_1.signal_out -> mcu_obdh.solar_panel_1_current;
-			C1_3: port mcu_obdh.solar_panel_1_current_driver -> current_driver_1.signal_in;
+			C1_2: port current_sensor_1.signal_out -> OBDH_firmware.solar_panel_1_current;
+			C1_3: port OBDH_firmware.solar_panel_1_current_driver -> current_driver_1.signal_in;
 			C1_4: port current_driver_1.control_out -> solar_panels_1.magnetorquer_in;
 			
 			C2_1: port solar_panels_2.current -> current_sensor_2.flow_in;
-			C2_2: port current_sensor_2.signal_out -> mcu_obdh.solar_panel_2_current;
-			C2_3: port mcu_obdh.solar_panel_2_current_driver -> current_driver_2.signal_in;
+			C2_2: port current_sensor_2.signal_out -> OBDH_firmware.solar_panel_2_current;
+			C2_3: port OBDH_firmware.solar_panel_2_current_driver -> current_driver_2.signal_in;
 			C2_4: port current_driver_2.control_out -> solar_panels_2.magnetorquer_in;
 			
 			C3_1: port solar_panels_3.current -> current_sensor_3.flow_in;
-			C3_2: port current_sensor_3.signal_out -> mcu_obdh.solar_panel_3_current;
-			C3_3: port mcu_obdh.solar_panel_3_current_driver -> current_driver_3.signal_in;
+			C3_2: port current_sensor_3.signal_out -> OBDH_firmware.solar_panel_3_current;
+			C3_3: port OBDH_firmware.solar_panel_3_current_driver -> current_driver_3.signal_in;
 			C3_4: port current_driver_3.control_out -> solar_panels_3.magnetorquer_in;
 
 			-- Supply sensing
-			C4_1: port current_sensor_board.signal_out -> mcu_obdh.board_current;
-			C4_2: port voltage_sensor_board.signal_out -> mcu_obdh.board_voltage;
+			C4_1: port current_sensor_board.signal_out -> OBDH_firmware.board_current;
+			C4_2: port voltage_sensor_board.signal_out -> OBDH_firmware.board_voltage;
 			
 			-- Voltage monitor
-			C5_1: port mcu_obdh.volt_monitor_out -> voltage_monitor.port_in;
-			C5_2: port voltage_monitor.port_out -> mcu_obdh.volt_monitor_in;
+			C5_1: port OBDH_firmware.volt_monitor_out -> voltage_monitor.port_in;
+			C5_2: port voltage_monitor.port_out -> OBDH_firmware.volt_monitor_in;
+			
+			-- IMU Data 
+			C6_1: port imu_1.data_out -> OBDH_firmware.imu_1_data_in;
+			C6_2: port imu_2.data_out -> OBDH_firmware.imu_2_data_in;
+			
 		
 end SAT1.impl;
 end SAT_system;

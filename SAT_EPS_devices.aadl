@@ -1,6 +1,6 @@
 package SAT_EPS_devices
 public
-	with Buses::I2C, Buses::SPI, Buses::UART;
+	with Buses::I2C, Buses::SPI, Buses::UART, Buses::Analog;
 	
 	device Solar_Panels
 		features
@@ -8,6 +8,10 @@ public
 			current: out data port;
 			magnetorquer_in: in data port;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			analog_bus: requires bus access Buses::Analog::Analog.impl;
+		flows
+			v: flow source voltage;
+			i: flow source current;
 	end Solar_Panels;
 
 	device implementation Solar_Panels.impl
@@ -16,6 +20,8 @@ public
 	device temp_sensor
 		features
 			tout: out data port;
+		flows
+			t: flow source tout;
 	end temp_sensor;
 	device implementation temp_sensor.impl
 	end temp_sensor.impl;
@@ -48,7 +54,8 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			
+				
 	end MSP;
+	
 	
 end SAT_EPS_devices;
