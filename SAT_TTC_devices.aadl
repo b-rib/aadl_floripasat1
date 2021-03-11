@@ -15,6 +15,8 @@ public
 		features
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;	
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			radio_bus: requires bus access Buses::Radio::Radio.impl;
 	end MCU_ttc;
 	
 	device implementation mcu.impl
@@ -32,16 +34,19 @@ public
 		
 	end main_radio.impl;
 	
+	-- Antena mcu
+	processor MCU_antenna
+		features
+			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
+			radio_bus: requires bus access Buses::Radio::Radio.impl;
+	end MCU_antenna;
 	-- Beacon radio
 	device beacon_radio
 		features
 			mcu_data_in : in data port;		-- especificar melhor
 			beacon_message : out data port; -- bus7
 			current: out data port; -- current read for EPS
-			eps_data_in: in data port; -- Data receive from EPS
-			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
-			radio_bus: requires bus access Buses::Radio::Radio.impl;
-			
+			eps_data_in: in data port; -- Data receive from EPS			
 	end beacon_radio;
 	
 	device implementation beacon_radio.impl

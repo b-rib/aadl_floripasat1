@@ -27,7 +27,7 @@ system implementation SAT1.impl
 		beacon_radio: device SAT_TTC_devices::beacon_radio;
 		mcu_ttc: processor SAT_TTC_devices::MCU_ttc;
 		ttc_main_radio : device SAT_TTC_devices::main_radio;
-		
+		mcu_antenna: processor SAT_TTC_devices::MCU_antenna;
 		-- OBDH DEVICES
 		mcu_obdh: processor SAT_OBDH_devices::mcu;
 		sd_card: device SAT_OBDH_devices::sd_card;
@@ -50,38 +50,58 @@ system implementation SAT1.impl
 		-- PAYLOAD DEVICES
 		join_payload: processor SAT_Payloads::Joinville_Payload;
 		rush_payload: processor SAT_Payloads::RUSH_Payload;
+		fs_interface: processor SAT_Payloads::FS_Interface;
 		
 		-- BUSES
-		UART: bus Buses::UART::UART.impl;
-		I2C: bus Buses::I2C::I2C.impl;
-		SPI: bus Buses::SPI::SPI.impl;
-		RADIO: bus Buses::Radio::Radio.impl;
-		ANALOG: bus Buses::Analog::Analog.impl;
+		BUS0: bus Buses::I2C::I2C.impl;
+		BUS1: bus Buses::SPI::SPI.impl;
+		BUS2: bus Buses::I2C::I2C.impl;
+		BUS3: bus Buses::SPI::SPI.impl;
+		BUS4: bus Buses::SPI::SPI.impl;
+		BUS5: bus Buses::I2C::I2C.impl;
+		BUS6: bus Buses::UART::UART.impl;
+		BUS7: bus Buses::Radio::Radio.impl;
+		BUS8:bus Buses::Analog::Analog.impl;
+		BUS_JTAG: bus Buses::UART::UART.impl;
+		
 	connections
 		-- BUS CONNECTIONS
 			-- EPS
-		Be1: bus access mcu_eps.i2c_bus -> I2C;
-		Be2: bus access mcu_eps.uart_bus -> UART;
-		Be3: bus access mcu_eps.spi_bus -> SPI;
-			-- Analog Buses Solar Panels
-		Bs1: bus access solar_panels_1.analog_bus -> ANALOG;
-		Bs2: bus access solar_panels_2.analog_bus -> ANALOG;
-		Bs3: bus access solar_panels_3.analog_bus -> ANALOG;
-
+		Be1: bus access mcu_eps.i2c_bus -> BUS0;
+		Be2: bus access mcu_eps.uart_bus -> BUS6;
+		Be3: bus access mcu_eps.uart_bus -> BUS_JTAG;
+		
+			-- SOLAR PANELS
+		Bs1: bus access solar_panels_1.analog_bus -> BUS8;
+		Bs2: bus access solar_panels_2.analog_bus -> BUS8;
+		Bs3: bus access solar_panels_3.analog_bus -> BUS8;
+		Bs4: bus access solar_panels_1.spi_bus -> BUS1;
+		Bs5: bus access solar_panels_2.spi_bus -> BUS1;
+		Bs6: bus access solar_panels_3.spi_bus -> BUS1;
+		
 			-- TTC
-		Bt1: bus access beacon_radio.i2c_bus -> I2C;
-		Bt2: bus access beacon_radio.radio_bus -> RADIO;
-		Bt3: bus access mcu_ttc.uart_bus -> UART; 
-		Bt4: bus access mcu_ttc.spi_bus -> SPI;
+		Bt1: bus access mcu_ttc.i2c_bus -> BUS5;
+		Bt2: bus access mcu_ttc.radio_bus -> BUS7;
+		Bt3: bus access mcu_ttc.uart_bus -> BUS6; 
+		Bt4: bus access mcu_ttc.uart_bus -> BUS_JTAG; 
+		Bt5: bus access mcu_ttc.spi_bus -> BUS3;
+			-- ANTENNA MODULE
+		Ba1: bus access mcu_antenna.radio_bus -> BUS7;
+		Ba2: bus access mcu_antenna.i2c_bus -> BUS2;
+		Ba3: bus access mcu_antenna.i2c_bus -> BUS5;
 			-- OBDH
-		Bo1: bus access  mcu_obdh.spi_bus -> SPI;
-		Bo2: bus access mcu_obdh.i2c_bus -> I2C;
-		Bo3: bus access mcu_obdh.uart_bus -> UART;
-		Bo4: bus access mcu_obdh.analog_bus -> ANALOG;
+		Bo1: bus access  mcu_obdh.spi_bus -> BUS1;
+		Bo2: bus access  mcu_obdh.spi_bus -> BUS3;
+		Bo3: bus access  mcu_obdh.spi_bus -> BUS4;
+		Bo4: bus access mcu_obdh.i2c_bus -> BUS0;
+		Bo5: bus access mcu_obdh.i2c_bus -> BUS2;
+		Bo6: bus access mcu_obdh.uart_bus -> BUS_JTAG;
+		Bo7: bus access mcu_obdh.analog_bus -> BUS8;
 
 			-- PAYLOAD_
-		Bp1: bus access join_payload.i2c_bus -> I2C;
-		Bp2: bus access rush_payload.i2c_bus -> I2C;
+		Bp1: bus access join_payload.i2c_bus -> BUS0;
+		Bp2: bus access rush_payload.i2c_bus -> BUS0;
+		Bp3: bus access fs_interface.uart_bus -> BUS_JTAG;
 		
 		-- EPS CONNECTIONS
 			-- Solar Panels Connections

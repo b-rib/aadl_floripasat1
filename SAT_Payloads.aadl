@@ -1,6 +1,6 @@
 package SAT_Payloads
 public
-	with Buses::I2C;
+	with Buses::I2C, Buses::UART;
 	
 	-- Payload from RUSH
 	processor RUSH_payload
@@ -22,4 +22,15 @@ public
 	processor implementation Joinville_Payload.impl
 		
 	end Joinville_Payload.impl;
-	end SAT_Payloads;
+	
+	processor FS_Interface
+		features
+			uart_bus: requires bus access Buses::UART::UART.impl;		
+	end FS_Interface;
+	
+	processor implementation FS_Interface.impl
+		
+	end FS_Interface.impl;
+	
+end SAT_Payloads;
+	
