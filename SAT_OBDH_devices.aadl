@@ -1,0 +1,108 @@
+package SAT_OBDH_devices
+public
+	with Buses::I2C, Buses::UART, Buses::SPI;
+	
+	device mcu
+		features
+			board_voltage: in data port;
+			board_current: in data port;
+			
+			-- Solar panel current measurements (analog)
+			solar_panel_1_current: in data port;
+			solar_panel_2_current: in data port;
+			solar_panel_3_current: in data port;
+			
+			-- Magnetorquer control current (up to 300mA)
+			solar_panel_1_current_driver: out data port;
+			solar_panel_2_current_driver: out data port;
+			solar_panel_3_current_driver: out data port;
+			
+			-- Enable payload signal
+			payload_enable: out data port;
+			
+			-- Voltage monitor (watchdog timer)
+			volt_monitor_out: out data port;
+			volt_monitor_in: in data port;
+			
+			-- Gyro and temperature sensors, flash memory, TTC
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			
+			-- Payloads, antenna deployment system, IMU's
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			
+			-- Debug interface
+			uart_bus: requires bus access Buses::UART::UART.impl;
+	end mcu;
+	
+	device implementation mcu.impl
+	end mcu.impl;
+	
+	-- Flash memory
+	device sd_card
+		features
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+	end sd_card;
+	
+	device implementation sd_card.impl
+	end sd_card.impl;
+	
+	device ic_memory
+		features
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+	end ic_memory;
+	
+	device implementation ic_memory.impl
+	end ic_memory.impl;
+	
+	-- IMU número 1
+	device imu
+		features
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+	end imu;
+	
+	device implementation imu.impl
+	end imu.impl;
+
+	-- Monitor de Tensão com Timer Watchdog
+	device voltage_monitor
+		features
+			port_in: in data port;
+			port_out: out data port;
+			
+	end voltage_monitor;
+	
+	device implementation voltage_monitor.impl
+	end voltage_monitor.impl;
+	
+	-- Monitor de corrente (controle de magnetorquer)
+	device current_driver
+		features
+			signal_in: in data port;
+			control_out: out data port;
+	end current_driver;
+	
+	device implementation current_driver.impl
+	end current_driver.impl;
+	
+	-- Current sensor 
+	device current_sensor
+		features
+			flow_in: in data port;
+			signal_out: out data port;
+	end current_sensor;
+	
+	device implementation current_sensor.impl
+	end current_sensor.impl;
+	
+	-- Voltage sensor 
+	device voltage_sensor
+		features
+			supply_in: in data port;
+			signal_out: out data port;
+	end voltage_sensor;
+	
+	device implementation voltage_sensor.impl
+	end voltage_sensor.impl;
+	
+end SAT_OBDH_devices;
+

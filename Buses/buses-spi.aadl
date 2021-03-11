@@ -1,0 +1,20 @@
+package Buses::SPI
+public
+	with Bus_Properties;
+
+	with SEI;
+
+	bus SPI
+		properties
+			Bus_Properties::Available_Bandwidth => ( 625 KBytesps, 1250 KBytesps, 3125 kBytesps);
+			Latency => 1Ms .. 1Ms;
+			Transmission_Time => [Fixed => 10ms .. 30ms;
+						PerByte => 1us .. 10us;];
+			Bus_Properties::Bandwidth => 100_000 bitsps;
+			Data_Size => 1 Bytes;
+	end SPI;
+
+	bus implementation SPI.impl
+	end SPI.impl;
+
+end Buses::SPI;

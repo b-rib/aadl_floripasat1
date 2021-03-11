@@ -1,0 +1,25 @@
+package SAT_Payloads
+public
+	with Buses::I2C;
+	
+	-- Payload from RUSH
+	device RUSH_payload
+		features
+			data_out: out data port;
+			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
+	end RUSH_payload;
+	
+	device implementation RUSH_payload.impl
+	end RUSH_payload.impl;
+	
+	-- Payload from Joinville
+	device Joinville_Payload
+		features
+			data_out: out data port;
+			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;		
+	end Joinville_Payload;
+	
+	device implementation Joinville_Payload.impl
+		
+	end Joinville_Payload.impl;
+	end SAT_Payloads;

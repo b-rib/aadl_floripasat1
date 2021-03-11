@@ -1,0 +1,13 @@
+package Buses::Analog
+public
+	with Bus_Properties;
+
+	with SEI;
+	
+	bus Analog
+	end Analog;
+	
+	bus implementation Analog.impl
+		
+	end Analog.impl;
+end Buses::Analog;

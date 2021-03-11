@@ -1,0 +1,63 @@
+package Buses::I2C
+public
+	with Bus_Properties;
+
+	with SEI;
+
+	feature group I2C_Pins
+		features
+			SCL: in out event port; -- Clock line
+			SDA: in out event port; -- Data line
+	end I2C_Pins;
+
+	bus I2C
+	end I2C;
+
+	bus I2C_400_k
+	end I2C_400_k;
+
+	bus I2C_100_k
+	end I2C_100_k;
+
+	bus I2C_118_k
+	end I2C_118_k;
+
+	bus implementation I2C.impl
+		properties
+			Bus_Properties::Bandwidth => 100_000 bitsps;
+			Bus_Properties::Available_Bandwidth => ( 100000 bitsps , 400000 bitsps, 118000 bitsps);
+			Latency => 1Ms .. 1Ms;
+			Data_Size => 2 Bytes;
+	--Bus_Properties::Bus_Bytes_Transfer => 
+	end I2C.impl;
+ 
+--  bus implementation I2C_400_k.impl
+--  properties
+--    Bus_Properties::Bandwidth => 400_000 bitsps;
+--    Bus_Properties::Available_Bandwidth => ( 100000 bitsps , 400000 bitsps, 118000 bitsps);
+--			Latency => 1Ms .. 1Ms;
+--			Transmission_Time => [Fixed => 10ms .. 30ms;
+--						PerByte => 1us .. 10us;];
+--  end I2C_400_k.impl;
+--  
+--  bus implementation I2C_100_k.impl
+--  properties
+--    Bus_Properties::Bandwidth => 100_000 bitsps;
+--    Bus_Properties::Available_Bandwidth => ( 100000 bitsps , 400000 bitsps, 118000 bitsps);
+--			Latency => 1Ms .. 1Ms;
+--			Transmission_Time => [Fixed => 10ms .. 30ms;
+--						PerByte => 1us .. 10us;];
+--  end I2C_100_k.impl;
+--  
+--  bus implementation I2C_118_k.impl
+--  properties
+--    Bus_Properties::Bandwidth => 118_000 bitsps;
+--    Bus_Properties::Available_Bandwidth => ( 100000 bitsps , 400000 bitsps, 118000 bitsps);
+--			Latency => 1Ms .. 1Ms;
+--			Transmission_Time => [Fixed => 10ms .. 30ms;
+--						PerByte => 1us .. 10us;];
+--  end I2C_118_k.impl;
+  
+  
+
+end Buses::I2C;

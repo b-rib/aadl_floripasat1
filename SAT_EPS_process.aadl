@@ -1,0 +1,106 @@
+package SAT_EPS_process
+public
+	
+	-- PROCESS MSP
+
+		process EPS_firmware
+		features
+			-- Three Solar Panels Components
+			solar_V_1: in data port;
+			solar_I_1: in data port;
+			solar_V_2: in data port;
+			solar_I_2: in data port;
+			solar_V_3: in data port;
+			solar_I_3: in data port;
+			-- Total Voltage of Solar Panels	
+			solar_V_total: in data port;					
+			beacon_I: in data port;
+			data_beacon: out data port;
+			temp_sensor: in data port;
+			bat_status: in data port;
+			heat_pwm1: out data port;
+			heat_pwm2: out data port;
+			-- Control MPPT to three Solar Panels part
+			mppt_pwm1: out data port;
+			mppt_pwm2: out data port;	
+			mppt_pwm3: out data port;				
+	end EPS_firmware;
+	process implementation EPS_firmware.impl
+		subcomponents		
+			temp_control: thread control_temp.impl;
+			mppt_control: thread control_mppt.impl;
+			payload_i2c_data: thread payload_data_i2c.impl;
+			connections
+				-- MPPT control Connections	
+					-- MPPT1
+				MC1_1: port solar_I_1 -> mppt_control.I_sensor_1;
+				MC2_1: port solar_V_1 -> mppt_control.V_sensor_1;
+				MC3_1: port mppt_control.mppt_cmd_1 -> mppt_pwm1;
+					-- MPPT2
+				MC1_2: port solar_I_2 -> mppt_control.I_sensor_2;
+				MC2_2: port solar_V_2 -> mppt_control.V_sensor_2;
+				MC3_2: port mppt_control.mppt_cmd_2 -> mppt_pwm2;
+					-- MPPT3
+				MC1_3: port solar_I_3 -> mppt_control.I_sensor_3;
+				MC2_3: port solar_V_3 -> mppt_control.V_sensor_3;
+				MC3_3: port mppt_control.mppt_cmd_3 -> mppt_pwm3;								
+				-- Temp Control connections
+				TC1: port solar_V_total -> temp_control.V_sensor;
+				TC2: port beacon_I -> temp_control.BC_sensor;
+				TC3: port temp_sensor -> temp_control.T_sensor;
+				TC4: port bat_status -> temp_control.Bat_status;
+				-- Heat cmd
+				TC5: port temp_control.cmd_heat1 -> heat_pwm1;
+				TC6: port temp_control.cmd_heat2 -> heat_pwm2;
+				-- Send Data to i2c 
+				C1: port payload_i2c_data.data_out -> data_beacon;
+	end EPS_firmware.impl;
+	
+	--THREAD TEMPERATURE CONTROL
+		thread control_temp
+			features
+			V_sensor: in data port; -- PS voltage
+			T_sensor: in data port; -- Board Temperature
+			BC_sensor: in data port; -- Beacon current sensor
+			Bat_status: in data port; -- Battery status
+			cmd_heat1: out data port; -- Heater Driver PWM1		
+			cmd_heat2: out data port; -- Heater Driver PWM2
+			properties
+				Dispatch_Protocol => Periodic;
+				Period => 1000 ms;
+		end control_temp;
+		
+		thread implementation control_temp.impl		
+		end control_temp.impl;
+		
+	
+	--THREAD MPPT SOLAR PANELS CONTROL
+		thread control_mppt
+			features
+				I_sensor_1: in data port; -- PS current
+				V_sensor_1: in data port; -- PS voltage
+				I_sensor_2: in data port; -- PS current
+				V_sensor_2: in data port; -- PS voltage
+				I_sensor_3: in data port; -- PS current
+				V_sensor_3: in data port; -- PS voltage								
+				mppt_cmd_1: out data port; -- MPPT PWM cmd
+				mppt_cmd_2: out data port; -- MPPT PWM cmd
+				mppt_cmd_3: out data port; -- MPPT PWM cmd								
+			properties
+				Dispatch_Protocol => Periodic;
+				Period => 100 ms;
+		end control_mppt;
+		thread implementation control_mppt.impl
+		end control_mppt.impl;
+	-- THREAD DATA TO PAYLOADS
+	thread payload_data_i2c
+		features
+			data_out: out data port;
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10 ms;
+	end payload_data_i2c;
+	thread implementation payload_data_i2c.impl
+		
+	end payload_data_i2c.impl;
+end SAT_EPS_process;

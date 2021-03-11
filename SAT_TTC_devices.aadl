@@ -1,0 +1,77 @@
+package SAT_TTC_devices
+public
+	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio;
+	-- TTC MCU	
+	device mcu
+		features
+			eps_data_in 			: in data port; 	-- bus6
+			obdh_data_in 			: in data port; 	-- bus3
+			obdh_data_out			: out data port;	-- bus3
+			antenna_commands_in 	: in data port; 	-- bus5
+			antenna_commands_out 	: out data port; 	-- bus5
+	end mcu;
+	
+	processor MCU_ttc
+		features
+			uart_bus: requires bus access Buses::UART::UART.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;	
+	end MCU_ttc;
+	
+	device implementation mcu.impl
+		
+	end mcu.impl;
+	
+	-- Main radio (transceiver)
+	device main_radio
+		features
+			obds_radio_data : in data port; -- bus4
+			radio_signals : out data port; 	-- bus7
+	end main_radio;
+	
+	device implementation main_radio.impl
+		
+	end main_radio.impl;
+	
+	-- Beacon radio
+	device beacon_radio
+		features
+			mcu_data_in : in data port;		-- especificar melhor
+			beacon_message : out data port; -- bus7
+			current: out data port; -- current read for EPS
+			eps_data_in: in data port; -- Data receive from EPS
+			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
+			radio_bus: requires bus access Buses::Radio::Radio.impl;
+			
+	end beacon_radio;
+	
+	device implementation beacon_radio.impl
+		
+	end beacon_radio.impl;
+--	
+--		-- BUSes
+--	
+--		-- BUS3: OBDH uC <-> TTC MCU
+--	bus BUS3
+--		
+--	end BUS3;
+--		
+--		-- BUS4: OBDH <-> Main Radio
+--	bus BUS4
+--		
+--	end BUS4;
+--	
+--		-- BUS5: TTC MCU <-> Antenna MUC 2
+--	bus BUS5
+--		
+--	end BUS5;
+--		
+--		-- BUS6: EPS <-> TTC MCU
+--	bus BUS6
+--		
+--	end BUS6;
+--	
+--		-- BUS7: Main Radio and Beacon Ratio <-> Antennas
+--	bus BUS7
+--		
+--	end BUS7;
+end SAT_TTC_devices;

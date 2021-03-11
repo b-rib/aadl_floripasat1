@@ -1,0 +1,54 @@
+package SAT_EPS_devices
+public
+	with Buses::I2C, Buses::SPI, Buses::UART;
+	
+	device Solar_Panels
+		features
+			voltage: out data port;
+			current: out data port;
+			magnetorquer_in: in data port;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+	end Solar_Panels;
+
+	device implementation Solar_Panels.impl
+	end Solar_Panels.impl;
+	
+	device temp_sensor
+		features
+			tout: out data port;
+	end temp_sensor;
+	device implementation temp_sensor.impl
+	end temp_sensor.impl;
+	
+	device battery
+		features
+			status: out data port;
+	end battery;
+	device implementation battery.impl
+	end battery.impl;
+	
+	device heater_driver
+		features
+			pwm1_in: in data port;
+			pwm2_in: in data port;
+			data_out: out data port;
+	end heater_driver;
+	device implementation heater_driver.impl
+	end heater_driver.impl;
+	
+	device mppt
+		features
+			pwm_in: in data port;
+	end mppt;
+	device implementation mppt.impl
+	end mppt.impl;
+	
+	processor MSP
+		features
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			uart_bus: requires bus access Buses::UART::UART.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			
+	end MSP;
+	
+end SAT_EPS_devices;

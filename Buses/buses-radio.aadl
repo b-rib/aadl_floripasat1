@@ -1,0 +1,13 @@
+package Buses::Radio
+public
+	with Bus_Properties;
+
+	with SEI;
+	
+	bus Radio
+	end Radio;
+	
+	bus implementation Radio.impl
+		
+	end Radio.impl;
+end Buses::Radio;

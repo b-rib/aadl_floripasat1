@@ -1,0 +1,80 @@
+package SAT_system
+public
+	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio;
+	with SAT_EPS_devices;
+	with SAT_EPS_process;
+	with SAT_Payloads;
+	with SAT_TTC_devices;
+system SAT1
+end SAT1;
+
+system implementation SAT1.impl
+	subcomponents
+		-- EPS DEVICES
+		solar_panels_1: device SAT_EPS_devices::Solar_Panels;
+		solar_panels_2: device SAT_EPS_devices::Solar_Panels;
+		solar_panels_3: device SAT_EPS_devices::Solar_Panels;
+		mppt_1: device SAT_EPS_devices::mppt;
+		mppt_2: device SAT_EPS_devices::mppt;
+		mppt_3: device SAT_EPS_devices::mppt;
+		temp_sensor: device SAT_EPS_devices::temp_sensor;
+		battery: device SAT_EPS_devices::battery;
+		heat_driver: device SAT_EPS_devices::heater_driver;
+		EPS: processor SAT_EPS_devices::MSP;
+		EPS_firmware: process SAT_EPS_process::EPS_firmware.impl;
+		-- TTC DEVICES
+		beacon_radio: device SAT_TTC_devices::beacon_radio;
+		mcu_ttc: processor SAT_TTC_devices::MCU_ttc;
+		ttc_main_radio : device SAT_TTC_devices::main_radio;
+		-- PAYLOAD DEVICES
+		join_payload: device SAT_Payloads::Joinville_Payload;
+		rush_payload: device SAT_Payloads::RUSH_Payload;
+		-- BUSES
+		UART: bus Buses::UART::UART.impl;
+		I2C: bus Buses::I2C::I2C.impl;
+		SPI: bus Buses::SPI::SPI.impl;
+		RADIO: bus Buses::Radio::Radio.impl;
+	connections
+		-- BUS CONNECTIONS
+			-- EPS
+		Be1: bus access EPS.i2c_bus -> I2C;
+		Be2: bus access EPS.uart_bus -> UART;
+		Be3: bus access EPS.spi_bus -> SPI;
+			-- TTC
+		Bt1: bus access beacon_radio.i2c_bus -> I2C;
+		Bt2: bus access beacon_radio.radio_bus -> RADIO;
+		Bt3: bus access mcu_ttc.uart_bus -> UART; 
+		Bt4: bus access mcu_ttc.spi_bus -> SPI;
+			-- PAYLOADS
+		Bp1: bus access join_payload.i2c_bus -> I2C;
+		Bp2: bus access rush_payload.i2c_bus -> I2C;
+		
+		-- EPS CONNECTIONS
+			-- Solar Panels Connections
+			A1_1: port solar_panels_1.voltage -> EPS_firmware.solar_V_1;
+			A2_1: port solar_panels_1.current -> EPS_firmware.solar_I_1;
+			A1_2: port solar_panels_2.voltage -> EPS_firmware.solar_V_2;
+			A2_2: port solar_panels_2.current -> EPS_firmware.solar_I_2;
+			A1_3: port solar_panels_3.voltage -> EPS_firmware.solar_V_3;
+			A2_3: port solar_panels_3.current -> EPS_firmware.solar_I_3;
+			-- Beacon Connections
+			A3: port beacon_radio.current -> EPS_firmware.beacon_I;
+			A4: port EPS_firmware.data_beacon ->beacon_radio.eps_data_in;
+			-- Board temperature read
+			A5: port temp_sensor.tout -> EPS_firmware.temp_sensor;
+			-- Battery statusW
+			A6: port battery.status -> EPS_firmware.bat_status;
+			-- Control Battery heater
+			A7: port EPS_firmware.heat_pwm1-> heat_driver.pwm1_in;
+			A8: port EPS_firmware.heat_pwm2-> heat_driver.pwm2_in;
+			-- Control MPPT Solar Panels
+			A9: port EPS_firmware.mppt_pwm1 -> mppt_1.pwm_in;
+			A10: port EPS_firmware.mppt_pwm2 -> mppt_2.pwm_in;
+			A11: port EPS_firmware.mppt_pwm3 -> mppt_3.pwm_in;
+			
+		-- TTC CONNECTIONS
+		
+		-- OBDH CONNECTIONS
+		
+end SAT1.impl;
+end SAT_system;

@@ -1,0 +1,60 @@
+-- This package models UART bus
+
+package Buses::UART
+public
+	with Bus_Properties;
+
+	with SEI;
+
+	feature group UART_Pins
+		features
+			pwm: in data port;
+	end UART_Pins;
+
+	bus UART
+		properties
+			Bus_Properties::Available_Bandwidth => (9_600 Bytesps, 19_200 Bytesps, 38_400 Bytesps, 57_600 Bytesps,
+						115_200 Bytesps);
+			Bus_Properties::Bandwidth => 115_200 bitsps;
+			Latency => 1Ms .. 1Ms;
+			Transmission_Time => [Fixed => 10ms .. 30ms;
+						PerByte => 1us .. 10us;];
+	end UART;
+
+	bus implementation UART.impl
+		properties
+			Bus_Properties::Bandwidth => 100_000 bitsps;
+			Bus_Properties::Available_Bandwidth => ( 100000 bitsps , 400000 bitsps, 118000 bitsps);
+			Latency => 1Ms .. 1Ms;
+			SEI::BandWidthCapacity => 100000.0 bitsps;
+			Transmission_Time => [Fixed => 10ms .. 30ms;
+						PerByte => 1us .. 10us;];
+	end UART.impl;
+
+	device Generic_UART
+		features
+			UART: requires bus access UART.impl;
+	end Generic_UART;
+
+	bus UART_115_200
+		properties
+			Bus_Properties::Available_Bandwidth => (9_600 Bytesps, 19_200 Bytesps, 38_400 Bytesps, 57_600 Bytesps,
+						115_200 Bytesps);
+			Bus_Properties::Bandwidth => 115_200 bitsps;
+			Latency => 1Ms .. 1Ms;
+			Transmission_Time => [Fixed => 10ms .. 30ms;
+						PerByte => 1us .. 10us;];
+	end UART_115_200;
+
+	bus UART_9_600
+		properties
+			Bus_Properties::Available_Bandwidth => (9_600 Bytesps, 19_200 Bytesps, 38_400 Bytesps, 57_600 Bytesps,
+						115_200 Bytesps);
+			Bus_Properties::Bandwidth => 9_600 bitsps;
+			Latency => 1Ms .. 1Ms;
+			Transmission_Time => [Fixed => 10ms .. 30ms;
+						PerByte => 1us .. 10us;];
+	end UART_9_600;
+  
+  
+end Buses::UART;
