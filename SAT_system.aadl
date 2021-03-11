@@ -3,6 +3,7 @@ public
 	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio;
 	with SAT_EPS_devices;
 	with SAT_EPS_process;
+	with SAT_OBDH_devices;
 	with SAT_Payloads;
 	with SAT_TTC_devices;
 system SAT1
@@ -22,13 +23,34 @@ system implementation SAT1.impl
 		heat_driver: device SAT_EPS_devices::heater_driver;
 		EPS: processor SAT_EPS_devices::MSP;
 		EPS_firmware: process SAT_EPS_process::EPS_firmware.impl;
+		
 		-- TTC DEVICES
 		beacon_radio: device SAT_TTC_devices::beacon_radio;
 		mcu_ttc: processor SAT_TTC_devices::MCU_ttc;
 		ttc_main_radio : device SAT_TTC_devices::main_radio;
+		
+		-- OBDH DEVICES
+		mcu_obdh: device SAT_OBDH_devices::mcu;
+		sd_card: device SAT_OBDH_devices::sd_card;
+		ic_memory_1: device SAT_OBDH_devices::ic_memory;
+		ic_memory_2: device SAT_OBDH_devices::ic_memory;
+		ic_memory_3: device SAT_OBDH_devices::ic_memory;
+		imu_1: device SAT_OBDH_devices::imu;
+		imu_2: device SAT_OBDH_devices::imu;
+		voltage_monitor: device SAT_OBDH_devices::voltage_monitor;
+		current_driver_1: device SAT_OBDH_devices::current_driver;
+		current_driver_2: device SAT_OBDH_devices::current_driver;
+		current_driver_3: device SAT_OBDH_devices::current_driver;
+		current_sensor_board: device SAT_OBDH_devices::current_sensor;
+		current_sensor_1: device SAT_OBDH_devices::current_sensor;
+		current_sensor_2: device SAT_OBDH_devices::current_sensor;
+		current_sensor_3: device SAT_OBDH_devices::current_sensor;
+		voltage_sensor_board: device SAT_OBDH_devices::voltage_sensor;
+		
 		-- PAYLOAD DEVICES
 		join_payload: device SAT_Payloads::Joinville_Payload;
 		rush_payload: device SAT_Payloads::RUSH_Payload;
+		
 		-- BUSES
 		UART: bus Buses::UART::UART.impl;
 		I2C: bus Buses::I2C::I2C.impl;
@@ -45,6 +67,7 @@ system implementation SAT1.impl
 		Bt2: bus access beacon_radio.radio_bus -> RADIO;
 		Bt3: bus access mcu_ttc.uart_bus -> UART; 
 		Bt4: bus access mcu_ttc.spi_bus -> SPI;
+			-- OBDH
 			-- PAYLOADS
 		Bp1: bus access join_payload.i2c_bus -> I2C;
 		Bp2: bus access rush_payload.i2c_bus -> I2C;
@@ -75,6 +98,29 @@ system implementation SAT1.impl
 		-- TTC CONNECTIONS
 		
 		-- OBDH CONNECTIONS
+			-- Solar Panels Connections
+			C1_1: port solar_panels_1.current -> current_sensor_1.flow_in;
+			C1_2: port current_sensor_1.signal_out -> mcu_obdh.solar_panel_1_current;
+			C1_3: port mcu_obdh.solar_panel_1_current_driver -> current_driver_1.signal_in;
+			C1_4: port current_driver_1.control_out -> solar_panels_1.magnetorquer_in;
+			
+			C2_1: port solar_panels_2.current -> current_sensor_2.flow_in;
+			C2_2: port current_sensor_2.signal_out -> mcu_obdh.solar_panel_2_current;
+			C2_3: port mcu_obdh.solar_panel_2_current_driver -> current_driver_2.signal_in;
+			C2_4: port current_driver_2.control_out -> solar_panels_2.magnetorquer_in;
+			
+			C3_1: port solar_panels_3.current -> current_sensor_3.flow_in;
+			C3_2: port current_sensor_3.signal_out -> mcu_obdh.solar_panel_3_current;
+			C3_3: port mcu_obdh.solar_panel_3_current_driver -> current_driver_3.signal_in;
+			C3_4: port current_driver_3.control_out -> solar_panels_3.magnetorquer_in;
+
+			-- Supply sensing
+			C4_1: port current_sensor_board.signal_out -> mcu_obdh.board_current;
+			C4_2: port voltage_sensor_board.signal_out -> mcu_obdh.board_voltage;
+			
+			-- Voltage monitor
+			C5_1: port mcu_obdh.volt_monitor_out -> voltage_monitor.port_in;
+			C5_2: port voltage_monitor.port_out -> mcu_obdh.volt_monitor_in;
 		
 end SAT1.impl;
 end SAT_system;
