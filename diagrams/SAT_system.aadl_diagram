@@ -735,8 +735,8 @@
           <seg>realization</seg>
         </bo>
         <bendpoints>
-          <point x="240.0" y="67.5"/>
-          <point x="252.0" y="67.5"/>
+          <point x="240.0" y="68.0"/>
+          <point x="252.0" y="68.0"/>
         </bendpoints>
       </element>
       <element uuid="56c02db3-72ea-42c9-a688-4e58a6bf6fb0" manual="true">
@@ -752,7 +752,7 @@
           <seg>subcomponent</seg>
           <seg>beacon_radio</seg>
         </bo>
-        <position x="518.0" y="280.0"/>
+        <position x="550.0" y="100.0"/>
         <size width="142.0" height="35.0"/>
       </element>
       <element uuid="16cec736-75a4-4880-b04d-9d493debd84b" manual="true">
@@ -760,7 +760,7 @@
           <seg>subcomponent</seg>
           <seg>BUS0</seg>
         </bo>
-        <position x="1365.0" y="100.0"/>
+        <position x="1551.0" y="345.0"/>
         <size width="86.0" height="50.0"/>
       </element>
       <element uuid="a50425ee-ef20-4d0e-871e-66dfebbf1f34" manual="true">
@@ -768,7 +768,7 @@
           <seg>subcomponent</seg>
           <seg>BUS1</seg>
         </bo>
-        <position x="837.0" y="440.0"/>
+        <position x="920.0" y="399.0"/>
         <size width="86.0" height="50.0"/>
       </element>
       <element uuid="36d45d2f-6912-4753-94f2-18467246f439" manual="true">
@@ -776,7 +776,7 @@
           <seg>subcomponent</seg>
           <seg>BUS2</seg>
         </bo>
-        <position x="1109.0" y="148.0"/>
+        <position x="1278.0" y="406.0"/>
         <size width="86.0" height="35.0"/>
       </element>
       <element uuid="bdcbd45b-8bf5-4d46-bc3a-772151876909" manual="true">
@@ -784,7 +784,7 @@
           <seg>subcomponent</seg>
           <seg>BUS3</seg>
         </bo>
-        <position x="1024.0" y="483.0"/>
+        <position x="1160.0" y="447.0"/>
         <size width="86.0" height="35.0"/>
       </element>
       <element uuid="c57323fc-2d03-4824-8fb0-1fd709e70b3d" manual="true">
@@ -792,7 +792,7 @@
           <seg>subcomponent</seg>
           <seg>BUS4</seg>
         </bo>
-        <position x="1091.0" y="580.0"/>
+        <position x="1040.0" y="510.0"/>
         <size width="86.0" height="35.0"/>
       </element>
       <element uuid="ad9be250-77a3-4491-a6cb-350b9b35df33" manual="true">
@@ -800,7 +800,7 @@
           <seg>subcomponent</seg>
           <seg>BUS5</seg>
         </bo>
-        <position x="1470.0" y="483.0"/>
+        <position x="1278.0" y="458.0"/>
         <size width="86.0" height="35.0"/>
       </element>
       <element uuid="1acbe627-0c53-483d-95fc-bccaeab2a50f" manual="true">
@@ -808,7 +808,7 @@
           <seg>subcomponent</seg>
           <seg>BUS6</seg>
         </bo>
-        <position x="1091.0" y="650.0"/>
+        <position x="1363.0" y="580.0"/>
         <size width="86.0" height="35.0"/>
       </element>
       <element uuid="d2021ec1-9cfc-4968-9772-6b100937ffdf" manual="true">
@@ -816,7 +816,7 @@
           <seg>subcomponent</seg>
           <seg>BUS7</seg>
         </bo>
-        <position x="1470.0" y="538.0"/>
+        <position x="1363.0" y="531.0"/>
         <size width="86.0" height="35.0"/>
       </element>
       <element uuid="4d00fb69-1230-4442-943d-fbf79b463d6e" manual="true">
@@ -824,7 +824,7 @@
           <seg>subcomponent</seg>
           <seg>BUS8</seg>
         </bo>
-        <position x="837.0" y="383.0"/>
+        <position x="920.0" y="302.0"/>
         <size width="86.0" height="50.0"/>
       </element>
       <element uuid="b15b929c-c019-4b1b-940d-3a5047a24eb1" manual="true">
@@ -832,7 +832,7 @@
           <seg>subcomponent</seg>
           <seg>BUS_JTAG</seg>
         </bo>
-        <position x="1400.0" y="790.0"/>
+        <position x="1072.0" y="626.0"/>
         <size width="124.0" height="50.0"/>
       </element>
       <element uuid="3d985219-cd1e-4cb1-81a0-4d6df44253bf" manual="true">
@@ -840,7 +840,7 @@
           <seg>subcomponent</seg>
           <seg>current_driver_1</seg>
         </bo>
-        <position x="147.0" y="531.0"/>
+        <position x="160.0" y="531.0"/>
         <size width="161.0" height="35.0"/>
       </element>
       <element uuid="6b511cf9-cad0-4bdb-83d3-8b96ad244106" manual="true">
@@ -848,7 +848,7 @@
           <seg>subcomponent</seg>
           <seg>current_driver_2</seg>
         </bo>
-        <position x="334.0" y="483.0"/>
+        <position x="406.0" y="614.0"/>
         <size width="161.0" height="35.0"/>
       </element>
       <element uuid="75280230-37d5-4bc8-9f8d-422bc143b54a" manual="true">
@@ -856,7 +856,7 @@
           <seg>subcomponent</seg>
           <seg>current_driver_3</seg>
         </bo>
-        <position x="534.0" y="483.0"/>
+        <position x="580.0" y="700.0"/>
         <size width="161.0" height="35.0"/>
       </element>
       <element uuid="498436aa-9f9b-4b67-877a-86ba030a6896" manual="true">
@@ -864,7 +864,7 @@
           <seg>subcomponent</seg>
           <seg>current_sensor_1</seg>
         </bo>
-        <position x="144.0" y="483.0"/>
+        <position x="20.0" y="492.0"/>
         <size width="167.0" height="35.0"/>
       </element>
       <element uuid="3d0865a6-2246-4ae6-a98c-75d1d0aeb5fa" manual="true">
@@ -872,7 +872,7 @@
           <seg>subcomponent</seg>
           <seg>current_sensor_2</seg>
         </bo>
-        <position x="331.0" y="523.0"/>
+        <position x="289.0" y="570.0"/>
         <size width="167.0" height="35.0"/>
       </element>
       <element uuid="4292dec4-08a8-416a-80fe-dd3702143f1c" manual="true">
@@ -880,7 +880,7 @@
           <seg>subcomponent</seg>
           <seg>current_sensor_3</seg>
         </bo>
-        <position x="531.0" y="538.0"/>
+        <position x="500.0" y="660.0"/>
         <size width="167.0" height="35.0"/>
       </element>
       <element uuid="c0558a97-3b9c-4578-8a2a-d9a63e1e5f18" manual="true">
@@ -888,7 +888,7 @@
           <seg>subcomponent</seg>
           <seg>current_sensor_board</seg>
         </bo>
-        <position x="37.0" y="810.0"/>
+        <position x="455.0" y="799.0"/>
         <size width="196.0" height="35.0"/>
       </element>
       <element uuid="e5d789ff-ceb0-479e-94cf-817bcf51890d" manual="true">
@@ -904,7 +904,7 @@
           <seg>subcomponent</seg>
           <seg>fs_interface</seg>
         </bo>
-        <position x="1555.0" y="810.0"/>
+        <position x="1069.0" y="709.0"/>
         <size width="129.0" height="35.0"/>
       </element>
       <element uuid="8e7a752f-6a00-4016-8896-aa543d06cc2c" manual="true">
@@ -944,7 +944,7 @@
           <seg>subcomponent</seg>
           <seg>imu_1</seg>
         </bo>
-        <position x="144.0" y="709.0"/>
+        <position x="192.0" y="840.0"/>
         <size width="89.0" height="35.0"/>
       </element>
       <element uuid="f893dd96-baca-4716-8cac-bda51681c2e2" manual="true">
@@ -952,7 +952,7 @@
           <seg>subcomponent</seg>
           <seg>imu_2</seg>
         </bo>
-        <position x="144.0" y="675.0"/>
+        <position x="120.0" y="784.0"/>
         <size width="89.0" height="35.0"/>
       </element>
       <element uuid="fcd13ecd-7772-4ebd-83be-6dfaa30f7201" manual="true">
@@ -960,7 +960,7 @@
           <seg>subcomponent</seg>
           <seg>join_payload</seg>
         </bo>
-        <position x="1525.0" y="37.0"/>
+        <position x="1600.0" y="280.0"/>
         <size width="138.0" height="35.0"/>
       </element>
       <element uuid="e67efcdc-c843-417c-b847-e3e5541182ec" manual="true">
@@ -968,7 +968,7 @@
           <seg>subcomponent</seg>
           <seg>mcu_antenna</seg>
         </bo>
-        <position x="1580.0" y="517.0"/>
+        <position x="1420.0" y="440.0"/>
         <size width="140.0" height="40.0"/>
       </element>
       <element uuid="73e2a4f8-51ca-4a70-b932-37a5f038a34a" manual="true">
@@ -976,7 +976,7 @@
           <seg>subcomponent</seg>
           <seg>mcu_eps</seg>
         </bo>
-        <position x="1286.0" y="565.0"/>
+        <position x="1539.0" y="631.0"/>
         <size width="109.0" height="40.0"/>
       </element>
       <element uuid="c5c09e23-95f8-4117-9417-0983372b0109" manual="true">
@@ -992,7 +992,7 @@
           <seg>subcomponent</seg>
           <seg>mcu_ttc</seg>
         </bo>
-        <position x="1224.0" y="350.0"/>
+        <position x="1177.0" y="526.0"/>
         <size width="102.0" height="60.0"/>
       </element>
       <element uuid="d25be478-31c9-4188-bf4a-7829c2a5b471" manual="true">
@@ -1024,7 +1024,7 @@
           <seg>subcomponent</seg>
           <seg>OBDH_firmware</seg>
         </bo>
-        <position x="334.0" y="743.0"/>
+        <position x="247.0" y="743.0"/>
         <size width="160.0" height="80.0"/>
       </element>
       <element uuid="fe548ea3-0d42-46e3-a69f-8e8683dc409e" manual="true">
@@ -1032,7 +1032,7 @@
           <seg>subcomponent</seg>
           <seg>rush_payload</seg>
         </bo>
-        <position x="1523.0" y="100.0"/>
+        <position x="1419.0" y="280.0"/>
         <size width="142.0" height="35.0"/>
       </element>
       <element uuid="24bf3ee4-69f5-4374-937d-7592246755a3" manual="true">
@@ -1048,7 +1048,7 @@
           <seg>subcomponent</seg>
           <seg>solar_panels_1</seg>
         </bo>
-        <position x="144.0" y="388.0"/>
+        <position x="700.0" y="268.0"/>
         <size width="153.0" height="70.0"/>
       </element>
       <element uuid="fe3f065e-71be-4678-ad13-f221c2ea739a" manual="true">
@@ -1056,7 +1056,7 @@
           <seg>subcomponent</seg>
           <seg>solar_panels_2</seg>
         </bo>
-        <position x="337.0" y="389.0"/>
+        <position x="700.0" y="355.0"/>
         <size width="153.0" height="70.0"/>
       </element>
       <element uuid="302bea6f-2cf5-47d4-b617-618fae41ed6a" manual="true">
@@ -1064,7 +1064,7 @@
           <seg>subcomponent</seg>
           <seg>solar_panels_3</seg>
         </bo>
-        <position x="531.0" y="383.0"/>
+        <position x="700.0" y="441.0"/>
         <size width="153.0" height="70.0"/>
       </element>
       <element uuid="f7df769a-7bb3-4060-8c8e-99d48e2edb9b" manual="true">
@@ -1088,7 +1088,7 @@
           <seg>subcomponent</seg>
           <seg>voltage_monitor</seg>
         </bo>
-        <position x="74.0" y="860.0"/>
+        <position x="580.0" y="750.0"/>
         <size width="161.0" height="35.0"/>
       </element>
       <element uuid="39750162-8fe7-4e0a-8e7b-4b62af2cc308" manual="true">
@@ -1096,22 +1096,22 @@
           <seg>subcomponent</seg>
           <seg>voltage_sensor_board</seg>
         </bo>
-        <position x="36.0" y="765.0"/>
+        <position x="304.0" y="840.0"/>
         <size width="197.0" height="35.0"/>
       </element>
       <bo>
         <seg>classifier</seg>
         <seg>SAT1.impl</seg>
       </bo>
-      <position x="128.0" y="48.0"/>
-      <size width="1739.0" height="1339.0"/>
+      <position x="458.0" y="348.0"/>
+      <size width="1760.0" height="1339.0"/>
     </element>
     <bo>
       <seg>package</seg>
       <seg>SAT_system</seg>
     </bo>
     <position x="12.0" y="12.0"/>
-    <size width="1867.0" height="1387.0"/>
+    <size width="2218.0" height="1687.0"/>
   </element>
   <config type="package" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>
