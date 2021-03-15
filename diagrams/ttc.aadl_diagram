@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="cc874819-46f5-4d20-8157-a208ab29b066" manual="true">
+    <element uuid="353ea15f-934c-4e98-86c1-98aa71c255bc" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>TTC</seg>
+      </bo>
+      <position x="1598.0" y="308.0"/>
+      <size width="65.0" height="35.0"/>
+    </element>
+    <element uuid="56d333cb-0ded-4fdc-9bf8-631a3834a583" manual="true">
+      <element uuid="709fd887-cb9b-494b-a526-d220013816d0" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>b3_mcu</seg>
+        </bo>
+        <bendpoints>
+          <point x="586.0" y="247.0"/>
+          <point x="628.0" y="247.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="39b74f07-ffe3-4f9d-ae24-b49f6cd23e7c" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>b3_pc104</seg>
+        </bo>
+      </element>
+      <element uuid="0c619f9f-fba4-4f78-b322-86ab70481032" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>b4_pc104</seg>
+        </bo>
+        <bendpoints>
+          <point x="985.0" y="163.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="80fa103c-1d01-43c5-80f8-ec7ab937f7ab" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>b5_mcu</seg>
+        </bo>
+        <bendpoints>
+          <point x="1185.0" y="319.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="9ab2ecd1-1bff-4531-af09-8017954747e2" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>b6_mcu</seg>
+        </bo>
+        <bendpoints>
+          <point x="882.0" y="241.0"/>
+          <point x="726.0" y="241.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="91734633-325b-49be-9dd4-6dd6e4b20177" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>b6_pc104</seg>
+        </bo>
+      </element>
+      <element uuid="8ede6be3-4e0a-4f98-9f8c-58b97f2407db" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>bus4_mainRadio</seg>
+        </bo>
+        <bendpoints>
+          <point x="986.0" y="454.0"/>
+          <point x="888.0" y="455.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="a9898939-2cf5-4ead-bc8d-63ba8473a75b" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>bus7beacon_beacon</seg>
+        </bo>
+        <bendpoints>
+          <point x="367.0" y="613.0"/>
+          <point x="399.0" y="613.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="1224e358-8424-4c19-a06c-c5749fac186d" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>bus7beacon_beaconAntenna</seg>
+        </bo>
+      </element>
+      <element uuid="90920a73-b753-4f23-87f2-34e728fd3b67" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>bus7main_main</seg>
+        </bo>
+      </element>
+      <element uuid="f01f5a3a-c8c8-4078-af16-171b2a736415" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>bus7main_mainAntenna</seg>
+        </bo>
+      </element>
+      <element uuid="66d1c1a4-ad5a-4e4c-b139-a38a4f8c2c5b" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>bus_beacon</seg>
+        </bo>
+      </element>
+      <element uuid="d7f331f5-4279-414d-9c47-dccf0e57c6b7" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>debugBUS_mcu</seg>
+        </bo>
+        <bendpoints>
+          <point x="277.0" y="319.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="2f38b69d-81b8-470c-a10d-5468c9a141ba" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>header_bus5</seg>
+        </bo>
+      </element>
+      <element uuid="7f868528-0440-45cc-999d-b1e638529913" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>header_debugBUS</seg>
+        </bo>
+        <bendpoints>
+          <point x="333.0" y="187.0"/>
+          <point x="277.0" y="187.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="8e9c0ace-2a54-44c7-9303-ae982d49eb7a" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>mcu_bus</seg>
+        </bo>
+        <bendpoints>
+          <point x="614.0" y="415.0"/>
+          <point x="372.0" y="415.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="dd84703f-5200-4a3a-9f05-1840b0613f0a" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+        <bendpoints>
+          <point x="1512.0" y="404.0"/>
+          <point x="1512.0" y="338.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="2f7e9d2c-99aa-4265-9c96-aacc3f725dca" manual="true">
+        <element uuid="ff1599e5-88ad-4a18-a17e-301e6ce9f907" manual="true" dockArea="top">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access7</seg>
+          </bo>
+          <position x="24.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>antenna_beacon</seg>
+        </bo>
+        <position x="123.0" y="641.0"/>
+        <size width="395.0" height="59.0"/>
+      </element>
+      <element uuid="611d5d42-30db-423a-bb21-c35691edbeef" manual="true">
+        <element uuid="63cac2d3-fb94-483a-bb8f-0ec5f327efd6" manual="true" dockArea="top">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access7</seg>
+          </bo>
+          <position x="30.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>antenna_main</seg>
+        </bo>
+        <position x="617.0" y="641.0"/>
+        <size width="395.0" height="59.0"/>
+      </element>
+      <element uuid="1d9066eb-ab25-44e2-aaaa-3d2fe3bb79c5" manual="true">
+        <element uuid="f46b4f8c-d522-4cff-9b93-d0f6ba577ddd" manual="true" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>beacon_message</seg>
+          </bo>
+          <position x="29.0" y="96.0"/>
+        </element>
+        <element uuid="48d41029-c97d-4366-bffe-7cac1c301fbf" manual="true" dockArea="top">
+          <bo>
+            <seg>feature</seg>
+            <seg>mcu_data_in</seg>
+          </bo>
+          <position x="29.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>beacon_radio</seg>
+        </bo>
+        <position x="123.0" y="431.0"/>
+        <size width="395.0" height="119.0"/>
+      </element>
+      <element uuid="9e138984-03ce-46be-8d2c-b1f9d1fd710b" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>bus3</seg>
+        </bo>
+        <position x="427.0" y="149.0"/>
+        <size width="78.0" height="35.0"/>
+      </element>
+      <element uuid="e3a295b7-5891-4c9f-8701-6deac187e203" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>bus4</seg>
+        </bo>
+        <position x="827.0" y="149.0"/>
+        <size width="78.0" height="35.0"/>
+      </element>
+      <element uuid="c86b6926-d563-4d83-9c0b-072b148d6f6a" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>bus5</seg>
+        </bo>
+        <position x="1000.0" y="160.0"/>
+        <size width="131.0" height="35.0"/>
+      </element>
+      <element uuid="5e3be57a-aa99-46da-a489-ec7d9aab2f2e" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>bus6</seg>
+        </bo>
+        <position x="567.0" y="149.0"/>
+        <size width="78.0" height="35.0"/>
+      </element>
+      <element uuid="7f92cb2d-9ec8-461b-8795-46e40fef68da" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>bus7_beacon</seg>
+        </bo>
+        <position x="166.0" y="577.0"/>
+        <size width="161.0" height="35.0"/>
+      </element>
+      <element uuid="2c26beb6-51cf-4f7d-8c6a-d54a87936f4e" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>bus7_main</seg>
+        </bo>
+        <position x="676.0" y="577.0"/>
+        <size width="141.0" height="35.0"/>
+      </element>
+      <element uuid="f613f217-1c28-4db2-a16a-0dba2cdc5d50" manual="true">
+        <element uuid="0384b1a2-e2b1-45e6-bda6-6f8fc781970d" manual="true" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position x="25.0" y="57.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>debug_JTAG</seg>
+        </bo>
+        <position x="97.0" y="39.0"/>
+        <size width="161.0" height="80.0"/>
+      </element>
+      <element uuid="e6ce555d-3e3a-413d-97ab-cb2456ec18c4" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>debug_JTAG_bus</seg>
+        </bo>
+        <position x="78.0" y="149.0"/>
+        <size width="159.0" height="35.0"/>
+      </element>
+      <element uuid="c503e767-f6ef-4eee-a879-10faaa602a9b" manual="true">
+        <element uuid="e4a69a46-5ce0-49a1-ba20-fe6763336a0e" manual="true" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access</seg>
+          </bo>
+          <position x="40.0" y="67.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>header</seg>
+        </bo>
+        <position x="935.0" y="36.0"/>
+        <size width="180.0" height="90.0"/>
+      </element>
+      <element uuid="290d6c3c-82fb-44b6-8435-49effc8ae841" manual="true">
+        <element uuid="ce39c99a-c8cd-4722-8508-a3d94944b0da" manual="true" dockArea="top">
+          <bo>
+            <seg>feature</seg>
+            <seg>obdh_radio_data</seg>
+          </bo>
+          <position x="30.0"/>
+        </element>
+        <element uuid="0cb56d65-060a-4c83-95ee-e20a15e71c6f" manual="true" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>radio_signals</seg>
+          </bo>
+          <position x="30.0" y="96.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>main_radio</seg>
+        </bo>
+        <position x="617.0" y="431.0"/>
+        <size width="394.0" height="119.0"/>
+      </element>
+      <element uuid="de8831cc-77cd-47eb-831c-83935078fe2c" manual="true">
+        <element uuid="2411087c-69a2-4129-a649-5b8716fa60aa" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>antenna_commands_B5</seg>
+          </bo>
+          <position x="340.0" y="27.0"/>
+        </element>
+        <element uuid="86bdc72e-9333-4768-80d8-9c9189c80b9d" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access_debug</seg>
+          </bo>
+          <position y="27.0"/>
+        </element>
+        <element uuid="76ff7eef-8794-4164-8605-e1fcd691e9bd" manual="true" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access_toBeacon</seg>
+          </bo>
+          <position x="40.0" y="99.0"/>
+        </element>
+        <element uuid="3bd55e45-0da8-4523-acb8-6350c6c6f4ed" manual="true" dockArea="top">
+          <bo>
+            <seg>feature</seg>
+            <seg>eps_data_in_B6</seg>
+          </bo>
+          <position x="348.0"/>
+        </element>
+        <element uuid="14e28fae-eeff-414d-b5c2-2d14397efe4e" manual="true" dockArea="top">
+          <bo>
+            <seg>feature</seg>
+            <seg>obdh_data_exchange_B3</seg>
+          </bo>
+          <position x="40.0"/>
+        </element>
+        <element uuid="9b4d685a-c19b-4185-b7c9-28f94e99fd8d" manual="true">
+          <bo>
+            <seg>subcomponent</seg>
+            <seg>Non_Volatile</seg>
+          </bo>
+          <position x="230.0" y="47.0"/>
+          <size width="128.0" height="35.0"/>
+        </element>
+        <element uuid="a1d750f5-b36d-47e5-bc64-b4f128999d00" manual="true">
+          <bo>
+            <seg>subcomponent</seg>
+            <seg>RAM</seg>
+          </bo>
+          <position x="144.0" y="47.0"/>
+          <size width="75.0" height="35.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>mcu</seg>
+        </bo>
+        <position x="297.0" y="211.0"/>
+        <size width="497.0" height="122.0"/>
+      </element>
+      <element uuid="b5ce8f82-811c-4ba0-996a-325a9c3ed4fc" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>mcu_beaconRadio_bus</seg>
+        </bo>
+        <position x="123.0" y="380.0"/>
+        <size width="258.0" height="35.0"/>
+      </element>
+      <element uuid="71db90f5-d51d-4aff-8515-3a185ba76b84" manual="true">
+        <element uuid="d1ba41e3-b16f-4d3c-a59a-75758da1ca1c" manual="true" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access3</seg>
+          </bo>
+          <position x="70.0" y="58.0"/>
+        </element>
+        <element uuid="edf615cd-1ae0-4cb1-8014-3c6edf09e0b9" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access4</seg>
+          </bo>
+          <position x="406.0" y="42.0"/>
+        </element>
+        <element uuid="f2b4b41b-2313-45a7-93ba-f36606df9033" manual="true" dockArea="bottom">
+          <bo>
+            <seg>feature</seg>
+            <seg>bus_access6</seg>
+          </bo>
+          <position x="210.0" y="58.0"/>
+        </element>
+        <element uuid="31000ec0-6684-404d-b513-171e5a54f668" manual="true">
+          <bo>
+            <seg>tag</seg>
+            <seg>sc_type</seg>
+          </bo>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>pc104</seg>
+        </bo>
+        <position x="297.0" y="40.0"/>
+        <size width="497.0" height="81.0"/>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>TTC.hw</seg>
+      </bo>
+      <position x="108.0" y="38.0"/>
+      <size width="1171.0" height="720.0"/>
+    </element>
+    <bo>
+      <seg>package</seg>
+      <seg>ttc</seg>
+    </bo>
+    <position x="12.0" y="12.0"/>
+    <size width="1672.0" height="870.0"/>
+  </element>
+  <config type="package" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>package</seg>
+      <seg>ttc</seg>
+    </context>
+  </config>
+</diagram:Diagram>
