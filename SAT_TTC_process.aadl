@@ -1,0 +1,72 @@
+package SAT_TTC_process
+public
+	
+	-- PROCESS MSP
+
+		process TTC_firmware
+		--features
+			-- inputs e outputs			
+	end TTC_firmware;
+	
+	process implementation TTC_firmware.impl
+		--subcomponents		
+			--threads
+			
+			--connections
+				
+	end TTC_firmware.impl;
+	
+	thread system_initialization
+		properties
+			Dispatch_Protocol => Aperiodic;
+	end system_initialization;
+	
+	
+	thread antenna_deploy
+		properties
+			Dispatch_Protocol => Aperiodic;
+	end antenna_deploy;
+	
+	
+	thread NGHam_transmission
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms; -- or 20ms or 30ms, depends on EPS energy level
+	end NGHam_transmission;
+	
+	
+	thread AX25_transmission
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms; -- or 20ms or 30ms, depends on EPS energy level
+	end AX25_transmission;
+	
+	
+	thread EPS_data_processing
+		properties
+			Dispatch_Protocol => Aperiodic;
+	end EPS_data_processing;
+	
+	thread radio_data_processing
+		properties
+			Dispatch_Protocol => Aperiodic;
+	end radio_data_processing;
+	
+	thread beacon_radio_reception
+		properties
+			Dispatch_Protocol => Aperiodic;
+	end beacon_radio_reception;
+	
+	thread radio_reset
+		properties
+			Dispatch_Protocol => Aperiodic;
+			Period => 600000 ms; -- 10min
+	end reset;
+	
+	thread beacon_reset
+		properties
+			Dispatch_Protocol => Aperiodic;
+			Period => 43200000 ms; -- 12h
+	end beacon_reset;
+	
+end SAT_TTC_process;

@@ -1,0 +1,250 @@
+property set Device_Property is
+
+  -----------------
+  -- Power units --
+  -----------------
+
+  Power_Units: type units 
+  (W, 
+   KW  => W * 1000,
+   MW  => KW * 1000, 
+   GW  => MW * 1000,
+   TW  => GW * 1000);
+  
+  Max_Power: constant aadlinteger units Device_property::Power_Units => 2#1#e32 W;
+  Power : type aadlreal 0.0 W .. Device_property::Max_Power units Device_property::Power_Units;
+  Power_Consume : Device_property::Power 
+     applies to (processor, device, memory, system);
+  Power_Provide : Device_property::Power applies to (device);
+  Total_Power   : Device_property::Power applies to (system);
+ 
+  ----------------
+  -- Mass units --
+  ----------------
+
+  Mass_Units: type units (g, Kg  => g  * 1000, T   => Kg * 1000);
+  Maximum_Mass: constant aadlinteger units Device_property::Mass_Units => 2#1#e32 g;
+  Mass_Type : type aadlreal 0.0 g .. Device_property::Maximum_Mass units Device_property::Mass_Units;
+  Mass : Device_property::Mass_Type applies to (processor, device, memory, system);
+  Max_Mass : Device_property::Mass_Type
+     applies to (processor, device, memory, system);
+  
+ --------------------------
+ -- Device Specification -- 
+---------------------------
+
+Device_Period: list of Time applies to (device);  
+		
+Time: type aadlinteger units Time_Units;
+Time_Units: type units (ps, ns => ps * 1000, us => ns * 1000, ms => us * 1000, sec => ms * 1000, min => sec * 60, hr => min * 60);
+
+Device_Functionality: list of  Device_property::Device_Sensor_Type applies to(system, device);
+
+Device_Type: Device_property::Device_Actuator_Type applies to (Device); --
+
+Device_Sensor_Type :  type enumeration (Sensor,Gyroscope, Compass, Accelerometer, Barometric_Pressure, Magnetometer, LiDar, Pitot, Camera, Sonar, Radar, Transponder, Radio, Hall_Sensor, MEMS,AirSpeed,GPS, Temperature);
+
+Device_Actuator_Type : type enumeration (Motor, ServoMotor, BrushlessMotor, DirectCurrentMotor, AcMotor_2phase, AcMotor_1phase); 
+
+Device_Application: list of Device_property::Applications applies to(device);
+
+Applications : type enumeration (Real_time, Multimedia, Automotive, FlightControl, LowCost, SafeCritical, IoT, AUTOSAR, general_purpose, Industrial, Structural, Health, Militar, Drone, RTK, Sports, High_Impact, Wearable);
+
+Design_Component : type enumeration (COTS, NonCOTS);
+
+Data_Type_Output: type enumeration (Quaternion, Euler_angles, Rotation_vector,Linear_acceleration,Gravity,Nine_Axis);
+Device_Data_Type_Output : list of Device_property::Data_Type_Output applies to (system, device);
+ 
+Software_Integrated : type enumeration (DigitalMotionProcessing, DitigalFilter, FusionData, EKF, Euler_Data, Power_Management, Bartlett_Filter, Calibration, FIFO_memory);
+
+Device_Software : list of Device_property::Software_Integrated applies to (system, device);
+
+Device_Support : type enumeration (API, Library, SDK, ECOSYSTEM, IDE_Compilers, Debuggers_Emulators, Calibration_Tools, Operating_System_and_Software_tools);
+
+Device_Support_Design : list of Device_property::Device_Support applies to (system, device);
+
+LifeCycle:  type enumeration (Obsolete, Active, Deprecated);
+Device_LifeCycle: list of Device_property::LifeCycle applies to (system, device);
+
+
+Category : type enumeration (Performance, security, maitainability);
+Sub_Category : type enumeration (API, Library, SDK, ECOSYSTEM, IDE_Compilers, Debuggers_Emulators, Calibration_Tools, Operating_System_and_Software_tools);
+
+Quality_Characteristic: list of Device_property::Category applies to (system, device);
+Quality_SubCharacteristic: list of Device_property::Sub_Category applies to (system, device);
+
+Device_Purchase_data: inherit list of aadlstring
+		applies to (data, port, subprogram, thread, thread group, process, system, virtual bus, virtual processor,
+			memory, bus, device, processor, parameter, feature group, aadl package);
+
+Device_address: inherit list of aadlstring
+		applies to (data, port, subprogram, thread, thread group, process, system, virtual bus, virtual processor,
+			memory, bus, device, processor, parameter, feature group, aadl package);
+
+
+Device_Last_Update : inherit list of aadlstring
+		applies to (data, port, subprogram, thread, thread group, process, system, virtual bus, virtual processor,
+			memory, bus, device, processor, parameter, feature group, aadl package);
+
+Device_review: inherit list of aadlstring
+		applies to (data, port, subprogram, thread, thread group, process, system, virtual bus, virtual processor,
+			memory, bus, device, processor, parameter, feature group, aadl package);
+				
+review_rate : type aadlreal  0.0  .. 5.0;
+Device_review_rate : Device_property::review_rate applies to (device);
+				
+UUID : aadlstring applies to  (thread, processor,
+      thread group, process, system, virtual processor, device);
+   --  Generic identifier of this component. Provides a uniform way to
+   --  retrieve information on this component
+
+Part_Number : aadlstring applies to  (thread, processor,
+      thread group, process, system, virtual processor, device);
+   --  Reference of this component in a bill of material, or a stock, etc.
+   
+ Version : aadlstring applies to  (thread, processor, thread group, process, system, virtual processor, device);
+   --  Reference identifier of this product version
+   
+-- Device price purchase --
+Device_Price : Device_Property::Price applies to (Device, Processor);
+
+Price: type aadlreal  0.0 USD  .. 10000.0 USD  units Device_Property::Price_Units;
+Price_Units: type units (
+  USD);
+
+--------------------------------
+-- Actuators Electric Motors ---
+--------------------------------
+
+--Shaft speed is the speed at which the output shaft of a motor spins. Shaft speed specs --generally refer to the no-load speed, which is the maximum speed the motor can reach when no torque is applied.
+-- Shaft_Speed 
+-- RPM_per_Volt 
+-- brushless motor is the ratio of the motor's unloaded rpm to the peak voltage on the wires connected to the coils.
+--Torque is the rotational force or load that a motor generates. Torque specs generally refer to the stall torque and the continuous torque.
+-- Torque
+--Measurement_Torque 
+-- Newton_Meter
+-- Stall_Torque => 2.6 Nm
+--Design voltage is the rated voltage at which a motor is designed to operate. This specification must be matched with the available system voltage in order to be able to effectively power the motor.
+-- PWM_frequency
+-- PWM_Resolution
+-- Input_Signal_Range 1000us .. 2000us
+-- Max_Throller 140us
+-- Input_Signal_Pulse_Rate 8kHz
+-- Peak_Current
+
+
+
+----------------------
+-- Maximum Bus Speed-- 
+----------------------
+Maximum_Bandwidth : Data_Volume applies to (device);       
+Data_Rate_Units: type	units (bitsps, Bytesps => bitsps * 8, KBytesps => Bytesps * 1000, MBytesps => KBytesps * 1000, GBytesps => MBytesps * 1000);
+Data_Volume_Units: type	units (bitsps, Bytesps => bitsps * 8, KBytesps => Bytesps * 1000, MBytesps => KBytesps * 1000, GBytesps => MBytesps * 1000);
+Max_Volume: constant Data_Volume => 1000 GBytesps;
+Data_Volume: type aadlreal 0.0 bitsps .. 20000.0 GBytesps units Data_Volume_Units;
+Bus_Type : type enumeration (I2C, SPI, CANBUS, UART, USART, I3C, ETHERNET, NO, USB3,USB2, SATA, RJ45, RS232); 
+Device_Bus_Avaliable : list of Device_property::Bus_Type applies to (device,system);
+Device_Max_Bus_Bandwidth : list of Device_property::Data_Rate_Units applies to (device,system);
+
+---------------------------------------
+-- Noise Accelerometer Signal Sensor --
+---------------------------------------
+
+Noise_acc_Units : type units (ug_sqrHz, mg_sqrHz => ug_sqrHz * 1000);
+Maximum_Noise_acc : constant aadlinteger units Device_property::Noise_acc_Units => 2#1#e32 mg_sqrHz;
+Noise_Type_acc : type aadlreal 0.0 ug_sqrHz .. Device_property::Maximum_Noise_acc units Device_property::Noise_acc_Units;
+Device_Noise_Accelerometer :  Device_property::Noise_Type_acc applies to (device);
+
+
+---------------------------------------
+-- Noise Gyroscope Signal Sensor --
+---------------------------------------
+
+Noise_gyro_Units : type units (udps_sqrHz, mdps_sqrHz => udps_sqrHz * 1000);
+Maximum_Noise_gyro : constant aadlinteger units Device_property::Noise_gyro_Units => 2#1#e32 mdps_sqrHz;
+Noise_Type_gyro : type aadlreal 0.0 udps_sqrHz .. Device_property::Maximum_Noise_gyro units Device_property::Noise_gyro_Units;
+Device_Noise_gyroscope :  Device_property::Noise_Type_gyro applies to (device);
+
+----------------
+-- Area Units --
+----------------
+
+Area_Units : type units (cm_3, mm_3 => cm_3 * 1000);
+Maximum_Area : constant aadlinteger units Device_property::Area_Units => 2#1#e32 cm_3;
+Area_Type : type aadlreal 0.0 cm_3 .. Device_property::Maximum_Mass units Device_property::Area_Units;
+Area :  Device_property::Area_Type applies to (processor, device, memory, system);
+
+--------------------
+-- Operation Mode --
+--------------------
+Operation_Mode : type enumeration (NORMAL, SUSPEND, LOW_POWER, STANDBY, LOW_POWER2, DEEP_SUSPEND, FAST_POWER_UP, ADVANCED_POWER_SAVE, REGULAR,ENHANCED_REGULAR, HIGH_ACCURACY,SLEEP,FORCE_MODE); 
+Power_Management_Modes : list of Device_property::Operation_Mode applies to (device);
+On_Chip_Int_Controller: list of  Device_property::Device_Sensor_Type applies to(system, device);
+
+-------------------------
+-- Accelerometer Range --
+-------------------------
+Gravity_Force_Units: type units 
+  (g, 
+   Kg  => g * 1000,
+   Mg  => Kg * 1000, 
+   Gg  => Mg * 1000,
+   Tg  => Gg * 1000);
+  
+  Max_Gravity_Force: constant aadlinteger units Device_property::Gravity_Force_Units => 2#1#e32 g;
+  Gravity_Range : type aadlreal 000.0 g .. Device_property::Max_Gravity_Force units Device_property::Gravity_Force_Units;
+  Accelerometer_Range : list of Device_property::Gravity_Range applies to (device, system);
+-----------------------
+--Magnetometer Range --
+-----------------------
+Magnetic_Units: type units 
+  (uT, 
+   mT  => uT * 1000,
+  	T  => mT * 1000, 
+   kT  => T * 1000);
+   
+Max_Magnetic_Field: constant aadlinteger units Device_property::Magnetic_Units => 2#1#e32 T;
+Magnetic_Range : type aadlreal 000.0 uT .. Device_property::Max_Magnetic_Field units Device_property::Magnetic_Units;
+Magnetic_field_range : list of Device_property::Magnetic_Range applies to (processor, device, memory, system);
+Magnetic_field_resolution : list of Device_property::Magnetic_Range applies to (processor, device, memory, system);
+--------------------
+--Gyroscope Range --
+--------------------
+Degree_per_second_Units: type units 
+  (dps, 
+   Kdps  => dps * 1000,
+   Mdps  => Kdps * 1000, 
+   Gdps  => Mdps * 1000,
+   Tdps  => Gdps * 1000);
+  
+  Max_Degree_per_second: constant aadlinteger units Device_property::Degree_per_second_Units => 2#1#e32 dps;
+  Degree_per_second_Range : type aadlreal 0000.0 dps .. Device_property::Max_Degree_per_second units Device_property::Degree_per_second_Units;
+  Gyroscope_Range : list of Device_property::Degree_per_second_Range applies to (device, system);
+  
+----------------------------
+--Gyro Specification --
+----------------------------
+ZRO_25C : constant aadlinteger units Device_property::Degree_per_second_Units => 100 dps;
+ZRO_Type : type aadlreal -100.0 dps .. Device_property::ZRO_25C units Device_property::Degree_per_second_Units;
+ZRO_25C_GYRO :  list of  Device_property::ZRO_Type applies to (device,system);
+
+dps_C_Units : type units (dps_C);
+Maximum_dps_C : constant aadlinteger units Device_property::dps_C_Units => 1 dps_C;
+dps_C_gyro : type aadlreal -1.0 dps_C .. Device_property::Maximum_dps_C units Device_property::dps_C_Units;
+ZRO_Over_temp_gyro :  list of Device_property::dps_C_gyro applies to (device);
+
+Temperature : type units (C);
+Max_Temperature :constant aadlinteger units Device_property::Temperature => 200 C;
+Range_Temperature : type aadlreal -200.0 C .. Device_property::Max_Temperature units Device_property::Temperature;
+Temperature_Operation : list of Device_property::Range_Temperature applies to (device);
+------------------------
+--Gyroscope Sensivity --
+------------------------
+
+--			Accel_Range => [2 4 8 16] g
+--			Magnetometer_Range => 4800uT
+--			Gyro_Range => [250 500 1000 2000] dps
+--			Accel_Sensitivy => [16384 8192 4096 2048] LBS/g;
+--			Gyro_Sensitivity => [131 65.5 32.8 16.4] LSB/deg/sec;
+end Device_property;
