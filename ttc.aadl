@@ -16,10 +16,10 @@ public
 		antenna_main: device antenna;
 
 		-- Buses
-		bus3: bus BUS3;
-		bus4: bus BUS4;
-		bus5: bus BUS5;
-		bus6: bus BUS6;
+		bus3_ttc: bus BUS3_ttc;
+		bus4_ttc: bus BUS4_ttc;
+		bus5_ttc: bus BUS5_ttc;
+		bus6_ttc: bus BUS6_ttc;
 		bus7_beacon: bus BUS7;
 		bus7_main: bus BUS7;
 		mcu_beaconRadio_bus: bus generalBUS;
@@ -31,18 +31,18 @@ public
 		debug_JTAG: device debug_header;
 
 	connections
-		b3_mcu: bus access bus3 <-> mcu.obdh_data_exchange_B3;
-		b5_mcu: bus access mcu.antenna_commands_B5 <-> bus5;
-		b6_mcu: bus access mcu.eps_data_in_B6 <-> bus6;
-		b3_pc104: bus access bus3 <-> pc104.bus_access3;
-		b4_pc104: bus access bus4 <-> pc104.bus_access4;
-		b6_pc104: bus access bus6 <-> pc104.bus_access6;
+		b3_mcu: bus access bus3_ttc <-> mcu.obdh_data_exchange_B3;
+		b5_mcu: bus access mcu.antenna_commands_B5 <-> bus5_ttc;
+		b6_mcu: bus access mcu.eps_data_in_B6 <-> bus6_ttc;
+		b3_pc104: bus access bus3_ttc <-> pc104.bus_access3;
+		b4_pc104: bus access bus4_ttc <-> pc104.bus_access4;
+		b6_pc104: bus access bus6_ttc <-> pc104.bus_access6;
 		mcu_bus: bus access mcu.bus_access_toBeacon <-> mcu_beaconRadio_bus;
 		bus_beacon: bus access mcu_beaconRadio_bus <-> beacon_radio.mcu_data_in;
 		header_debugBUS: bus access debug_JTAG.bus_access <-> debug_JTAG_bus;
 		debugBUS_mcu: bus access debug_JTAG_bus <-> mcu.bus_access_debug;
-		bus4_mainRadio: bus access bus4 <-> main_radio.obdh_radio_data;
-		header_bus5: bus access header.bus_access <-> bus5;
+		bus4_mainRadio: bus access bus4_ttc <-> main_radio.obdh_radio_data;
+		header_bus5: bus access header.bus_access <-> bus5_ttc;
 		bus7beacon_beacon: bus access bus7_beacon <-> beacon_radio.beacon_message;
 		bus7beacon_beaconAntenna: bus access bus7_beacon <-> antenna_beacon.bus_access7;
 		bus7main_main: bus access bus7_main <-> main_radio.radio_signals;
@@ -53,9 +53,9 @@ end TTC.hw;
 	---- TTC MCU	
 	processor mcu
 		features
-			obdh_data_exchange_B3: requires bus access BUS3; -- bus3 (SPI)
-			eps_data_in_B6: requires bus access BUS6; -- bus6 (UART)
-			antenna_commands_B5: requires bus access BUS5; -- bus5 (I2C)
+			obdh_data_exchange_B3: requires bus access BUS3_ttc; -- bus3 (SPI)
+			eps_data_in_B6: requires bus access BUS6_ttc; -- bus6 (UART)
+			antenna_commands_B5: requires bus access BUS5_ttc; -- bus5 (I2C)
 			bus_access_debug: requires bus access generalBUS;
 			bus_access_toBeacon: requires bus access generalBUS;
 		properties
@@ -83,7 +83,7 @@ end TTC.hw;
 	--(Radio Module RF4463F30)
 	device main_radio
 		features
-			obdh_radio_data: requires bus access BUS4; -- bus4 (SPI) processed data from OBDH to be transmitted
+			obdh_radio_data: requires bus access BUS4_ttc; -- bus4 (SPI) processed data from OBDH to be transmitted
 			radio_signals: requires bus access BUS7; -- bus7 (analog radio signal to antennas)
 	end main_radio;
 
@@ -113,37 +113,37 @@ end TTC.hw;
 			Allowed_Connection_Type => (Port_Connection, Data_Access_Connection);
 	end generalBUS;
 	-- BUS3: OBDH uC <-> TTC MCU
-	bus BUS3 extends generalBUS
+	bus BUS3_ttc extends generalBUS
 		properties
 			Data_Rate => 2000 bitsps; -- 2 kbps
-	end BUS3;
-	bus implementation BUS3.impl 
-	end BUS3.impl;
+	end BUS3_ttc;
+	bus implementation BUS3_ttc.impl 
+	end BUS3_ttc.impl;
 
 	-- BUS4: OBDH <-> Main Radio
-	bus BUS4 extends generalBUS
+	bus BUS4_ttc extends generalBUS
 		properties
 			Data_Rate => 8000000 bitsps; -- 8Mbps
-	end BUS4;
-	bus implementation BUS4.impl 
-	end BUS4.impl;
+	end BUS4_ttc;
+	bus implementation BUS4_ttc.impl 
+	end BUS4_ttc.impl;
 
 
 	-- BUS5: TTC MCU <-> Antenna MUC 2
-	bus BUS5 extends generalBUS
+	bus BUS5_ttc extends generalBUS
 		properties
 			Data_Rate => 100000 bitsps; -- 100 kbps
-	end BUS5;
-	bus implementation BUS5.impl 
-	end BUS5.impl;
+	end BUS5_ttc;
+	bus implementation BUS5_ttc.impl 
+	end BUS5_ttc.impl;
 
 	-- BUS6: EPS <-> TTC MCU
-	bus BUS6 extends generalBUS
+	bus BUS6_ttc extends generalBUS
 		properties
 			Data_Rate => 9600 bitsps;
-	end BUS6;
-	bus implementation BUS6.impl 
-	end BUS6.impl;
+	end BUS6_ttc;
+	bus implementation BUS6_ttc.impl 
+	end BUS6_ttc.impl;
 
 	-- BUS7: Main Radio and Beacon Radio <-> Antennas
 	bus BUS7
@@ -157,7 +157,7 @@ end TTC.hw;
 	device header
 		features
 			--~~~~~~~~~~PLACE HERE EXTERNAL BUS ACCESS (BUS5)~~~~~~~~~~
-			bus_access: requires bus access BUS5;
+			bus_access: requires bus access BUS5_ttc;
 	end header;
 	device implementation header.impl
 	end header.impl;
@@ -167,9 +167,9 @@ end TTC.hw;
 			--~~~~~~~~~~PLACE HERE EXTERNAL BUS ACCESS (BUS3)~~~~~~~~~~
 			--~~~~~~~~~~PLACE HERE EXTERNAL BUS ACCESS (BUS4)~~~~~~~~~~
 			--~~~~~~~~~~PLACE HERE EXTERNAL BUS ACCESS (BUS6)~~~~~~~~~~
-			bus_access3: requires bus access BUS3;
-			bus_access4: requires bus access BUS4;
-			bus_access6: requires bus access BUS6;
+			bus_access3: requires bus access BUS3_ttc;
+			bus_access4: requires bus access BUS4_ttc;
+			bus_access6: requires bus access BUS6_ttc;
 	end PC104;
 	device implementation PC104.impl
 	end PC104.impl;

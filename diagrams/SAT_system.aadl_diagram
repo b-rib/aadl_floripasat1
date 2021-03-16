@@ -915,30 +915,6 @@
         <position x="264.0" y="127.0"/>
         <size width="126.0" height="35.0"/>
       </element>
-      <element uuid="abb13c11-ec8f-4598-917b-01d8faedd5df" manual="true">
-        <bo>
-          <seg>subcomponent</seg>
-          <seg>ic_memory_1</seg>
-        </bo>
-        <position x="1384.0" y="990.0"/>
-        <size width="140.0" height="35.0"/>
-      </element>
-      <element uuid="3020b00b-82aa-4d11-91ec-66a123126d8d" manual="true">
-        <bo>
-          <seg>subcomponent</seg>
-          <seg>ic_memory_2</seg>
-        </bo>
-        <position x="1064.0" y="990.0"/>
-        <size width="140.0" height="35.0"/>
-      </element>
-      <element uuid="e60ab7f8-3ec4-479b-8e83-9a1655cbc31b" manual="true">
-        <bo>
-          <seg>subcomponent</seg>
-          <seg>ic_memory_3</seg>
-        </bo>
-        <position x="1224.0" y="990.0"/>
-        <size width="140.0" height="35.0"/>
-      </element>
       <element uuid="bc2af3de-8e98-4a79-910f-9061964e4779" manual="true">
         <bo>
           <seg>subcomponent</seg>
@@ -976,8 +952,8 @@
           <seg>subcomponent</seg>
           <seg>mcu_eps</seg>
         </bo>
-        <position x="1539.0" y="631.0"/>
-        <size width="109.0" height="40.0"/>
+        <position x="1545.0" y="660.0"/>
+        <size width="97.0" height="51.0"/>
       </element>
       <element uuid="c5c09e23-95f8-4117-9417-0983372b0109" manual="true">
         <bo>
@@ -1034,14 +1010,6 @@
         </bo>
         <position x="1419.0" y="280.0"/>
         <size width="142.0" height="35.0"/>
-      </element>
-      <element uuid="24bf3ee4-69f5-4374-937d-7592246755a3" manual="true">
-        <bo>
-          <seg>subcomponent</seg>
-          <seg>sd_card</seg>
-        </bo>
-        <position x="942.0" y="990.0"/>
-        <size width="102.0" height="35.0"/>
       </element>
       <element uuid="a1cbf125-0879-428f-b136-e5f0696ad928" manual="true">
         <bo>
@@ -1103,15 +1071,15 @@
         <seg>classifier</seg>
         <seg>SAT1.impl</seg>
       </bo>
-      <position x="458.0" y="348.0"/>
-      <size width="1760.0" height="1339.0"/>
+      <position x="458.0" y="358.0"/>
+      <size width="1778.0" height="1339.0"/>
     </element>
     <bo>
       <seg>package</seg>
       <seg>SAT_system</seg>
     </bo>
     <position x="12.0" y="12.0"/>
-    <size width="2218.0" height="1687.0"/>
+    <size width="2236.0" height="1697.0"/>
   </element>
   <config type="package" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>

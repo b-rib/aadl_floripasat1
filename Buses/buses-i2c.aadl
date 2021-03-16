@@ -2,12 +2,12 @@ package Buses::I2C
 public
 	with Bus_Properties;
 
-	with SEI;
 
 	feature group I2C_Pins
 		features
 			SCL: in out event port; -- Clock line
 			SDA: in out event port; -- Data line
+			i2c_bus: provides bus access I2C;
 	end I2C_Pins;
 
 	bus I2C

@@ -1,10 +1,9 @@
 package Buses::Analog
 public
-	with Bus_Properties;
 
-	with SEI;
-	
 	bus Analog
+		features
+			analog_bus: provides bus access Analog;
 	end Analog;
 	
 	bus implementation Analog.impl

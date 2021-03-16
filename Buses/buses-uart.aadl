@@ -8,6 +8,7 @@ public
 
 	feature group UART_Pins
 		features
+			uart_bus: provides bus access UART;
 			pwm: in data port;
 	end UART_Pins;
 
