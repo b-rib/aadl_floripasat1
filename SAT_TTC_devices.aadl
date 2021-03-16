@@ -1,56 +1,63 @@
 package SAT_TTC_devices
 public
-	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio;
-	-- TTC MCU	
-	device mcu
+	with Buses::Radio;
+	with Physical;
+	with common_devices;
+	with SEI;
+
+	processor MCU_ttc extends common_devices::MSP430F6659
 		features
-			eps_data_in 			: in data port; 	-- bus6
-			obdh_data_in 			: in data port; 	-- bus3
-			obdh_data_out			: out data port;	-- bus3
-			antenna_commands_in 	: in data port; 	-- bus5
-			antenna_commands_out 	: out data port; 	-- bus5
-	end mcu;
-	
-	processor MCU_ttc
-		features
-			uart_bus: requires bus access Buses::UART::UART.impl;
-			spi_bus: requires bus access Buses::SPI::SPI.impl;	
-			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
 	end MCU_ttc;
-	
-	device implementation mcu.impl
-		
-	end mcu.impl;
-	
+
+	processor implementation MCU_ttc.impl
+
+	end MCU_ttc.impl;
+
 	-- Main radio (transceiver)
 	device main_radio
 		features
-			obds_radio_data : in data port; -- bus4
-			radio_signals : out data port; 	-- bus7
+			obds_radio_data: in data port; -- bus4
+			radio_signals: out data port; -- bus7
 	end main_radio;
-	
+
 	device implementation main_radio.impl
-		
+		properties
+			Data_Rate => 1 MBytesps; -- (max) (transmission)
+			Physical::Voltage => 5.0V; --(input)
 	end main_radio.impl;
-	
+
 	-- Antena mcu
-	processor MCU_antenna
+	processor MCU_antenna extends common_devices::MSP430F6659
 		features
-			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
 	end MCU_antenna;
+
+	---- Antenna
+	device Antenna
+
+	end Antenna;
+
+	device implementation antenna.impl
+	end antenna.impl;
+
 	-- Beacon radio
 	device beacon_radio
 		features
-			mcu_data_in : in data port;		-- especificar melhor
-			beacon_message : out data port; -- bus7
+			mcu_data_in: in data port; -- especificar melhor
+			beacon_message: out data port; -- bus7
 			current: out data port; -- current read for EPS
-			eps_data_in: in data port; -- Data receive from EPS			
+			eps_data_in: in data port; -- Data receive from EPS	
+		properties
+			Clock_Period => 685ps;
+			SEI::PowerCapacity => 1.0 W;
+			
 	end beacon_radio;
-	
+
 	device implementation beacon_radio.impl
-		
+		properties
+			Data_Rate => 1 MBytesps; -- (max) (transmission)
+			Physical::Voltage => 5.0V; --(input)
 	end beacon_radio.impl;
 --	
 --		-- BUSes

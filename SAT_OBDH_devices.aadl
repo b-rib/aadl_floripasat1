@@ -1,39 +1,40 @@
 package SAT_OBDH_devices
 public
-	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Analog;
+	with Buses::I2C, Buses::SPI, Buses::Analog;
+	with common_devices;
 	
-	processor mcu
+	processor mcu extends common_devices::MSP430F6659
 		features	
-			-- Gyro and temperature sensors, flash memory, TTC
-			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			
-			-- Payloads, antenna deployment system, IMU's
-			i2c_bus: requires bus access Buses::I2C::I2C.impl;
-			
-			-- Debug interface
-			uart_bus: requires bus access Buses::UART::UART.impl;
 			-- Analog bus from Solar Panels
 			analog_bus: requires bus access Buses::Analog::Analog.impl;
 	end mcu;
-	
+
 	processor implementation mcu.impl
+		subcomponents
+			sd_card: memory sd_card;
+			ic_mem1: memory ic_memory;
+			ic_mem2: memory ic_memory;
 	end mcu.impl;
 	
 	-- Flash memory
-	device sd_card
+	memory sd_card
 		features
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
+		properties
+			Memory_Size => 2 GByte;
 	end sd_card;
 	
-	device implementation sd_card.impl
+	memory implementation sd_card.impl
 	end sd_card.impl;
 	
-	device ic_memory
+	memory ic_memory
 		features
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
+		properties
+			Memory_Size => 16384 kByte; -- 128 Mbit
 	end ic_memory;
 	
-	device implementation ic_memory.impl
+	memory implementation ic_memory.impl
 	end ic_memory.impl;
 	
 	-- IMU número 1

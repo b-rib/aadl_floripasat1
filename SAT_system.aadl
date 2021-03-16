@@ -30,10 +30,6 @@ system implementation SAT1.impl
 		mcu_antenna: processor SAT_TTC_devices::MCU_antenna;
 		-- OBDH DEVICES
 		mcu_obdh: processor SAT_OBDH_devices::mcu;
-		sd_card: device SAT_OBDH_devices::sd_card;
-		ic_memory_1: device SAT_OBDH_devices::ic_memory;
-		ic_memory_2: device SAT_OBDH_devices::ic_memory;
-		ic_memory_3: device SAT_OBDH_devices::ic_memory;
 		imu_1: device SAT_OBDH_devices::imu;
 		imu_2: device SAT_OBDH_devices::imu;
 		voltage_monitor: device SAT_OBDH_devices::voltage_monitor;

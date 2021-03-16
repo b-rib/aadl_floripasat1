@@ -1,0 +1,36 @@
+package common_devices
+public
+	with Buses::I2C, Buses::SPI, Buses::UART;
+	with Physical, SEI;
+
+	processor MSP430F6659
+		features
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			uart_bus: requires bus access Buses::UART::UART.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+		properties
+			Clock_Period => 50ns; -- 20 MHz(max)
+			Physical::Voltage => 3.6 V; --(max) 1.6 V (min)
+			
+	end MSP430F6659;
+	
+	processor implementation MSP430F6659.impl
+		subcomponents
+			
+			RAM: memory mcu_RAM;
+			Non_Vol: memory mcu_nonVolatile;
+	end MSP430F6659.impl;
+	
+					--MCU memories
+	memory mcu_RAM
+		properties
+			SEI::RAMCapacity => 66.0 kByte;			
+	end mcu_RAM;
+	
+	memory mcu_nonVolatile
+		properties
+			Memory_Size => 512 kByte;
+			
+	end mcu_nonVolatile;
+	
+end common_devices;

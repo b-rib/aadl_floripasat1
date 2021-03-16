@@ -1,7 +1,10 @@
 package SAT_EPS_devices
 public
-	with Buses::I2C, Buses::SPI, Buses::UART, Buses::Analog;
-	
+	with Buses::SPI, Buses::Analog;
+	with Physical;
+	with SEI;
+	with common_devices;
+
 	device Solar_Panels
 		features
 			voltage: out data port;
@@ -9,9 +12,10 @@ public
 			magnetorquer_in: in data port;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
 			analog_bus: requires bus access Buses::Analog::Analog.impl;
-		flows
-			v: flow source voltage;
-			i: flow source current;
+		properties
+			Physical::Voltage => 4.64V;
+			SEI::PowerCapacity => 2.4 W; --(2270 ... 2400) W;
+			
 	end Solar_Panels;
 
 	device implementation Solar_Panels.impl
@@ -29,6 +33,8 @@ public
 	device battery
 		features
 			status: out data port;
+			properties
+				SEI::PowerCapacity => 11.15 W; -- V: 3.78V I: 2950 mA
 	end battery;
 	device implementation battery.impl
 	end battery.impl;
@@ -49,12 +55,8 @@ public
 	device implementation mppt.impl
 	end mppt.impl;
 	
-	processor MSP
-		features
-			i2c_bus: requires bus access Buses::I2C::I2C.impl;
-			uart_bus: requires bus access Buses::UART::UART.impl;
-			spi_bus: requires bus access Buses::SPI::SPI.impl;
-				
+	processor MSP extends common_devices::MSP430F6659
+		
 	end MSP;
 	
 	
