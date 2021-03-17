@@ -1,0 +1,131 @@
+package Data_types
+public
+	  with Data_Model;
+
+  ----------
+  -- Data --
+  ----------
+  
+  data Integer
+  properties
+    Data_Model::Data_Representation => Integer;
+  end Integer;
+
+  -- Signed integer of various byte sizes
+
+  data Integer_8 extends Integer
+  properties
+    Data_Model::Number_Representation => Signed;
+    Data_Size => 1 Bytes;
+  end Integer_8;
+
+  data Integer_16 extends Integer
+  properties
+    Data_Model::Number_Representation => Signed;
+    Data_Size => 2 Bytes;
+  end Integer_16;
+
+  data Integer_32 extends Integer
+  properties
+    Data_Model::Number_Representation => Signed;
+    Data_Size => 4 Bytes;
+  end Integer_32;
+
+  data Integer_64 extends Integer
+  properties
+    Data_Model::Number_Representation => Signed;
+    Data_Size => 8 Bytes;
+  end Integer_64;
+
+  -- Unsigned integer of various byte sizes
+
+  data Unsigned_8 extends Integer
+  properties
+    Data_Model::Number_Representation => Unsigned;
+    Data_Size => 1 Bytes;
+  end Unsigned_8;
+
+  data Unsigned_16 extends Integer
+  properties
+    Data_Model::Number_Representation => Unsigned;
+    Data_Size => 2 Bytes;
+  end Unsigned_16;
+
+  data Unsigned_32 extends Integer
+  properties
+    Data_Model::Number_Representation => Unsigned;
+    Data_Size => 4 Bytes;
+  end Unsigned_32;
+
+  data Unsigned_64 extends Integer
+  properties
+    Data_Model::Number_Representation => Unsigned;
+    Data_Size => 8 Bytes;
+  end Unsigned_64;
+
+  data Natural extends Integer
+  properties 
+    Data_Model::Integer_Range => 0 .. Max_Target_Integer;
+  end Natural;
+
+  data Float 
+  properties
+    Data_Model::Data_Representation => Float;
+  end Float;
+
+  data Float_32 extends Float 
+  properties 
+    Data_Model::IEEE754_Precision => Simple; 
+    Data_Size => 4 Bytes; 
+  end Float_32; 
+
+  data Float_64 extends Float 
+  properties 
+    Data_Model::IEEE754_Precision => Double; 
+    Data_Size => 8 Bytes; 
+  end Float_64;
+
+  data Character
+  properties
+    Data_Model::Data_Representation => Character;
+  end Character;
+
+  data String
+  properties
+    Data_Model::Data_Representation => String;
+  end String;
+	data gps_position
+		properties
+			data_size => 50 Bytes;
+			data_model::data_representation => Array;
+	end gps_position;
+
+	data picture
+		properties
+			data_size => 600 KByte;
+			data_model::data_representation => array;
+	end picture;
+
+	data boolean
+		properties
+			data_size => 1 bits;
+	end boolean;
+	
+		data Six_Axis
+	end Six_Axis;
+
+	data implementation Six_Axis.impl
+		subcomponents
+			Acc_X: data Data_Types::Integer_16;
+			Acc_Y: data Data_Types::Integer_16;
+			Acc_Z: data Data_Types::Integer_16;
+			Gyro_X: data Data_Types::Integer_16;
+			Gyro_Y: data Data_Types::Integer_16;
+			Gyro_Z: data Data_Types::Integer_16;
+		properties
+			Type_Source_Name => "__po_hi_float32_t";
+			Source_Text => ("types");
+			Data_Size => 12 Bytes;
+	end Six_Axis.impl;
+	
+end Data_types;

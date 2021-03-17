@@ -1,10 +1,11 @@
 package SAT_OBDH_devices
 public
 	with Buses::I2C, Buses::SPI, Buses::Analog;
-	with common_devices;
+	with common_devices, Device_Property, Data_Types;
+	with SEI;
 	
 	processor mcu extends common_devices::MSP430F6659
-		features	
+		features
 			-- Analog bus from Solar Panels
 			analog_bus: requires bus access Buses::Analog::Analog.impl;
 	end mcu;
@@ -12,10 +13,10 @@ public
 	processor implementation mcu.impl
 		subcomponents
 			sd_card: memory sd_card;
-			ic_mem1: memory ic_memory;
-			ic_mem2: memory ic_memory;
+			ic_mem1: memory IS25LP128_JBLE;
+			ic_mem2: memory IS25LP128_JBLE;
 	end mcu.impl;
-	
+
 	-- Flash memory
 	memory sd_card
 		features
@@ -23,76 +24,105 @@ public
 		properties
 			Memory_Size => 2 GByte;
 	end sd_card;
-	
+
 	memory implementation sd_card.impl
 	end sd_card.impl;
-	
-	memory ic_memory
+
+	memory IS25LP128_JBLE
 		features
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
 		properties
 			Memory_Size => 16384 kByte; -- 128 Mbit
-	end ic_memory;
-	
-	memory implementation ic_memory.impl
-	end ic_memory.impl;
-	
-	-- IMU número 1
-	device imu
+			Device_Property::Power_Consume => 0.054 W;	
+	end IS25LP128_JBLE;
+
+	memory implementation IS25LP128_JBLE.impl
+	end IS25LP128_JBLE.impl;
+
+	-- IMU
+	device MPU9250
 		features
-			data_out: out data port;
+			DOF6: out data port Data_Types::Six_Axis.impl;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_3v3: requires bus access;
 		flows
-			f: flow source data_out; 
-	end imu;
-	
-	device implementation imu.impl
-	end imu.impl;
+			f1: flow source DOF6 {latency => 200us .. 500us;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms;
+			Device_property::Device_Functionality => (Gyroscope, Accelerometer, Compass, Magnetometer);
+			Device_property::Device_Software => (DigitalMotionProcessing, DitigalFilter);
+			Device_property::Device_Bus_Avaliable => (SPI, I2C);
+			Device_property::Device_Support_design => (Library, API);
+			Device_property::Accelerometer_Range => (2.0g, 4.0g, 8.0g, 16.0g);
+--			Device_property::Device_Max_Bus_Bandwidth => (10000.0 bitsps, 400.0 bitsps);
+--			Electricity_Properties::Core_Voltage => 3.3V;
+			Device_property::Power_Consume => 0.02W;
+			Device_property::Mass => 10.0g;
+			Device_property::Device_address => ("0xE0");
+			Device_property::Device_Noise_Accelerometer => 300.0 ug_sqrHz;
+			Device_property::Device_Noise_gyroscope => 10.0 mdps_sqrHz;
+			Device_property::ZRO_25C_GYRO => (-5.0 dps, 5.0 dps);
+			Device_property::ZRO_Over_temp_gyro => (-0.24 dps_C, 0.24 dps_C);
+			Device_property::Temperature_Operation => (-40.0C, 85.0C);
+	end MPU9250;
+
+	device implementation MPU9250.impl
+	end MPU9250.impl;
+
+	device BMX055
+		features
+			DOF6: out data port Data_Types::Six_Axis.impl;
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_3v3: requires bus access;
+		flows
+			f1: flow source DOF6 {latency => 200us .. 500us;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms;
+			Device_property::Device_Functionality => (Gyroscope, Accelerometer, Compass, Magnetometer);
+			Device_property::Device_Software => (DigitalMotionProcessing, DitigalFilter);
+			Device_property::Device_Bus_Avaliable => (SPI, I2C);
+			Device_property::Device_Support_design => (Library, API);
+			Device_property::Accelerometer_Range => (2.0g, 4.0g, 8.0g, 16.0g);
+			Device_property::Power_Consume => 0.02W;
+			Device_property::Mass => 10.0g;
+			Device_property::Device_address => ("0xE0");
+			Device_property::Device_Noise_Accelerometer => 300.0 ug_sqrHz;
+			Device_property::Device_Noise_gyroscope => 10.0 mdps_sqrHz;
+			Device_property::ZRO_25C_GYRO => (-5.0 dps, 5.0 dps);
+			Device_property::ZRO_Over_temp_gyro => (-0.24 dps_C, 0.24 dps_C);
+			Device_property::Temperature_Operation => (-40.0C, 85.0C);
+	end BMX055;
+
+	device implementation BMX055.impl
+	end BMX055.impl;
 
 	-- Monitor de Tensão com Timer Watchdog
 	device voltage_monitor
 		features
 			port_in: in data port;
 			port_out: out data port;
-			
+
 	end voltage_monitor;
-	
+
 	device implementation voltage_monitor.impl
 	end voltage_monitor.impl;
-	
+
 	-- Monitor de corrente (controle de magnetorquer)
-	device current_driver
+	-- Dual H bridge, each with 1.5 A at 5 V
+	device DRV8833
 		features
 			signal_in: in data port;
-			control_out: out data port;
-	end current_driver;
-	
-	device implementation current_driver.impl
-	end current_driver.impl;
-	
-	-- Current sensor 
-	device current_sensor
-		features
-			flow_in: in data port;
 			signal_out: out data port;
-		flows
-			f: flow source signal_out;
-	end current_sensor;
-	
-	device implementation current_sensor.impl
-	end current_sensor.impl;
-	
-	-- Voltage sensor 
-	device voltage_sensor
-		features
-			supply_in: in data port;
-			signal_out: out data port;
-		flows
-			f: flow source signal_out;
-	end voltage_sensor;
-	
-	device implementation voltage_sensor.impl
-	end voltage_sensor.impl;
+		properties
+			Device_Property::Power_Consume => 15.0 W; -- 3 A RMS (5V)
+	end DRV8833;
+
+	device implementation DRV8833.impl
+	end DRV8833.impl;
 	
 end SAT_OBDH_devices;
 

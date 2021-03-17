@@ -1,5 +1,6 @@
 package SAT_OBDH_process
 public
+	with Data_types;
 	process mcu
 		features
 			board_voltage: in data port;
@@ -23,8 +24,8 @@ public
 			volt_monitor_in: in data port;
 			
 			-- Read IMU data
-			imu_1_data_in: in data port;
-			imu_2_data_in: in data port;
+			imu_1_data_in: in data port Data_types::Six_Axis;
+			imu_2_data_in: in data port Data_types::Six_Axis;
 	end mcu;
 	process implementation mcu.impl
 				

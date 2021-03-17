@@ -1,63 +1,136 @@
 package SAT_EPS_devices
 public
-	with Buses::SPI, Buses::Analog;
-	with Physical;
+	with Buses::SPI;--, Buses::Analog;
 	with SEI;
 	with common_devices;
+	with Device_Property;
 
-	device Solar_Panels
+	device Solar_Panel
 		features
-			voltage: out data port;
-			current: out data port;
-			magnetorquer_in: in data port;
+			power: out data port;
+			temp_data: out data port;
+			magnetorq_in: in data port;
+			coarse_sensor: out data port;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			analog_bus: requires bus access Buses::Analog::Analog.impl;
 		properties
-			Physical::Voltage => 4.64V;
-			SEI::PowerCapacity => 2.4 W; --(2270 ... 2400) W;
-			
-	end Solar_Panels;
+			SEI::PowerCapacity => 2.4W; --(2270 ... 2400) W;
+			Device_Property::Power_Provide => 2.4 W; -- (max), (min) 2.27 W
+	end Solar_Panel;
 
-	device implementation Solar_Panels.impl
-	end Solar_Panels.impl;
-	
-	device temp_sensor
+	-- Clock to MQTT
+	device 	LMC555
 		features
-			tout: out data port;
-		flows
-			t: flow source tout;
-	end temp_sensor;
-	device implementation temp_sensor.impl
-	end temp_sensor.impl;
+			trigger_in: in event port;
+			out_data: out data port;
+		properties
+			SEI::PowerCapacity => 0.000075 W;
+			Device_Property::Temperature_Operation => (-40.0 C,125.0 C);
+	end LMC555;
 	
+	device implementation LMC555.impl
+	end LMC555.impl;
+	
+	-- temperature sensor
+	device ADS1248IPW
+		features
+			temp_data: out data port;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;			
+		flows
+			t: flow source temp_data;
+		properties
+			Device_Property::Power_Consume => 0.00066 W;
+			Clock_Period => 17 ms; -- 60 hz
+	end ADS1248IPW;
+	
+	device implementation ADS1248IPW.impl
+	end ADS1248IPW.impl;
+	
+	-- Battery monitor
+	device battery_monitor
+		features
+			solar_power: in data port;
+			vbus: out data port;
+			battery_power: in data port;
+			solar_power_out: out data port;
+			status: out data port;
+	end battery_monitor;
+	-- Battery charger
+	device battery_charger
+		features
+			power_in: in data port;
+			power_out: out data port;
+	end battery_charger;
+ 	-- Battery
 	device battery
 		features
-			status: out data port;
-			properties
-				SEI::PowerCapacity => 11.15 W; -- V: 3.78V I: 2950 mA
+			power_out: out data port;
+			power_in: in data port;
+		properties
+			SEI::PowerCapacity => 22.2W; -- V: 3.78V I: 2950 mA 7.4V - 3A
+			Device_Property::Power_Provide => 11.15 W;
 	end battery;
+
 	device implementation battery.impl
 	end battery.impl;
 	
-	device heater_driver
+	-- Heat driver
+	device heat_driver
 		features
 			pwm1_in: in data port;
 			pwm2_in: in data port;
 			data_out: out data port;
-	end heater_driver;
-	device implementation heater_driver.impl
-	end heater_driver.impl;
+	end heat_driver;
+
+	device implementation heat_driver.impl
+	end heat_driver.impl;
 	
+	-- MPPT solar controller
 	device mppt
 		features
 			pwm_in: in data port;
+			lmc555_in: in data port;
+			power_in: in data port;
+			power_out: out data port;
 	end mppt;
+
 	device implementation mppt.impl
 	end mppt.impl;
 	
-	processor MSP extends common_devices::MSP430F6659
-		
-	end MSP;
-	
+	-- DC-DC Step-Down Beacon/EPS and Antenna
+	device TPS5420
+		features
+			power_in: in data port; -- VBus
+			power_out: out data port; -- 3V3_EPS_Beacon
+		properties
+			Device_Property::Power_Consume => 6.6 W; -- convert to 3.3 V @ 2 A
+	end TPS5420;
+	-- DC-DC Step-Down Payloads
+	device TPS5430
+		features
+			power_in: in data port; -- VBus
+			power_out: out data port; -- 5V Payloads
+			enable_in: in event port;
+		properties
+			Device_Property::Power_Consume => 15.0 W; -- convert to 3V @ 5A 
+	end TPS5430;
+	-- DC-DC Step-Down OBDH/TTC
+		device TPS5410
+		features
+			power_in: in data port; -- VBus
+			power_out: out data port; -- 3V3 Payload
+			enable_in: in event port;
+		properties
+			Device_Property::Power_Consume => 3.3 W; -- convert to 3V3 @ 1A 
+	end TPS5410;
+	-- DC-DC Step-Down Beacon PA/TTC PA
+	device TPS54540
+		features
+			power_in: in data port; -- VBus
+			power_out: out data port; -- 3V3 Payload
+			enable_in: in event port;
+		properties
+			Device_Property::Power_Consume => 16.5 W; -- convert to 3V3 @ 5A 
+	end TPS54540;
+
 	
 end SAT_EPS_devices;

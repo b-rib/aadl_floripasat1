@@ -7,15 +7,23 @@ public
 		features
 			-- Three Solar Panels Components
 			solar_V_1: in data port;
-			solar_I_1: in data port;
 			solar_V_2: in data port;
-			solar_I_2: in data port;
 			solar_V_3: in data port;
-			solar_I_3: in data port;
+			solar_I_ym: in data port;
+			solar_I_xp: in data port;
+			solar_I_xm: in data port;
+			solar_I_zp: in data port;
+			solar_I_zm: in data port;
+			solar_I_yp: in data port;
 			-- Total Voltage of Solar Panels	
-			solar_V_total: in data port;					
+			solar_V_total: in data port;
+			-- Vbus Voltage Measurement
+			vbus_V_sensor: in data port;	
+			-- Beacon current
 			beacon_I: in data port;
+			--
 			data_beacon: out data port;
+			-- Internal Temperature controllers
 			temp_sensor: in data port;
 			bat_status: in data port;
 			heat_pwm1: out data port;
@@ -23,7 +31,14 @@ public
 			-- Control MPPT to three Solar Panels part
 			mppt_pwm1: out data port;
 			mppt_pwm2: out data port;	
-			mppt_pwm3: out data port;				
+			mppt_pwm3: out data port;
+			-- Enable LMC555
+			en_lmc555: out event port;
+			-- DC-DC Enables
+			En_OBDH_TTC: out event port;
+			En_PA_TTC: out event port;
+			En_PA_Beacon: out event port;
+			En_Payloads: out event port;				
 	end EPS_firmware;
 	process implementation EPS_firmware.impl
 		subcomponents		
@@ -32,17 +47,20 @@ public
 			payload_i2c_data: thread payload_data_i2c.impl;
 			connections
 				-- MPPT control Connections	
-					-- MPPT1
-				MC1_1: port solar_I_1 -> mppt_control.I_sensor_1;
+					-- Current sensor IN
+				MC1_1: port solar_I_ym -> mppt_control.I_sensor_ym;
+				MC1_2: port solar_I_xm -> mppt_control.I_sensor_xm;
+				MC1_3: port solar_I_zm -> mppt_control.I_sensor_zm;
+				MC1_4: port solar_I_yp -> mppt_control.I_sensor_yp;
+				MC1_5: port solar_I_xp -> mppt_control.I_sensor_xp;
+				MC1_6: port solar_I_zp -> mppt_control.I_sensor_zp;
+					-- Voltage sensor in
 				MC2_1: port solar_V_1 -> mppt_control.V_sensor_1;
-				MC3_1: port mppt_control.mppt_cmd_1 -> mppt_pwm1;
-					-- MPPT2
-				MC1_2: port solar_I_2 -> mppt_control.I_sensor_2;
 				MC2_2: port solar_V_2 -> mppt_control.V_sensor_2;
+				MC2_3: port solar_V_3 -> mppt_control.V_sensor_3;				
+					-- MPPT2 OUT
+				MC3_1: port mppt_control.mppt_cmd_1 -> mppt_pwm1;
 				MC3_2: port mppt_control.mppt_cmd_2 -> mppt_pwm2;
-					-- MPPT3
-				MC1_3: port solar_I_3 -> mppt_control.I_sensor_3;
-				MC2_3: port solar_V_3 -> mppt_control.V_sensor_3;
 				MC3_3: port mppt_control.mppt_cmd_3 -> mppt_pwm3;								
 				-- Temp Control connections
 				TC1: port solar_V_total -> temp_control.V_sensor;
@@ -54,6 +72,7 @@ public
 				TC6: port temp_control.cmd_heat2 -> heat_pwm2;
 				-- Send Data to i2c 
 				C1: port payload_i2c_data.data_out -> data_beacon;
+				
 	end EPS_firmware.impl;
 	
 	--THREAD TEMPERATURE CONTROL
@@ -77,12 +96,15 @@ public
 	--THREAD MPPT SOLAR PANELS CONTROL
 		thread control_mppt
 			features
-				I_sensor_1: in data port; -- PS current
-				V_sensor_1: in data port; -- PS voltage
-				I_sensor_2: in data port; -- PS current
-				V_sensor_2: in data port; -- PS voltage
-				I_sensor_3: in data port; -- PS current
-				V_sensor_3: in data port; -- PS voltage								
+				V_sensor_1: in data port; -- SP voltage
+				V_sensor_2: in data port; -- SP voltage
+				V_sensor_3: in data port; -- SP voltage								
+				I_sensor_ym: in data port;
+				I_sensor_xp: in data port;
+				I_sensor_xm: in data port;
+				I_sensor_zp: in data port;
+				I_sensor_zm: in data port;
+				I_sensor_yp: in data port;
 				mppt_cmd_1: out data port; -- MPPT PWM cmd
 				mppt_cmd_2: out data port; -- MPPT PWM cmd
 				mppt_cmd_3: out data port; -- MPPT PWM cmd								
