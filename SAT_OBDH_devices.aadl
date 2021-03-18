@@ -3,19 +3,9 @@ public
 	with Buses::I2C, Buses::SPI, Buses::Analog;
 	with common_devices, Device_Property, Data_Types;
 	with SEI;
-	
-	processor mcu extends common_devices::MSP430F6659
-		features
-			-- Analog bus from Solar Panels
-			analog_bus: requires bus access Buses::Analog::Analog.impl;
-	end mcu;
-
-	processor implementation mcu.impl
-		subcomponents
-			sd_card: memory sd_card;
-			ic_mem1: memory IS25LP128_JBLE;
-			ic_mem2: memory IS25LP128_JBLE;
-	end mcu.impl;
+	with Buses::UART;
+	with Buses::Power;
+	with Physical;
 
 	-- Flash memory
 	memory sd_card
@@ -33,7 +23,7 @@ public
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
 		properties
 			Memory_Size => 16384 kByte; -- 128 Mbit
-			Device_Property::Power_Consume => 0.054 W;	
+			Device_Property::Power_Consume => 0.054W;
 	end IS25LP128_JBLE;
 
 	memory implementation IS25LP128_JBLE.impl
@@ -45,7 +35,7 @@ public
 			DOF6: out data port Data_Types::Six_Axis.impl;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_3v3: requires bus access;
+			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
 		flows
 			f1: flow source DOF6 {latency => 200us .. 500us;};
 		properties
@@ -76,7 +66,7 @@ public
 			DOF6: out data port Data_Types::Six_Axis.impl;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_3v3: requires bus access;
+			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
 		flows
 			f1: flow source DOF6 {latency => 200us .. 500us;};
 		properties
@@ -116,13 +106,80 @@ public
 	device DRV8833
 		features
 			signal_in: in data port;
-			signal_out: out data port;
+			bus_ADC: requires bus access Buses::Analog::Analog;
+			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
 		properties
-			Device_Property::Power_Consume => 15.0 W; -- 3 A RMS (5V)
+			Device_Property::Power_Consume => 15.0W; -- 3 A RMS (5V)
 	end DRV8833;
 
 	device implementation DRV8833.impl
 	end DRV8833.impl;
+
+	processor MSP430F6659
+		features
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			uart_bus: requires bus access Buses::UART::UART.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_V3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+
+--			SEI::PowerBudget => 0.01023 W;
+		properties
+			Clock_Period => 50ns; -- 20 MHz(max)
+			Physical::Voltage => 3.6V; --(max) 1.6 V (min)		
+			Device_Property::Power_Consume => 0.01023W; -- Max: 0.01023, min: 0.5115 mW
+	end MSP430F6659;
+
+	processor implementation MSP430F6659.impl
+		subcomponents
+			RAM: memory mcu_RAM;
+			Non_Vol: memory mcu_nonVolatile;
+			sd_card: memory sd_card;
+			ic_mem1: memory IS25LP128_JBLE;
+			ic_mem2: memory IS25LP128_JBLE;
+
+	end MSP430F6659.impl;
+
+	--MCU memories
+	memory mcu_RAM
+		properties
+			SEI::RAMCapacity => 66.0 kByte;
+	end mcu_RAM;
+
+	memory mcu_nonVolatile
+		properties
+			Memory_Size => 512 kByte;
+	end mcu_nonVolatile;
+
+	-- Current sensor
+	device MAX9934TAUA
+		features
+			current_data: out data port;
+			power_ADC: requires bus access Buses::Analog::Analog;
+			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+		flows
+			c: flow source current_data;
+		properties
+			Physical::Voltage => 3.6V; -- max voltage
+			SEI::PowerCapacity => 0.000432W;
+			Device_Property::Temperature_Operation => (-40.0C, 125.0C);
+
+	end MAX9934TAUA;
+
+	device implementation MAX9934TAUA.impl
+	end MAX9934TAUA.impl;
+
+	-- Voltage sensor
+	device TLV341AIDBVR
+		features
+			voltage_data: out data port;
+			power_V3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			power_sp: requires bus access Buses::Power::Power.SolarPanel;
+		flows
+			v: flow source voltage_data;
+		properties
+			SEI::PowerCapacity => 0.0004125W;
+			Device_Property::Temperature_Operation => (-40.0C, 125.0C);
+	end TLV341AIDBVR;
 	
 end SAT_OBDH_devices;
 

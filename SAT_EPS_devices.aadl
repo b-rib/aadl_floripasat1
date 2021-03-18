@@ -1,136 +1,238 @@
 package SAT_EPS_devices
 public
-	with Buses::SPI;--, Buses::Analog;
+	with Buses::SPI, Buses::Analog, Buses::Power;
 	with SEI;
-	with common_devices;
+--	with common_devices;
 	with Device_Property;
+	with Physical;
+	with Buses::I2C;
+	with Buses::UART;
 
 	device Solar_Panel
 		features
-			power: out data port;
 			temp_data: out data port;
 			magnetorq_in: in data port;
 			coarse_sensor: out data port;
-			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			spi_bus: requires bus access Buses::Analog::Analog.impl;
+			power_SP: provides bus access Buses::Power::Power.SolarPanel;
+
 		properties
 			SEI::PowerCapacity => 2.4W; --(2270 ... 2400) W;
-			Device_Property::Power_Provide => 2.4 W; -- (max), (min) 2.27 W
+			Device_Property::Power_Provide => 2.4W; -- (max), (min) 2.27 W
 	end Solar_Panel;
 
 	-- Clock to MQTT
-	device 	LMC555
+	device LMC555
 		features
-			trigger_in: in event port;
 			out_data: out data port;
+			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;
+			trigger_in: in event port;
 		properties
-			SEI::PowerCapacity => 0.000075 W;
-			Device_Property::Temperature_Operation => (-40.0 C,125.0 C);
+			SEI::PowerCapacity => 0.000075W;
+			Device_Property::Temperature_Operation => (-40.0C, 125.0C);
 	end LMC555;
-	
+
 	device implementation LMC555.impl
 	end LMC555.impl;
-	
-	-- temperature sensor
+
+-- temperature sensor
 	device ADS1248IPW
 		features
 			temp_data: out data port;
-			spi_bus: requires bus access Buses::SPI::SPI.impl;			
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;
 		flows
 			t: flow source temp_data;
 		properties
-			Device_Property::Power_Consume => 0.00066 W;
-			Clock_Period => 17 ms; -- 60 hz
+			Device_Property::Power_Consume => 0.00066W;
+			Clock_Period => 17ms; -- 60 hz
 	end ADS1248IPW;
-	
+
 	device implementation ADS1248IPW.impl
 	end ADS1248IPW.impl;
-	
-	-- Battery monitor
+
+-- Battery monitor
 	device battery_monitor
 		features
 			solar_power: in data port;
-			vbus: out data port;
 			battery_power: in data port;
 			solar_power_out: out data port;
 			status: out data port;
+			vbus: provides bus access Buses::Power::Power.VBUS;
+			power_solar_panels: requires bus access Buses::Power::Power.SP_MPPT;
+			power_battery: requires bus access Buses::Power::Power.Battery;
 	end battery_monitor;
-	-- Battery charger
+
+-- Battery charger
 	device battery_charger
 		features
 			power_in: in data port;
 			power_out: out data port;
+			power_battery: requires bus access Buses::Power::Power.Battery;
 	end battery_charger;
- 	-- Battery
+
+-- Battery
 	device battery
 		features
 			power_out: out data port;
 			power_in: in data port;
+			power_battery: provides bus access Buses::Power::Power.Battery;
 		properties
 			SEI::PowerCapacity => 22.2W; -- V: 3.78V I: 2950 mA 7.4V - 3A
-			Device_Property::Power_Provide => 11.15 W;
+			Device_Property::Power_Provide => 11.15W;
 	end battery;
 
 	device implementation battery.impl
 	end battery.impl;
-	
-	-- Heat driver
+
+-- Heat driver
 	device heat_driver
 		features
 			pwm1_in: in data port;
 			pwm2_in: in data port;
 			data_out: out data port;
+			vbus: requires bus access Buses::Power::Power.VBUS;
+			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;
 	end heat_driver;
 
 	device implementation heat_driver.impl
 	end heat_driver.impl;
-	
-	-- MPPT solar controller
+
+-- MPPT solar controller
 	device mppt
 		features
 			pwm_in: in data port;
 			lmc555_in: in data port;
-			power_in: in data port;
-			power_out: out data port;
+--			power_in: in data port;
+--			power_out: out data port;
+			power_mppt: provides bus access Buses::Power::Power.SP_MPPT;
+			power_sp: requires bus access Buses::Power::Power.SolarPanel;
+			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;
 	end mppt;
 
 	device implementation mppt.impl
 	end mppt.impl;
-	
-	-- DC-DC Step-Down Beacon/EPS and Antenna
+
+-- DC-DC Step-Down Beacon/EPS and Antenna
 	device TPS5420
 		features
-			power_in: in data port; -- VBus
-			power_out: out data port; -- 3V3_EPS_Beacon
-		properties
-			Device_Property::Power_Consume => 6.6 W; -- convert to 3.3 V @ 2 A
+--			power_in: in data port; -- VBus
+--			power_out: out data port; -- 3V3_EPS_Beacon
+			vbus: requires bus access Buses::Power::Power.VBUS;
+			power_V3: provides bus access Buses::Power::Power.V3DC_EPS_Beacon;
+--		properties
+--			Device_Property::Power_Consume => 6.6 W; -- convert to 3.3 V @ 2 A
 	end TPS5420;
-	-- DC-DC Step-Down Payloads
+
+	-- DC-DC Step-Down Beacon/EPS and Antenna
+	device TPS54202
+		features
+--			power_in: in data port; -- VBus
+--			power_out: out data port; -- 3V3_EPS_Beacon
+			vbus: requires bus access Buses::Power::Power.VBUS;
+			power_V3: provides bus access Buses::Power::Power.V3DC_Antenna;
+--		properties
+--			Device_Property::Power_Consume => 6.6 W; -- convert to 3.3 V @ 2 A
+	end TPS54202;
+
+-- DC-DC Step-Down Payloads
 	device TPS5430
 		features
-			power_in: in data port; -- VBus
-			power_out: out data port; -- 5V Payloads
+--			power_in: in data port; -- VBus
+--			power_out: out data port; -- 5V Payloads
 			enable_in: in event port;
-		properties
-			Device_Property::Power_Consume => 15.0 W; -- convert to 3V @ 5A 
+			vbus: requires bus access Buses::Power::Power.VBUS;
+			power_V3: provides bus access Buses::Power::Power.V5DC_Payloads;
+--		properties
+--			Device_Property::Power_Consume => 15.0 W; -- convert to 3V @ 5A 
 	end TPS5430;
-	-- DC-DC Step-Down OBDH/TTC
-		device TPS5410
+
+-- DC-DC Step-Down OBDH/TTC
+	device TPS5410
 		features
-			power_in: in data port; -- VBus
-			power_out: out data port; -- 3V3 Payload
+--			power_in: in data port; -- VBus
+--			power_out: out data port; -- 3V3 Payload
 			enable_in: in event port;
-		properties
-			Device_Property::Power_Consume => 3.3 W; -- convert to 3V3 @ 1A 
+			vbus: requires bus access Buses::Power::Power.VBUS;
+			power_V3: provides bus access Buses::Power::Power.V3DC_OBDH_TTC;
+--		properties
+--			Device_Property::Power_Consume => 3.3 W; -- convert to 3V3 @ 1A 
 	end TPS5410;
-	-- DC-DC Step-Down Beacon PA/TTC PA
+
+-- DC-DC Step-Down Beacon PA/TTC PA
 	device TPS54540
 		features
-			power_in: in data port; -- VBus
-			power_out: out data port; -- 3V3 Payload
+--			power_in: in data port; -- VBus
+--			power_out: out data port; -- 3V3 Payload
 			enable_in: in event port;
-		properties
-			Device_Property::Power_Consume => 16.5 W; -- convert to 3V3 @ 5A 
+			vbus: requires bus access Buses::Power::Power.VBUS;
+			power_V3: provides bus access Buses::Power::Power.V3DC_PA_TTC;
+--		properties
+--			Device_Property::Power_Consume => 16.5 W; -- convert to 3V3 @ 5A 
 	end TPS54540;
 
+	processor MSP430F6659
+		features
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			uart_bus: requires bus access Buses::UART::UART.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;
+--			SEI::PowerBudget => 0.01023 W;
+		properties
+			Clock_Period => 50ns; -- 20 MHz(max)
+			Physical::Voltage => 3.6V; --(max) 1.6 V (min)		
+			Device_Property::Power_Consume => 0.01023W; -- Max: 0.01023, min: 0.5115 mW
+	end MSP430F6659;
+
+	processor implementation MSP430F6659.impl
+		subcomponents
+			RAM: memory mcu_RAM;
+			Non_Vol: memory mcu_nonVolatile;
+
+	end MSP430F6659.impl;
 	
+		
+					--MCU memories
+	memory mcu_RAM
+		properties
+			SEI::RAMCapacity => 66.0 kByte;			
+	end mcu_RAM;
+	
+	memory mcu_nonVolatile
+		properties
+			Memory_Size => 512 kByte;
+	end mcu_nonVolatile;
+	
+		-- Current sensor
+	device MAX9934TAUA
+		features
+			current_data: out data port;
+			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;					
+			power_sp: requires bus access Buses::Power::Power.SolarPanel;
+		flows
+			c: flow source current_data;
+		properties
+			Physical::Voltage => 3.6 V; -- max voltage
+			SEI::PowerCapacity => 0.000432 W;
+			Device_Property::Temperature_Operation => (-40.0 C,125.0 C);
+		
+	end MAX9934TAUA;
+	
+	device implementation MAX9934TAUA.impl
+	end MAX9934TAUA.impl;
+	
+	-- Voltage sensor
+	device TLV341AIDBVR
+		features
+			voltage_data: out data port;
+			power_sp: requires bus access Buses::Power::Power.SolarPanel;
+			power_vbus: requires bus access Buses::Power::Power.VBUS;
+		flows
+			v: flow source voltage_data;
+		properties
+			SEI::PowerCapacity => 0.0004125 W;
+			Device_Property::Temperature_Operation => (-40.0 C,125.0 C);
+	end TLV341AIDBVR;
+	
+
 end SAT_EPS_devices;

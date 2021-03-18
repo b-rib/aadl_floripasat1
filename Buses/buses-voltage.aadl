@@ -1,0 +1,45 @@
+package Buses::Power
+public
+	with Bus_Properties;
+	
+	bus Power
+		
+	end Power;
+		
+	bus implementation Power.V5DC_Payloads
+		
+	end Power.V5DC_Payloads;
+
+	bus implementation Power.V3DC_EPS_Beacon
+		
+	end Power.V3DC_EPS_Beacon;
+
+	bus implementation Power.V3DC_Antenna
+		
+	end Power.V3DC_Antenna;
+
+	bus implementation Power.V3DC_OBDH_TTC
+		
+	end Power.V3DC_OBDH_TTC;
+
+	bus implementation Power.V3DC_PA_TTC
+		
+	end Power.V3DC_PA_TTC;
+
+	bus implementation Power.V3DC_PA_Beacon
+		
+	end Power.V3DC_PA_Beacon;
+
+	bus implementation Power.VBUS --7.4V 2A
+		
+	end Power.VBUS;
+	bus implementation Power.SolarPanel
+		
+	end Power.SolarPanel;
+	bus implementation Power.SP_MPPT
+		
+	end Power.SP_MPPT;
+	bus implementation Power.Battery
+		
+	end Power.Battery;
+end Buses::Power;

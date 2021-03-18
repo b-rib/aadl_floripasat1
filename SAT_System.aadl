@@ -1,0 +1,70 @@
+package SAT_system
+public
+	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio, Buses::Analog;
+	with SAT_EPS_devices, SAT_EPS_process, SAT_EPS_System;
+	with SAT_OBDH_devices, SAT_OBDH_process, SAT_OBDH_System;
+	with SAT_Payloads;
+	with SAT_TTC_devices;
+	with common_devices;
+system FloripaSAT
+				-- BUSES
+--		BUS0: provides bus access Buses::I2C::I2C.impl;
+--		BUS1: provides bus access Buses::SPI::SPI.impl;
+--		BUS2: provides bus access Buses::I2C::I2C.impl;
+--		BUS3: provides bus access Buses::SPI::SPI.impl;
+--		BUS4: provides bus access Buses::SPI::SPI.impl;
+--		BUS5: provides bus access Buses::I2C::I2C.impl;
+--		BUS6: provides bus access Buses::UART::UART.impl;
+--		BUS7: provides bus access Buses::Radio::Radio.impl;
+--		BUS8:provides bus access Buses::Analog::Analog.impl;
+--		BUS_JTAG: provides bus access Buses::UART::UART.impl;
+end FloripaSAT;
+
+system implementation FloripaSAT.impl
+	subcomponents
+		-- MODULES
+		EPS_module: system  SAT_EPS_System::EPS.impl;
+		OBDH_module: system SAT_OBDH_System::OBDH.impl;
+			-- PAYLOAD DEVICES
+		JOINVILLE_payload: processor SAT_Payloads::Joinville_Payload;
+		RUSH_payload: processor SAT_Payloads::RUSH_Payload;
+		FS_interface: processor SAT_Payloads::FS_Interface;
+		
+		-- BUSES
+		BUS0: bus Buses::I2C::I2C.impl;
+		BUS1: bus Buses::SPI::SPI.impl;
+		BUS2: bus Buses::I2C::I2C.impl;
+		BUS3: bus Buses::SPI::SPI.impl;
+		BUS4: bus Buses::SPI::SPI.impl;
+		BUS5: bus Buses::I2C::I2C.impl;
+		BUS6: bus Buses::UART::UART.impl;
+		BUS7: bus Buses::Radio::Radio.impl;
+		BUS8:bus Buses::Analog::Analog.impl;
+		BUS_JTAG: bus Buses::UART::UART.impl;
+--		
+	connections
+		-- BUS CONNECTIONS
+			-- EPS
+		Be1: bus access EPS_module.BUS0 -> BUS0;
+		Be2: bus access EPS_module.BUS6 -> BUS6;
+		Be3: bus access EPS_module.BUS_JTAG -> BUS_JTAG;
+		
+	
+			-- OBDH
+		Bo0: bus access OBDH_module.BUS0 -> BUS0;
+		Bo1: bus access  OBDH_module.BUS1 -> BUS1;
+		Bo2: bus access OBDH_module.BUS2 -> BUS2;
+		Bo3: bus access  OBDH_module.BUS3 -> BUS3;
+		Bo4: bus access  OBDH_module.BUS4 -> BUS4;
+		Bo8: bus access OBDH_module.BUS8 -> BUS8;
+		Bo9: bus access OBDH_module.BUS_JTAG -> BUS_JTAG;
+		
+			-- PAYLOAD_
+		Bp1: bus access JOINVILLE_payload.i2c_bus <-> BUS0;
+		Bp2: bus access RUSH_payload.i2c_bus -> BUS0;
+		Bp3: bus access FS_interface.uart_bus -> BUS_JTAG;
+		
+			
+		
+end FloripaSAT.impl;
+end SAT_system;

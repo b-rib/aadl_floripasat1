@@ -1,6 +1,6 @@
 package common_devices
 public
-	with Buses::I2C, Buses::SPI, Buses::UART;
+	with Buses::I2C, Buses::SPI, Buses::UART, Buses::Power;
 	with Physical, SEI;
 	with Device_property;
 
@@ -9,6 +9,7 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_V3: requires bus access Buses::Power::Power.V3;
 --			SEI::PowerBudget => 0.01023 W;
 		properties
 			Clock_Period => 50ns; -- 20 MHz(max)
@@ -21,6 +22,7 @@ public
 		subcomponents
 			RAM: memory mcu_RAM;
 			Non_Vol: memory mcu_nonVolatile;
+			
 	end MSP430F6659.impl;
 	
 					--MCU memories
@@ -39,6 +41,7 @@ public
 		features
 			power_in: in data port;
 			current_data: out data port;
+
 		flows
 			c: flow source current_data;
 		properties
@@ -56,6 +59,10 @@ public
 		features
 			power_in: in data port;
 			voltage_data: out data port;
+			power_V3: requires bus access Buses::Power::Power.V3;
+			power_V5: requires bus access Buses::Power::Power.V3;						
+			power_sp: requires bus access Buses::Power::Power.SolarPanel;
+			power_vbus: requires bus access Buses::Power::Power.VBUS;
 		flows
 			v: flow source voltage_data;
 		properties
