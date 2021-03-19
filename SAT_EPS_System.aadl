@@ -4,24 +4,33 @@ public
 	with SAT_EPS_process;
 	with Buses::UART;
 	with Buses::I2C;
-	with Buses::SPI;
+	with Buses::Power;
 
 	system EPS
 		features
+			-- COM Buses
 			BUS0: requires bus access Buses::I2C::I2C.impl;
 			BUS6: requires bus access Buses::UART::UART.impl;
 			BUS_JTAG: requires bus access Buses::UART::UART.impl;
+			-- Power Buses
+			BUS_DC_EPS_Beacon: provides bus access Buses::Power::Power.V3DC_EPS_Beacon;
+			BUS_DC_Antenna: provides bus access Buses::Power::Power.V3DC_Antenna;
+			BUS_DC_OBDH_TTC: provides bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			BUS_DC_PA_TTC: provides bus access Buses::Power::Power.V3DC_PA_TTC;
+			BUS_DC_PA_Beacon: provides bus access Buses::Power::Power.V3DC_PA_Beacon;
+			BUS_DC_Payloads: provides bus access Buses::Power::Power.V5DC_Payloads;
+						-- Solar Panel Connection
+			BUS_SP_ym: requires bus access Buses::Power::Power.SolarPanel;
+			BUS_SP_xp: requires bus access Buses::Power::Power.SolarPanel;
+			BUS_SP_xm: requires bus access Buses::Power::Power.SolarPanel;
+			BUS_SP_zp: requires bus access Buses::Power::Power.SolarPanel;
+			BUS_SP_zm: requires bus access Buses::Power::Power.SolarPanel;
+			BUS_SP_yp: requires bus access Buses::Power::Power.SolarPanel;		
+			
 	end EPS;
 
 	system implementation EPS.impl
 		subcomponents
-			------------ EPS DEVICES ---------------------------
-			solar_panel_ym: device SAT_EPS_devices::Solar_Panel;
-			solar_panel_xp: device SAT_EPS_devices::Solar_Panel;
-			solar_panel_xm: device SAT_EPS_devices::Solar_Panel;
-			solar_panel_zp: device SAT_EPS_devices::Solar_Panel;
-			solar_panel_zm: device SAT_EPS_devices::Solar_Panel;
-			solar_panel_yp: device SAT_EPS_devices::Solar_Panel;
 			-- Current sensor for each Solar Panel
 			sens_I_sp_ym: device SAT_EPS_devices::MAX9934TAUA;
 			sens_I_sp_xp: device SAT_EPS_devices::MAX9934TAUA;
@@ -62,7 +71,7 @@ public
 			-- DC-DC PA TTC
 			DC_PA_TTC: device SAT_EPS_devices::TPS54540;
 			-- DC-DC PA Beacon
-			DC_PA_Beacon: device SAT_EPS_devices::TPS54540;
+			DC_PA_Beacon: device SAT_EPS_devices::TPS545401;
 			-- DC-DC Payloads
 			DC_Payloads: device SAT_EPS_devices::TPS5430;
 
@@ -81,26 +90,26 @@ public
 			Be2: bus access mcu_eps.uart_bus <-> UART_BUS;
 			Be3: bus access mcu_eps.uart_bus <-> JTAG_BUS;
 			-- Internal Power Buses
-			Vp_1a: bus access solar_panel_xm.power_SP -> sens_I_sp_xm.power_sp;
-			Vp_1b: bus access solar_panel_yp.power_SP -> sens_I_sp_yp.power_sp;
-			Vp_1c: bus access solar_panel_xp.power_SP -> sens_I_sp_xp.power_sp;
-			Vp_1d: bus access solar_panel_zm.power_SP -> sens_I_sp_zm.power_sp;
-			Vp_1e: bus access solar_panel_ym.power_SP -> sens_I_sp_ym.power_sp;
-			Vp_1f: bus access solar_panel_zp.power_SP -> sens_I_sp_zp.power_sp;
+			Vp_1a: bus access BUS_SP_ym -> sens_I_sp_ym.power_sp;
+			Vp_1b: bus access BUS_SP_xp -> sens_I_sp_xp.power_sp;
+			Vp_1c: bus access BUS_SP_xm -> sens_I_sp_xm.power_sp;
+			Vp_1d: bus access BUS_SP_zp -> sens_I_sp_zp.power_sp;
+			Vp_1e: bus access BUS_SP_zm -> sens_I_sp_zm.power_sp;
+			Vp_1f: bus access BUS_SP_yp -> sens_I_sp_yp.power_sp;
 
-			Vp_0a: bus access solar_panel_ym.power_SP -> mppt_1.power_sp;
-			Vp_0b: bus access solar_panel_xp.power_SP -> mppt_1.power_sp;
-			Vp_0c: bus access solar_panel_xm.power_SP -> mppt_2.power_sp;
-			Vp_0d: bus access solar_panel_zp.power_SP -> mppt_2.power_sp;
-			Vp_0e: bus access solar_panel_zm.power_SP -> mppt_3.power_sp;
-			Vp_0f: bus access solar_panel_yp.power_SP -> mppt_3.power_sp;
+			Vp_0a: bus access BUS_SP_ym -> mppt_1.power_sp;
+			Vp_0b: bus access BUS_SP_xp -> mppt_1.power_sp;
+			Vp_0c: bus access BUS_SP_xm -> mppt_2.power_sp;
+			Vp_0d: bus access BUS_SP_zp -> mppt_2.power_sp;
+			Vp_0e: bus access BUS_SP_zm -> mppt_3.power_sp;
+			Vp_0f: bus access BUS_SP_yp -> mppt_3.power_sp;
 
-			Vp_2a: bus access solar_panel_ym.power_SP -> sens_V_sp_1.power_sp;
-			Vp_2b: bus access solar_panel_xp.power_SP -> sens_V_sp_1.power_sp;
-			Vp_2c: bus access solar_panel_xm.power_SP -> sens_V_sp_2.power_sp;
-			Vp_2d: bus access solar_panel_zp.power_SP -> sens_V_sp_2.power_sp;
-			Vp_2e: bus access solar_panel_zm.power_SP -> sens_V_sp_3.power_sp;
-			Vp_2f: bus access solar_panel_yp.power_SP -> sens_V_sp_3.power_sp;
+			Vp_2a: bus access BUS_SP_ym -> sens_V_sp_1.power_sp;
+			Vp_2b: bus access BUS_SP_xp  -> sens_V_sp_1.power_sp;
+			Vp_2c: bus access BUS_SP_xm -> sens_V_sp_2.power_sp;
+			Vp_2d: bus access BUS_SP_zp -> sens_V_sp_2.power_sp;
+			Vp_2e: bus access BUS_SP_zm  -> sens_V_sp_3.power_sp;
+			Vp_2f: bus access BUS_SP_yp -> sens_V_sp_3.power_sp;
 
 			V3_1c: bus access mppt_1.power_V3 -> DC_EPS_Beacon.power_V3;
 			V3_1d: bus access mppt_2.power_V3 -> DC_EPS_Beacon.power_V3;
@@ -123,7 +132,20 @@ public
 			Vb_4: bus access battery_monitor.vbus -> DC_PA_Beacon.vbus;
 			Vb_5: bus access battery_monitor.vbus -> DC_Payloads.vbus;
 			Vb_6: bus access battery_monitor.vbus -> SP_Total_V.power_vbus;
-
+			
+			-- Power Buses
+			
+			Vx_1: bus access DC_EPS_Beacon.power_V3 -> BUS_DC_EPS_Beacon;
+			Vx_2: bus access DC_OBDH_TTC.power_V3 -> BUS_DC_OBDH_TTC;
+			Vx_3: bus access DC_Antenna.power_V3 -> BUS_DC_Antenna;
+			Vx_4: bus access DC_PA_TTC.power_V3 -> BUS_DC_PA_TTC;
+			Vx_5: bus access DC_PA_Beacon.power_V3 -> BUS_DC_PA_Beacon;
+			Vx_6: bus access DC_Payloads.power_V3 -> BUS_DC_Payloads;
+			-- Data Buses
+			
+			E1: bus access mcu_eps.uart_bus <-> BUS6;
+			E2: bus access mcu_eps.i2c_bus <-> BUS0;
+			E3: bus access mcu_eps.uart_bus <-> BUS_JTAG;
 			------ EPS CONNECTIONS
 			-- Solar Panels 2
 			A1_11: port sens_I_sp_xm.current_data -> EPS_firmware.solar_I_xm;
@@ -135,6 +157,8 @@ public
 			V1_1: port sens_V_sp_1.voltage_data -> EPS_firmware.solar_V_1;
 			V1_2: port sens_V_sp_2.voltage_data -> EPS_firmware.solar_V_2;
 			V1_3: port sens_V_sp_3.voltage_data -> EPS_firmware.solar_V_3;
+			
+		
 
 			-- Battery charge connection
 			O1_7: port battery.power_out -> battery_monitor.battery_power; -- discharge battery to vBus

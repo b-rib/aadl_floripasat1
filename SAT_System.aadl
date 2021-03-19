@@ -1,13 +1,11 @@
 package SAT_system
 public
 	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio, Buses::Analog;
-	with SAT_EPS_devices, SAT_EPS_process, SAT_EPS_System;
-	with SAT_OBDH_devices, SAT_OBDH_process, SAT_OBDH_System;
-	with SAT_Payloads;
-	with SAT_TTC_devices;
-	with common_devices;
-system FloripaSAT
-				-- BUSES
+	with SAT_EPS_devices, SAT_EPS_System, SAT_OBDH_System, SAT_Payloads;
+	with SAT_TTC_system, SAT_TTC_devices;
+
+	system FloripaSAT
+		-- BUSES
 --		BUS0: provides bus access Buses::I2C::I2C.impl;
 --		BUS1: provides bus access Buses::SPI::SPI.impl;
 --		BUS2: provides bus access Buses::I2C::I2C.impl;
@@ -18,53 +16,101 @@ system FloripaSAT
 --		BUS7: provides bus access Buses::Radio::Radio.impl;
 --		BUS8:provides bus access Buses::Analog::Analog.impl;
 --		BUS_JTAG: provides bus access Buses::UART::UART.impl;
-end FloripaSAT;
+	end FloripaSAT;
 
-system implementation FloripaSAT.impl
-	subcomponents
-		-- MODULES
-		EPS_module: system  SAT_EPS_System::EPS.impl;
-		OBDH_module: system SAT_OBDH_System::OBDH.impl;
+	system implementation FloripaSAT.impl
+		subcomponents
+						------------ EPS DEVICES ---------------------------
+			solar_panel_ym: device SAT_EPS_devices::Solar_Panel;
+			solar_panel_xp: device SAT_EPS_devices::Solar_Panel;
+			solar_panel_xm: device SAT_EPS_devices::Solar_Panel;
+			solar_panel_zp: device SAT_EPS_devices::Solar_Panel;
+			solar_panel_zm: device SAT_EPS_devices::Solar_Panel;
+			solar_panel_yp: device SAT_EPS_devices::Solar_Panel;
+			antenna_beacon: device SAT_TTC_devices::Antenna;
+			antenna_main:  device SAT_TTC_devices::Antenna;
+			-- MODULES
+			EPS_module: system SAT_EPS_System::EPS.impl;
+			OBDH_module: system SAT_OBDH_System::OBDH.impl;
+			TTC_module: system SAT_TTC_System::TTC.impl;
 			-- PAYLOAD DEVICES
-		JOINVILLE_payload: processor SAT_Payloads::Joinville_Payload;
-		RUSH_payload: processor SAT_Payloads::RUSH_Payload;
-		FS_interface: processor SAT_Payloads::FS_Interface;
-		
-		-- BUSES
-		BUS0: bus Buses::I2C::I2C.impl;
-		BUS1: bus Buses::SPI::SPI.impl;
-		BUS2: bus Buses::I2C::I2C.impl;
-		BUS3: bus Buses::SPI::SPI.impl;
-		BUS4: bus Buses::SPI::SPI.impl;
-		BUS5: bus Buses::I2C::I2C.impl;
-		BUS6: bus Buses::UART::UART.impl;
-		BUS7: bus Buses::Radio::Radio.impl;
-		BUS8:bus Buses::Analog::Analog.impl;
-		BUS_JTAG: bus Buses::UART::UART.impl;
+			JOINVILLE_payload: processor SAT_Payloads::Joinville_Payload;
+			RUSH_payload: processor SAT_Payloads::RUSH_Payload;
+			FS_interface: processor SAT_Payloads::FS_Interface;
+
+			-- BUSES
+			BUS0: bus Buses::I2C::I2C.impl;
+			BUS1: bus Buses::SPI::SPI.impl;
+			BUS2: bus Buses::I2C::I2C.impl;
+			BUS3: bus Buses::SPI::SPI.impl;
+			BUS4: bus Buses::SPI::SPI.impl;
+			BUS5: bus Buses::I2C::I2C.impl;
+			BUS6: bus Buses::UART::UART.impl;
+			BUS7: bus Buses::Radio::Radio.impl;
+			BUS8: bus Buses::Analog::Analog.impl;
+			BUS_JTAG: bus Buses::UART::UART.impl;
 --		
-	connections
-		-- BUS CONNECTIONS
+		connections
+			-- BUS CONNECTIONS
+
 			-- EPS
-		Be1: bus access EPS_module.BUS0 -> BUS0;
-		Be2: bus access EPS_module.BUS6 -> BUS6;
-		Be3: bus access EPS_module.BUS_JTAG -> BUS_JTAG;
-		
-	
-			-- OBDH
-		Bo0: bus access OBDH_module.BUS0 -> BUS0;
-		Bo1: bus access  OBDH_module.BUS1 -> BUS1;
-		Bo2: bus access OBDH_module.BUS2 -> BUS2;
-		Bo3: bus access  OBDH_module.BUS3 -> BUS3;
-		Bo4: bus access  OBDH_module.BUS4 -> BUS4;
-		Bo8: bus access OBDH_module.BUS8 -> BUS8;
-		Bo9: bus access OBDH_module.BUS_JTAG -> BUS_JTAG;
-		
-			-- PAYLOAD_
-		Bp1: bus access JOINVILLE_payload.i2c_bus <-> BUS0;
-		Bp2: bus access RUSH_payload.i2c_bus -> BUS0;
-		Bp3: bus access FS_interface.uart_bus -> BUS_JTAG;
-		
+			Besp1: bus access solar_panel_ym.power_SP -> EPS_module.BUS_SP_ym;
+			Besp2: bus access solar_panel_xp.power_SP -> EPS_module.BUS_SP_xp;
+			Besp3: bus access solar_panel_xm.power_SP -> EPS_module.BUS_SP_xm;
+			Besp4: bus access solar_panel_zp.power_SP -> EPS_module.BUS_SP_zp;
+			Besp5: bus access solar_panel_zm.power_SP -> EPS_module.BUS_SP_zm;
+			Besp6: bus access solar_panel_yp.power_SP -> EPS_module.BUS_SP_yp;
 			
-		
-end FloripaSAT.impl;
+			Besp_1: bus access solar_panel_ym.analog_bus <-> BUS8;
+			Besp_2: bus access solar_panel_xp.analog_bus <-> BUS8;
+			Besp_3: bus access solar_panel_xm.analog_bus <-> BUS8;
+			Besp_4: bus access solar_panel_zp.analog_bus <-> BUS8;
+			Besp_5: bus access solar_panel_zm.analog_bus <-> BUS8;
+			Besp_6: bus access solar_panel_yp.analog_bus <-> BUS8;
+
+			Be1: bus access EPS_module.BUS0 <-> BUS0;
+			Be2: bus access EPS_module.BUS6 <-> BUS6;
+			Be3: bus access EPS_module.BUS_JTAG <-> BUS_JTAG;
+
+			-- OBDH
+			Bo0: bus access OBDH_module.BUS0 <-> BUS0;
+			Bo1: bus access OBDH_module.BUS1 <-> BUS1;
+			Bo2: bus access OBDH_module.BUS2 <-> BUS2;
+			Bo3: bus access OBDH_module.BUS3 <-> BUS3;
+			Bo4: bus access OBDH_module.BUS4 <-> BUS4;
+			Bo8: bus access OBDH_module.BUS8 <-> BUS8;
+			Bo9: bus access OBDH_module.BUS_JTAG <-> BUS_JTAG;
+				-- Power Connections
+			Bo_1: bus access EPS_module.BUS_DC_OBDH_TTC -> OBDH_module.BUS_DC_OBDH_TTC;
+			
+			-- TTC
+			Bt2: bus access TTC_module.BUS3 <-> BUS3;
+			Bt3: bus access TTC_module.BUS4 <-> BUS4;
+			Bt4: bus access TTC_module.BUS5 <-> BUS5;
+			Bt5: bus access TTC_module.BUS6 <-> BUS6;
+			Bt6: bus access TTC_module.BUS7 <-> BUS7;
+			-- Antenna
+			T2_4: bus access EPS_module.BUS_DC_Antenna -> antenna_beacon.power_antenna;
+			T2_5: bus access EPS_module.BUS_DC_Antenna -> antenna_main.power_antenna;
+			T6_1: bus access BUS5 <-> antenna_beacon.i2c_bus;
+			T6_2: bus access BUS2 <-> antenna_main.i2c_bus;
+			T5_1: bus access BUS7 <-> antenna_main.radio_bus;
+			T5_2: bus access BUS7 <-> antenna_beacon.radio_bus;
+				-- Power Connections
+			Btp_1: bus access EPS_module.BUS_DC_Antenna -> TTC_module.BUS_DC_Antenna;
+			Btp_2: bus access EPS_module.BUS_DC_EPS_Beacon -> TTC_module.BUS_DC_EPS_Beacon;
+			Btp_3: bus access EPS_module.BUS_DC_OBDH_TTC -> TTC_module.BUS_DC_OBDH_TTC;
+			Btp_4: bus access EPS_module.BUS_DC_PA_Beacon -> TTC_module.BUS_DC_PA_Beacon;
+			Btp_5: bus access EPS_module.BUS_DC_PA_TTC -> TTC_module.BUS_DC_PA_TTC;
+			
+			-- PAYLOAD_
+			Bp1: bus access JOINVILLE_payload.i2c_bus <-> BUS0;
+			Bp2: bus access RUSH_payload.i2c_bus <-> BUS0;
+			Bp3: bus access FS_interface.uart_bus <-> BUS_JTAG;
+			Bp_1: bus access EPS_module.BUS_DC_Payloads -> RUSH_payload.power_bus;
+			Bp_2: bus access EPS_module.BUS_DC_Payloads -> JOINVILLE_payload.power_bus;
+			Bp_3: bus access EPS_module.BUS_DC_Payloads -> FS_interface.power_bus;
+
+
+	end FloripaSAT.impl;
 end SAT_system;

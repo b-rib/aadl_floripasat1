@@ -13,7 +13,7 @@ public
 			temp_data: out data port;
 			magnetorq_in: in data port;
 			coarse_sensor: out data port;
-			spi_bus: requires bus access Buses::Analog::Analog.impl;
+			analog_bus: requires bus access Buses::Analog::Analog.impl;
 			power_SP: provides bus access Buses::Power::Power.SolarPanel;
 
 		properties
@@ -113,7 +113,7 @@ public
 	device implementation mppt.impl
 	end mppt.impl;
 
--- DC-DC Step-Down Beacon/EPS and Antenna
+-- DC-DC Step-Down Beacon/EPS
 	device TPS5420
 		features
 --			power_in: in data port; -- VBus
@@ -124,7 +124,7 @@ public
 --			Device_Property::Power_Consume => 6.6 W; -- convert to 3.3 V @ 2 A
 	end TPS5420;
 
-	-- DC-DC Step-Down Beacon/EPS and Antenna
+	-- DC-DC Step-Down Antenna
 	device TPS54202
 		features
 --			power_in: in data port; -- VBus
@@ -170,6 +170,17 @@ public
 --		properties
 --			Device_Property::Power_Consume => 16.5 W; -- convert to 3V3 @ 5A 
 	end TPS54540;
+	
+		device TPS545401
+		features
+--			power_in: in data port; -- VBus
+--			power_out: out data port; -- 3V3 Payload
+			enable_in: in event port;
+			vbus: requires bus access Buses::Power::Power.VBUS;
+			power_V3: provides bus access Buses::Power::Power.V3DC_PA_Beacon;
+--		properties
+--			Device_Property::Power_Consume => 16.5 W; -- convert to 3V3 @ 5A 
+	end TPS545401;
 
 	processor MSP430F6659
 		features

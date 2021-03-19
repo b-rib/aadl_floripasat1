@@ -1,64 +1,63 @@
 package SAT_TTC_devices
 public
 	with Buses::Radio;
-	with Physical;
-	with common_devices;
 	with SEI;
+	with Buses::I2C;
+	with Buses::UART;
+	with Buses::SPI;
+	with Buses::Power;
 
-	processor MCU_ttc extends common_devices::MSP430F6659
+	processor MSP430F6659
 		features
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			uart_bus: requires bus access Buses::UART::UART.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
-	end MCU_ttc;
+	end MSP430F6659;
 
-	processor implementation MCU_ttc.impl
+	processor implementation MSP430F6659.impl
+		subcomponents
+			RAM: memory mcu_RAM;
+			Non_Vol: memory mcu_nonVolatile;
 
-	end MCU_ttc.impl;
+	end MSP430F6659.impl;
 
-	-- Main radio (transceiver)
-	device main_radio
-		features
-			obds_radio_data: in data port; -- bus4
-			radio_signals: out data port; -- bus7
-	end main_radio;
-
-	device implementation main_radio.impl
+	--MCU memories
+	memory mcu_RAM
 		properties
-			Data_Rate => 1 MBytesps; -- (max) (transmission)
-			Physical::Voltage => 5.0V; --(input)
-	end main_radio.impl;
+			SEI::RAMCapacity => 66.0 kByte;
+	end mcu_RAM;
 
-	-- Antena mcu
-	processor MCU_antenna extends common_devices::MSP430F6659
+	memory mcu_nonVolatile
+		properties
+			Memory_Size => 512 kByte;
+	end mcu_nonVolatile;
+
+	-- Transceiver for Main Radio and Beacon Radio
+	device RF4463F30
 		features
+			power_pa_beacon: requires bus access Buses::Power::Power.V3DC_PA_Beacon;
+			power_pa_ttc: requires bus access Buses::Power::Power.V3DC_PA_TTC;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
-	end MCU_antenna;
-
-	---- Antenna
-	device Antenna
-
-	end Antenna;
-
-	device implementation antenna.impl
-	end antenna.impl;
-
-	-- Beacon radio
-	device beacon_radio
-		features
-			mcu_data_in: in data port; -- especificar melhor
-			beacon_message: out data port; -- bus7
-			current: out data port; -- current read for EPS
-			eps_data_in: in data port; -- Data receive from EPS	
+			mcu_data: in data port; -- spi connection to mcu
 		properties
 			Clock_Period => 685ps;
-			SEI::PowerCapacity => 1.0 W;
-			
-	end beacon_radio;
+			SEI::PowerCapacity => 1.0W;
+	end RF4463F30;
 
-	device implementation beacon_radio.impl
-		properties
-			Data_Rate => 1 MBytesps; -- (max) (transmission)
-			Physical::Voltage => 5.0V; --(input)
-	end beacon_radio.impl;
+	-- Antenna
+	device Antenna
+		features
+			radio_bus: requires bus access Buses::Radio::Radio.impl;
+			power_antenna: requires bus access Buses::Power::Power.V3DC_Antenna;
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+	end Antenna;
+
+	device implementation Antenna.impl
+	end Antenna.impl;
+
 --	
 --		-- BUSes
 --	

@@ -15,9 +15,11 @@ public
 			BUS2: requires bus access Buses::I2C::I2C.impl;
 			BUS3: requires bus access Buses::SPI::SPI.impl;
 			BUS4: requires bus access Buses::SPI::SPI.impl;
-			BUS5: requires bus access Buses::I2C::I2C.impl;
 			BUS8: requires bus access Buses::Analog::Analog.impl;
 			BUS_JTAG: requires bus access Buses::UART::UART.impl;
+			-- Power
+			-- Power Buses
+			BUS_DC_OBDH_TTC: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
 	end OBDH;
 
 	system implementation OBDH.impl
@@ -39,7 +41,6 @@ public
 			OBDH_firmware: process SAT_OBDH_process::mcu.impl;
 
 			-- BUSES
-			BUS_3V3: bus Buses::Power::Power.V3DC_OBDH_TTC;
 			-- Internal buses
 			i2c_bus: bus Buses::I2C::I2C.impl;
 			spi_bus: bus Buses::SPI::SPI.impl;
@@ -48,22 +49,21 @@ public
 
 		connections
 ------ OBDH CONNECTIONS FROM POWER BUS
-
 			Vp_2a: bus access BUS8 -> current_sensor_x.power_ADC;
 			Vp_2b: bus access BUS8 -> current_sensor_y.power_ADC;
 			Vp_2c: bus access BUS8 -> current_sensor_z.power_ADC;
-			Vp_3a: bus access BUS_3V3 -> current_sensor_x.power_3v3;
-			Vp_3b: bus access BUS_3V3 -> current_sensor_y.power_3v3;
-			Vp_3c: bus access BUS_3V3 -> current_sensor_z.power_3v3;
-			Vp_4a: bus access Bus_3V3 -> current_driver_x.power_3v3;
-			Vp_4b: bus access Bus_3V3 -> current_driver_y.power_3v3;
-			Vp_4c: bus access Bus_3V3 -> current_driver_z.power_3v3;
+			Vp_3a: bus access BUS_DC_OBDH_TTC -> current_sensor_x.power_3v3;
+			Vp_3b: bus access BUS_DC_OBDH_TTC -> current_sensor_y.power_3v3;
+			Vp_3c: bus access BUS_DC_OBDH_TTC -> current_sensor_z.power_3v3;
+			Vp_4a: bus access BUS_DC_OBDH_TTC -> current_driver_x.power_3v3;
+			Vp_4b: bus access BUS_DC_OBDH_TTC -> current_driver_y.power_3v3;
+			Vp_4c: bus access BUS_DC_OBDH_TTC -> current_driver_z.power_3v3;
 			Vp_5a: bus access current_driver_x.bus_ADC -> BUS8;
 			Vp_5b: bus access current_driver_y.bus_ADC -> BUS8;
 			Vp_5c: bus access current_driver_z.bus_ADC -> BUS8;
-			Vi_1a: bus access BUS_3V3 -> imu_1.power_3v3;
-			Vi_1b: bus access BUS_3V3 -> imu_2.power_3v3;
-			Vm_1: bus access BUS_3V3 -> mcu_obdh.power_V3;
+			Vi_1a: bus access BUS_DC_OBDH_TTC -> imu_1.power_3v3;
+			Vi_1b: bus access BUS_DC_OBDH_TTC -> imu_2.power_3v3;
+			Vm_1: bus access BUS_DC_OBDH_TTC -> mcu_obdh.power_V3;
 			
 			-- COM Device <-> Processor
 			

@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="991f149c-e722-4fce-8648-c06b8f46a464" manual="true">
+    <element uuid="2e3959f1-e06b-47f7-acfd-fc6e4bef47ca" manual="true">
+      <bo>
+        <seg>classifier</seg>
+        <seg>TTC</seg>
+      </bo>
+      <position x="1024.0" y="871.0"/>
+      <size width="75.0" height="35.0"/>
+    </element>
+    <element uuid="b5277c51-8c34-4912-892e-a90521986c52" manual="true">
+      <element uuid="d54ba157-3a9f-494c-9c62-d4bc2721c912" manual="true">
+        <element uuid="f31a7c12-05da-47e7-8e77-36f1698ef258" manual="true">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>T2_1</seg>
+        </bo>
+      </element>
+      <element uuid="03398d4c-a642-48e7-a57a-f038618cd16a" manual="true">
+        <element uuid="a6f6fe4c-0ee0-4d65-b420-3cd13790dc34" manual="true">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>T2_2</seg>
+        </bo>
+      </element>
+      <element uuid="75b23537-f9a3-4b2a-9af7-5f356e46febf" manual="true">
+        <element uuid="2390a289-84c9-4393-8c71-da1f383e8dc2" manual="true">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>T2_3</seg>
+        </bo>
+      </element>
+      <element uuid="5767e94e-fb05-472a-9e7d-056f3b9546b4" manual="true">
+        <element uuid="fd0c4672-c4ea-484b-96a3-2d74253f97d1" manual="true">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>T2_4</seg>
+        </bo>
+      </element>
+      <element uuid="93bda961-b909-4673-8bce-b450da1b9d4e" manual="true">
+        <element uuid="ff1d16bb-d5a2-4c60-a56d-1af2573f7129" manual="true">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>T2_5</seg>
+        </bo>
+        <bendpoints>
+          <point x="984.0" y="465.0"/>
+          <point x="984.0" y="335.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="e5b1c2e4-9a99-4c2c-98b5-023c07b9a765" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T3_1</seg>
+        </bo>
+        <bendpoints>
+          <point x="440.0" y="180.0"/>
+          <point x="440.0" y="388.0"/>
+          <point x="868.0" y="388.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="0c979246-cfb2-4ae1-8d12-914786258dbe" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T3_2</seg>
+        </bo>
+        <bendpoints>
+          <point x="862.0" y="570.0"/>
+          <point x="862.0" y="399.66666666666663"/>
+          <point x="868.0" y="399.66666666666663"/>
+        </bendpoints>
+      </element>
+      <element uuid="91a5429a-1574-4376-a511-8c215c2614e7" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T4_1</seg>
+        </bo>
+        <bendpoints>
+          <point x="430.0" y="180.0"/>
+          <point x="430.0" y="130.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="cbc2aeb3-99d9-49a2-948f-9a2665f4c365" manual="true">
+        <element uuid="790d1475-1136-48d6-a0e6-4b0a47d2d327" manual="true">
+          <bo>
+            <seg>tag</seg>
+            <seg>unidirectional</seg>
+          </bo>
+        </element>
+        <bo>
+          <seg>connection</seg>
+          <seg>T4_2</seg>
+        </bo>
+      </element>
+      <element uuid="27d06f14-b702-4153-9ea6-b2c6ca418639" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T4_3</seg>
+        </bo>
+        <bendpoints>
+          <point x="430.0" y="310.0"/>
+          <point x="430.0" y="258.0"/>
+          <point x="868.0" y="258.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="e3271f3b-381f-4322-a088-a0da68d2a7b8" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T4_5</seg>
+        </bo>
+        <bendpoints>
+          <point x="862.0" y="213.33333333333334"/>
+          <point x="862.0" y="246.33333333333331"/>
+          <point x="868.0" y="246.33333333333331"/>
+        </bendpoints>
+      </element>
+      <element uuid="c0b42410-d766-4249-9fc2-6ab15891e956" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T5_1</seg>
+        </bo>
+      </element>
+      <element uuid="cf6538ee-f5a6-4fae-ac9b-63eca8d7804a" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T5_2</seg>
+        </bo>
+        <bendpoints>
+          <point x="430.0" y="570.0"/>
+          <point x="430.0" y="700.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="a0267bba-66cc-4286-9aee-f627873f4dc1" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T6_1</seg>
+        </bo>
+      </element>
+      <element uuid="8e800a42-b4c0-493e-ab51-d027b8b34172" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T6_11</seg>
+        </bo>
+        <bendpoints>
+          <point x="430.0" y="440.0"/>
+          <point x="430.0" y="310.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="aee92ba0-8b42-4d53-80d7-b61425c625c8" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T6_2</seg>
+        </bo>
+        <bendpoints>
+          <point x="430.0" y="310.0"/>
+          <point x="430.0" y="440.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="1989f7c5-dea4-4e40-9c99-a0f2c5aaeab7" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T6_21</seg>
+        </bo>
+      </element>
+      <element uuid="c0c77b67-0940-42d7-9bcc-5073ea188f51" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T6_3</seg>
+        </bo>
+      </element>
+      <element uuid="59fcc49b-2c44-417c-8dc9-a8b1c2b020bf" manual="true">
+        <bo>
+          <seg>connection</seg>
+          <seg>T6_4</seg>
+        </bo>
+        <bendpoints>
+          <point x="440.0" y="230.0"/>
+          <point x="440.0" y="180.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="ced8be1a-3df1-448a-a50e-5da113da74dc" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS2</seg>
+        </bo>
+        <position y="228.0"/>
+      </element>
+      <element uuid="4503fa42-b2e3-49e2-8ab0-144a13fdb50f" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS3</seg>
+        </bo>
+        <position y="668.0"/>
+      </element>
+      <element uuid="414db422-86fe-4e30-987e-e111d7f6462e" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS4</seg>
+        </bo>
+        <position y="148.0"/>
+      </element>
+      <element uuid="9ffdab37-2b5b-4c97-8384-0d362d8958fa" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS5</seg>
+        </bo>
+        <position y="358.0"/>
+      </element>
+      <element uuid="bb46bf2e-8245-479b-8ef3-37a691a0b73e" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS6</seg>
+        </bo>
+        <position y="98.0"/>
+      </element>
+      <element uuid="5ff6db1b-ddc1-4cb1-b1a4-821bff2bd185" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS7</seg>
+        </bo>
+        <position y="488.0"/>
+      </element>
+      <element uuid="bf7d331b-bdf6-4823-a2d1-3a5a363506a6" manual="true" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS_DC_Antenna</seg>
+        </bo>
+        <position x="709.0" y="253.0"/>
+      </element>
+      <element uuid="18612355-c139-42fb-8d01-62ed650bc429" manual="true" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS_DC_EPS_Beacon</seg>
+        </bo>
+        <position x="679.0" y="65.0"/>
+      </element>
+      <element uuid="a1e6906b-563e-4799-bb53-0d308ad5554d" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS_DC_OBDH_TTC</seg>
+        </bo>
+        <position y="788.0"/>
+      </element>
+      <element uuid="f4da9bc6-54fa-4553-80ab-a482570a9cc4" manual="true" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS_DC_PA_Beacon</seg>
+        </bo>
+        <position x="688.0" y="538.0"/>
+      </element>
+      <element uuid="82666cc1-c481-41f3-b90b-43949b3ad1fb" manual="true" dockArea="right">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS_DC_PA_TTC</seg>
+        </bo>
+        <position x="711.0" y="668.0"/>
+      </element>
+      <element uuid="c75262d5-2544-4b92-b2be-db1330673dd4" manual="true" dockArea="left">
+        <bo>
+          <seg>feature</seg>
+          <seg>BUS_JTAG</seg>
+        </bo>
+        <position y="48.0"/>
+      </element>
+      <element uuid="34f842d7-8dd5-40d5-8bb3-35ce5b9ea0df" manual="true">
+        <bo>
+          <seg>realization</seg>
+        </bo>
+        <bendpoints>
+          <point x="171.0" y="50.0"/>
+          <point x="155.0" y="50.0"/>
+          <point x="155.0" y="900.0"/>
+          <point x="1032.0" y="900.0"/>
+        </bendpoints>
+      </element>
+      <element uuid="28ca2a1b-9bf6-492e-83fc-56eeec2992d4" manual="true">
+        <element uuid="57e6a995-0d6b-4f01-ab30-0780a2c84ba7" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>i2c_bus</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="173b5e97-607a-4c1e-ae95-0adc819ce9f3" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>power_antenna</seg>
+          </bo>
+          <position x="271.0" y="35.0"/>
+        </element>
+        <element uuid="0151f30f-7e68-4840-b948-23dad54399e7" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>radio_bus</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>antenna_beacon</seg>
+        </bo>
+        <position x="289.0" y="218.0"/>
+        <size width="381.0" height="110.0"/>
+      </element>
+      <element uuid="a23c66f9-3113-4e34-8422-d2e8cf3a4860" manual="true">
+        <element uuid="311a2b5a-7fd0-4ea9-ac54-199c88786bc1" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>i2c_bus</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="7d921b30-a115-405d-b4f0-a66a5a7f62c2" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>power_antenna</seg>
+          </bo>
+          <position x="255.0" y="35.0"/>
+        </element>
+        <element uuid="56f48684-fc37-4321-bf09-a03f31d12d99" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>radio_bus</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>antenna_main</seg>
+        </bo>
+        <position x="294.0" y="348.0"/>
+        <size width="365.0" height="110.0"/>
+      </element>
+      <element uuid="e3dc48dc-066d-48b0-bbeb-44074023752e" manual="true">
+        <element uuid="950e6722-9bf9-4e31-90f9-df2af68b78d5" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>power_pa_beacon</seg>
+          </bo>
+          <position x="272.0" y="60.0"/>
+        </element>
+        <element uuid="cdc4f090-eb82-4090-9561-02303ccf329d" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>power_pa_ttc</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="4805801b-52a5-4047-b315-7a71a9c37ead" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>radio_bus</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="02bcc9eb-93e6-4b2f-ad96-c24d75a49c62" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>spi_bus</seg>
+          </bo>
+          <position x="343.0" y="10.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>beacon_radio</seg>
+        </bo>
+        <position x="275.0" y="478.0"/>
+        <size width="402.0" height="110.0"/>
+      </element>
+      <element uuid="3c8fba8b-2249-4f8e-bd09-b6ef271f12a1" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>i2c_bus</seg>
+        </bo>
+        <position x="697.0" y="185.0"/>
+        <size width="101.0" height="35.0"/>
+      </element>
+      <element uuid="a85c0991-a05e-4d25-a201-552732b26425" manual="true">
+        <element uuid="5b1f3acb-8df0-42ac-8d00-44c94b7c7ab3" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>power_pa_beacon</seg>
+          </bo>
+          <position y="110.0"/>
+        </element>
+        <element uuid="b40e09bc-188d-4884-82a9-4039f100af2a" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>power_pa_ttc</seg>
+          </bo>
+          <position x="289.0" y="60.0"/>
+        </element>
+        <element uuid="de265a24-ff0a-42a3-a216-2d611855f35f" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>radio_bus</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <element uuid="2375fcc9-915a-419b-a283-495be6332210" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>spi_bus</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>main_radio</seg>
+        </bo>
+        <position x="280.0" y="608.0"/>
+        <size width="386.0" height="160.0"/>
+      </element>
+      <element uuid="887c33dd-10f5-4903-a914-3d1e223f7433" manual="true">
+        <element uuid="c2e6b5e9-4082-4a41-b321-e36c651b5c20" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>i2c_bus</seg>
+          </bo>
+          <position x="192.0" y="93.0"/>
+        </element>
+        <element uuid="08e32a49-7855-4eb1-8c50-8df1fab4ccd4" manual="true" dockArea="right">
+          <bo>
+            <seg>feature</seg>
+            <seg>power_V3</seg>
+          </bo>
+          <position x="178.0" y="27.0"/>
+        </element>
+        <element uuid="aaad1738-c43b-4a11-ac92-86a3198893c8" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>radio_bus</seg>
+          </bo>
+          <position y="110.0"/>
+        </element>
+        <element uuid="3ecd287b-12c8-4d45-9779-3a734b839405" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>spi_bus</seg>
+          </bo>
+          <position y="60.0"/>
+        </element>
+        <element uuid="4f331ef3-db6f-4a0d-b5b6-89bb363efe72" manual="true" dockArea="left">
+          <bo>
+            <seg>feature</seg>
+            <seg>uart_bus</seg>
+          </bo>
+          <position y="10.0"/>
+        </element>
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>mcu_ttc</seg>
+        </bo>
+        <position x="366.0" y="38.0"/>
+        <size width="250.0" height="160.0"/>
+      </element>
+      <element uuid="9825f0fa-8f37-42c3-8ae7-6258f0b5ac25" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>spi_bus</seg>
+        </bo>
+        <position x="697.0" y="326.0"/>
+        <size width="102.0" height="35.0"/>
+      </element>
+      <element uuid="5317b6cd-3253-49a2-9d34-54e4cf4ca699" manual="true">
+        <bo>
+          <seg>subcomponent</seg>
+          <seg>TTC_Firmware</seg>
+        </bo>
+        <position x="338.0" y="788.0"/>
+        <size width="149.0" height="35.0"/>
+      </element>
+      <bo>
+        <seg>classifier</seg>
+        <seg>TTC.impl</seg>
+      </bo>
+      <position x="163.0" y="38.0"/>
+      <size width="841.0" height="840.0"/>
+    </element>
+    <bo>
+      <seg>package</seg>
+      <seg>SAT_TTC_System</seg>
+    </bo>
+    <position x="12.0" y="12.0"/>
+    <size width="1111.0" height="929.0"/>
+  </element>
+  <config type="package" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>package</seg>
+      <seg>SAT_TTC_System</seg>
+    </context>
+  </config>
+</diagram:Diagram>
