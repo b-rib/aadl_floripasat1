@@ -97,7 +97,6 @@ public
 			T5_1: bus access BUS7 <-> antenna_main.radio_bus;
 			T5_2: bus access BUS7 <-> antenna_beacon.radio_bus;
 				-- Power Connections
-			Btp_1: bus access EPS_module.BUS_DC_Antenna -> TTC_module.BUS_DC_Antenna;
 			Btp_2: bus access EPS_module.BUS_DC_EPS_Beacon -> TTC_module.BUS_DC_EPS_Beacon;
 			Btp_3: bus access EPS_module.BUS_DC_OBDH_TTC -> TTC_module.BUS_DC_OBDH_TTC;
 			Btp_4: bus access EPS_module.BUS_DC_PA_Beacon -> TTC_module.BUS_DC_PA_Beacon;
