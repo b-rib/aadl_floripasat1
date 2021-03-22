@@ -19,7 +19,7 @@ public
 			BUS_JTAG: requires bus access Buses::UART::UART.impl;
 			-- Power
 			-- Power Buses
-			BUS_DC_OBDH_TTC: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			BUS_DC_OBDH_TTC: requires bus access Buses::Power::Power_V3DC_OBDH_TTC;
 	end OBDH;
 
 	system implementation OBDH.impl

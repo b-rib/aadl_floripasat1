@@ -1,7 +1,7 @@
 package SAT_OBDH_devices
 public
 	with Buses::I2C, Buses::SPI, Buses::Analog;
-	with common_devices, Device_Property, Data_Types;
+	with Device_Property, Data_Types, Electricity_Properties;
 	with SEI;
 	with Buses::UART;
 	with Buses::Power;
@@ -35,7 +35,7 @@ public
 			DOF6: out data port Data_Types::Six_Axis.impl;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.02 W;};
 		flows
 			f1: flow source DOF6 {latency => 200us .. 500us;};
 		properties
@@ -66,7 +66,7 @@ public
 			DOF6: out data port Data_Types::Six_Axis.impl;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.02 W;};
 		flows
 			f1: flow source DOF6 {latency => 200us .. 500us;};
 		properties
@@ -107,9 +107,13 @@ public
 		features
 			signal_in: in data port;
 			bus_ADC: requires bus access Buses::Analog::Analog;
-			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 15.0 W;};
 		properties
-			Device_Property::Power_Consume => 15.0W; -- 3 A RMS (5V)
+			Device_Property::Power_Consume => 15.0W; -- 3 A RMS (5V)z
+			Electricity_Properties::Idle_Current => 3.0 A;
+			Electricity_Properties::Input_Voltage => 5.0 V;
+			Electricity_Properties::Run_Current => 3.0 A; -- 370 uA/MHz (max 20 MHz)
+			Physical::Voltage => 5.0 V; --(max) 1.6 V (min)		
 	end DRV8833;
 
 	device implementation DRV8833.impl
@@ -120,10 +124,13 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_V3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			power_V3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.01023 W;};
 
 --			SEI::PowerBudget => 0.01023 W;
 		properties
+			Electricity_Properties::Idle_Current => 23.680 mA;
+			Electricity_Properties::Input_Voltage => 3.3 V;
+			Electricity_Properties::Run_Current => 23.680 mA; -- 370 uA/MHz (max 20 MHz)
 			Clock_Period => 50ns; -- 20 MHz(max)
 			Physical::Voltage => 3.6V; --(max) 1.6 V (min)		
 			Device_Property::Power_Consume => 0.01023W; -- Max: 0.01023, min: 0.5115 mW
@@ -136,7 +143,6 @@ public
 			sd_card: memory sd_card;
 			ic_mem1: memory IS25LP128_JBLE;
 			ic_mem2: memory IS25LP128_JBLE;
-
 	end MSP430F6659.impl;
 
 	--MCU memories
@@ -155,14 +161,15 @@ public
 		features
 			current_data: out data port;
 			power_ADC: requires bus access Buses::Analog::Analog;
-			power_3v3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
+			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.000432 W;};
 		flows
 			c: flow source current_data;
 		properties
 			Physical::Voltage => 3.6V; -- max voltage
-			SEI::PowerCapacity => 0.000432W;
+--			SEI::PowerCapacity => 0.000432W;
 			Device_Property::Temperature_Operation => (-40.0C, 125.0C);
-
+			Electricity_Properties::Idle_Current => 120.0uA;
+			Electricity_Properties::Input_Voltage => 3.3V;
 	end MAX9934TAUA;
 
 	device implementation MAX9934TAUA.impl
@@ -172,13 +179,15 @@ public
 	device TLV341AIDBVR
 		features
 			voltage_data: out data port;
-			power_V3: requires bus access Buses::Power::Power.V3DC_OBDH_TTC;
-			power_sp: requires bus access Buses::Power::Power.SolarPanel;
+			power_V3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.0004125 W;};
+			power_sp: requires bus access Buses::Power::Power_SolarPanel;
 		flows
 			v: flow source voltage_data;
 		properties
-			SEI::PowerCapacity => 0.0004125W;
-			Device_Property::Temperature_Operation => (-40.0C, 125.0C);
+--			SEI::PowerCapacity => 0.0004125 W;
+			Device_Property::Temperature_Operation => (-40.0 C,125.0 C);
+			Electricity_Properties::Idle_Current => 150.0 uA;
+			Electricity_Properties::Input_Voltage => 3.3 V;
 	end TLV341AIDBVR;
 	
 end SAT_OBDH_devices;

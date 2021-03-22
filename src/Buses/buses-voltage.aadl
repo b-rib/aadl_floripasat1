@@ -1,0 +1,57 @@
+package Buses::Power
+public
+	with Bus_Properties;
+	with SEI;
+
+	bus Power_V5DC_Payloads
+		properties
+			SEI::PowerCapacity => 15.0 W;
+
+	end Power_V5DC_Payloads;
+
+	bus Power_V3DC_EPS_Beacon
+		properties
+			SEI::PowerCapacity => 6.6 W;
+	end Power_V3DC_EPS_Beacon;
+
+	bus Power_V3DC_Antenna
+		properties
+			SEI::PowerCapacity => 6.6 W;
+	end Power_V3DC_Antenna;
+
+	bus Power_V3DC_OBDH_TTC
+		properties
+			SEI::PowerCapacity => 3.3 W;
+	end Power_V3DC_OBDH_TTC;
+
+	bus Power_V3DC_PA_TTC
+		properties
+			SEI::PowerCapacity => 16.5 W;
+	end Power_V3DC_PA_TTC;
+
+	bus Power_V3DC_PA_Beacon
+		properties
+			SEI::PowerCapacity =>  16.5 W;
+			
+	end Power_V3DC_PA_Beacon;
+
+	bus Power_VBUS --7.4V 2A
+		properties
+			SEI::PowerCapacity => 22.2 W;
+	end Power_VBUS;
+
+	bus Power_SolarPanel
+		properties
+			SEI::PowerCapacity => 4.2 W;
+	end Power_SolarPanel;
+
+	bus Power_SP_MPPT
+		properties
+			SEI::PowerCapacity => 8.4 W;
+	end Power_SP_MPPT;
+
+	bus Power_Battery
+		properties
+			SEI::PowerCapacity => 8.0 W; --?
+	end Power_Battery;
+end Buses::Power;

@@ -6,14 +6,24 @@ public
 	with Buses::UART;
 	with Buses::SPI;
 	with Buses::Power;
+	with Electricity_Properties;
+	with Physical;
+	with Device_Property;
 
 	processor MSP430F6659
 		features
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_V3: requires bus access Buses::Power::Power.V3DC_EPS_Beacon;
+			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 0.01023W;};
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
+		properties
+			Electricity_Properties::Idle_Current => 23.680mA;
+			Electricity_Properties::Input_Voltage => 3.3V;
+			Electricity_Properties::Run_Current => 23.680mA; -- 370 uA/MHz (max 20 MHz)
+			Clock_Period => 50ns; -- 20 MHz(max)
+			Physical::Voltage => 3.6V; --(max) 1.6 V (min)		
+			Device_Property::Power_Consume => 0.01023W; -- Max: 0.01023, min: 0.5115 mW
 	end MSP430F6659;
 
 	processor implementation MSP430F6659.impl
@@ -37,21 +47,21 @@ public
 	-- Transceiver for Main Radio and Beacon Radio
 	device RF4463F30
 		features
-			power_pa_beacon: requires bus access Buses::Power::Power.V3DC_PA_Beacon;
-			power_pa_ttc: requires bus access Buses::Power::Power.V3DC_PA_TTC;
+			power_pa_beacon: requires bus access Buses::Power::Power_V3DC_PA_Beacon{SEI::PowerBudget => 0.01916 W;};
+			power_pa_ttc: requires bus access Buses::Power::Power_V3DC_PA_TTC{SEI::PowerBudget => 0.01916 W;};
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
 			mcu_data: in data port; -- spi connection to mcu
 		properties
 			Clock_Period => 685ps;
-			SEI::PowerCapacity => 1.0W;
+--			SEI::PowerCapacity => 1.0W;
 	end RF4463F30;
 
 	-- Antenna
 	device Antenna
 		features
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
-			power_antenna: requires bus access Buses::Power::Power.V3DC_Antenna;
+			power_antenna: requires bus access Buses::Power::Power_V3DC_Antenna{SEI::PowerBudget => 2.5 W;};
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 	end Antenna;
 

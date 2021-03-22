@@ -1,72 +1,175 @@
 package SAT_TTC_process
 public
+	with Buses::SPI, Buses::I2C, Buses::UART;
 	
 	-- PROCESS MSP
 
-		process TTC_firmware
-		--features
-			-- inputs e outputs			
+	process TTC_firmware
+		features
+			eps_data_in 			: in data port; 	-- bus6
+			obdh_data_in 			: in data port; 	-- bus3
+			obdh_data_out			: out data port;	-- bus3
+			antenna_data_in 		: in data port; 	-- bus5
+			antenna_data_out 		: out data port; 	-- bus5
+			beacon_packet			: out data port;	-- internal		
 	end TTC_firmware;
 	
 	process implementation TTC_firmware.impl
-		--subcomponents		
-			--threads
+		subcomponents
+			system_init 			: thread system_initialization.impl;
+			antenna_deploy			: thread antenna_deploy.impl;
+			NGHam_transmission 		: thread NGHam_transmission.impl;
+			AX25_transmission 		: thread AX25_transmission.impl;
+			eps_data_processing 	: thread EPS_data_processing.impl;
+			obdh_data_processing 	: thread OBDH_data_processing.impl;
+			radio_data_processing 	: thread radio_data_processing.impl;
+			beacon_radio_reception 	: thread beacon_radio_reception.impl;
+			radio_reset    			: thread radio_reset.impl;
+			beacon_reset   			: thread beacon_reset.impl;
 			
-			--connections
-				
+		connections
+			-- ANTENNA
+			c1 : port antenna_deploy.commands -> antenna_data_out;
+			c2 : port antenna_data_in -> antenna_deploy.status;
+			-- OBDH
+			c3 : port obdh_data_in -> obdh_data_processing.data_in;
+			c4 : port obdh_data_processing.data_out -> obdh_data_out;
+			-- EPS
+			c5 : port eps_data_in -> eps_data_processing.data_in;
+			-- Beacon Radio
+			c6 : port NGHam_transmission.ngmam_data_packet -> beacon_packet;
+			c7 : port AX25_transmission.ax25_data_packet -> beacon_packet;
+			-- Internals
+			c8 : port obdh_data_processing.beacon_packet -> NGHam_transmission.beacon_packet;
+			c9 : port obdh_data_processing.beacon_packet -> AX25_transmission.beacon_packet;
+			
+			c10 : port eps_data_processing.energy_level -> NGHam_transmission.energy_level;
+			c11 : port eps_data_processing.energy_level -> AX25_transmission.energy_level;
+			
 	end TTC_firmware.impl;
+				
+		
+			
+			
+	
 	
 	thread system_initialization
 		properties
 			Dispatch_Protocol => Aperiodic;
 	end system_initialization;
 	
+	thread implementation system_initialization.impl
+	end system_initialization.impl;
+	
 	
 	thread antenna_deploy
+		features
+			commands 	: out data port;
+			status 		: in data port;
 		properties
 			Dispatch_Protocol => Aperiodic;
 	end antenna_deploy;
 	
+	thread implementation antenna_deploy.impl
+	end antenna_deploy.impl;
+	
 	
 	thread NGHam_transmission
+		features
+			beacon_packet		: in data port;
+			energy_level		: in data port;
+			ngmam_data_packet	: out data port;
+			
 		properties
 			Dispatch_Protocol => Periodic;
 			Period => 10ms; -- or 20ms or 30ms, depends on EPS energy level
 	end NGHam_transmission;
 	
+	thread implementation NGHam_transmission.impl
+	end NGHam_transmission.impl;
+	
 	
 	thread AX25_transmission
+		features
+			beacon_packet		: in data port;
+			energy_level		: in data port;
+			ax25_data_packet 	: out data port;
 		properties
 			Dispatch_Protocol => Periodic;
 			Period => 10ms; -- or 20ms or 30ms, depends on EPS energy level
 	end AX25_transmission;
 	
+	thread implementation AX25_transmission.impl
+	end AX25_transmission.impl;
+	
+	
+	thread OBDH_data_processing
+		features
+			data_in : in data port;
+			data_out : out data port;
+			beacon_packet : out data port;
+		properties
+			Dispatch_Protocol => Aperiodic;
+	end OBDH_data_processing;
+	
+	thread implementation OBDH_data_processing.impl
+	end OBDH_data_processing.impl;
+	
 	
 	thread EPS_data_processing
+		features
+			data_in : in data port;
+			--data_out : out data port;
+			energy_level : out data port;
 		properties
 			Dispatch_Protocol => Aperiodic;
 	end EPS_data_processing;
 	
+	thread implementation EPS_data_processing.impl
+	end EPS_data_processing.impl;
+	
+	
 	thread radio_data_processing
+		features
+			data_in : in data port;
+			data_out : out data port;
 		properties
 			Dispatch_Protocol => Aperiodic;
 	end radio_data_processing;
 	
+	thread implementation radio_data_processing.impl
+	end radio_data_processing.impl;
+	
+	
 	thread beacon_radio_reception
+		features
+			data_in : in data port;
+			data_out : out data port;
 		properties
 			Dispatch_Protocol => Aperiodic;
 	end beacon_radio_reception;
+	
+	thread implementation beacon_radio_reception.impl
+	end beacon_radio_reception.impl;
+	
 	
 	thread radio_reset
 		properties
 			Dispatch_Protocol => Aperiodic;
 			Period => 600000 ms; -- 10min
-	end reset;
+	end radio_reset;
+	
+	thread implementation radio_reset.impl
+	end radio_reset.impl;
+	
 	
 	thread beacon_reset
 		properties
 			Dispatch_Protocol => Aperiodic;
 			Period => 43200000 ms; -- 12h
 	end beacon_reset;
+	
+	thread implementation beacon_reset.impl
+	end beacon_reset.impl;
 	
 end SAT_TTC_process;

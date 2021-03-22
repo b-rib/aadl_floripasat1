@@ -6,7 +6,7 @@
         <seg>classifier</seg>
         <seg>OBDH</seg>
       </bo>
-      <position x="1139.0" y="611.0"/>
+      <position x="1507.0" y="1396.0"/>
       <size width="90.0" height="35.0"/>
     </element>
     <element uuid="06335c61-2867-437f-9b00-abebceea7dfc" manual="true">
@@ -22,10 +22,10 @@
           <seg>C1_1c</seg>
         </bo>
         <bendpoints>
-          <point x="864.6666666666666" y="814.0"/>
-          <point x="890.0" y="814.0"/>
-          <point x="890.0" y="934.0"/>
-          <point x="926.0" y="934.0"/>
+          <point x="884.6666666666666" y="814.0"/>
+          <point x="910.0" y="814.0"/>
+          <point x="910.0" y="934.0"/>
+          <point x="946.0" y="934.0"/>
         </bendpoints>
       </element>
       <element uuid="d5038425-2b47-44dd-9252-d4d664ef772d" manual="true">
@@ -40,8 +40,8 @@
           <seg>C1_2c</seg>
         </bo>
         <bendpoints>
-          <point x="864.6666666666666" y="944.0"/>
-          <point x="926.0" y="944.0"/>
+          <point x="884.6666666666666" y="944.0"/>
+          <point x="946.0" y="944.0"/>
         </bendpoints>
       </element>
       <element uuid="52797175-e1ca-4f7d-914d-f8b37c04dcdd" manual="true">
@@ -56,10 +56,10 @@
           <seg>C1_3c</seg>
         </bo>
         <bendpoints>
-          <point x="864.6666666666666" y="684.0"/>
-          <point x="900.0" y="684.0"/>
-          <point x="900.0" y="924.0"/>
-          <point x="926.0" y="924.0"/>
+          <point x="884.6666666666666" y="684.0"/>
+          <point x="920.0" y="684.0"/>
+          <point x="920.0" y="924.0"/>
+          <point x="946.0" y="924.0"/>
         </bendpoints>
       </element>
       <element uuid="88d4922a-3bf2-4d23-a2a0-5e467f0450e4" manual="true">
@@ -74,10 +74,10 @@
           <seg>C2_1a</seg>
         </bo>
         <bendpoints>
-          <point x="1094.0" y="919.0"/>
-          <point x="1100.0" y="919.0"/>
-          <point x="1100.0" y="625.0"/>
-          <point x="1116.0" y="625.0"/>
+          <point x="1114.0" y="919.0"/>
+          <point x="1120.0" y="919.0"/>
+          <point x="1120.0" y="625.0"/>
+          <point x="1136.0" y="625.0"/>
         </bendpoints>
       </element>
       <element uuid="2c75fa35-93ca-4542-9a02-5a65d1d96ea1" manual="true">
@@ -92,10 +92,10 @@
           <seg>C2_2a</seg>
         </bo>
         <bendpoints>
-          <point x="1094.0" y="969.0"/>
-          <point x="1110.0" y="969.0"/>
-          <point x="1110.0" y="1293.0"/>
-          <point x="1116.0" y="1293.0"/>
+          <point x="1114.0" y="969.0"/>
+          <point x="1130.0" y="969.0"/>
+          <point x="1130.0" y="1293.0"/>
+          <point x="1136.0" y="1293.0"/>
         </bendpoints>
       </element>
       <element uuid="45bbbfdb-36f9-43b8-a503-91ea9b4b3a8b" manual="true">
@@ -110,8 +110,8 @@
           <seg>C2_3a</seg>
         </bo>
         <bendpoints>
-          <point x="1094.0" y="944.0"/>
-          <point x="1116.0" y="944.0"/>
+          <point x="1114.0" y="944.0"/>
+          <point x="1136.0" y="944.0"/>
         </bendpoints>
       </element>
       <element uuid="f03efdea-af13-4458-bbf5-e8ab1b74ce88" manual="true">
@@ -126,10 +126,10 @@
           <seg>C4_1</seg>
         </bo>
         <bendpoints>
-          <point x="884.0" y="1074.0"/>
-          <point x="890.0" y="1074.0"/>
-          <point x="890.0" y="954.0"/>
-          <point x="926.0" y="954.0"/>
+          <point x="904.0" y="1074.0"/>
+          <point x="910.0" y="1074.0"/>
+          <point x="910.0" y="954.0"/>
+          <point x="946.0" y="954.0"/>
         </bendpoints>
       </element>
       <element uuid="1dfdfb33-0cd6-4a3b-be03-673694a591f5" manual="true">
@@ -144,10 +144,10 @@
           <seg>C4_2</seg>
         </bo>
         <bendpoints>
-          <point x="884.0" y="1204.0"/>
-          <point x="900.0" y="1204.0"/>
-          <point x="900.0" y="964.0"/>
-          <point x="926.0" y="964.0"/>
+          <point x="904.0" y="1204.0"/>
+          <point x="920.0" y="1204.0"/>
+          <point x="920.0" y="964.0"/>
+          <point x="946.0" y="964.0"/>
         </bendpoints>
       </element>
       <element uuid="ef31bd68-1058-48f8-b354-eb7da6c9b023" manual="true">
@@ -162,10 +162,10 @@
           <seg>C5_1</seg>
         </bo>
         <bendpoints>
-          <point x="926.0" y="974.0"/>
-          <point x="910.0" y="974.0"/>
-          <point x="910.0" y="1290.6666666666667"/>
-          <point x="884.0" y="1290.6666666666667"/>
+          <point x="946.0" y="974.0"/>
+          <point x="930.0" y="974.0"/>
+          <point x="930.0" y="1290.6666666666667"/>
+          <point x="904.0" y="1290.6666666666667"/>
         </bendpoints>
       </element>
       <element uuid="97f1b187-ac8b-4d37-90f9-74d894149c21" manual="true">
@@ -180,10 +180,10 @@
           <seg>C5_2</seg>
         </bo>
         <bendpoints>
-          <point x="884.0" y="1302.3333333333333"/>
-          <point x="920.0" y="1302.3333333333333"/>
-          <point x="920.0" y="984.0"/>
-          <point x="926.0" y="984.0"/>
+          <point x="904.0" y="1302.3333333333333"/>
+          <point x="940.0" y="1302.3333333333333"/>
+          <point x="940.0" y="984.0"/>
+          <point x="946.0" y="984.0"/>
         </bendpoints>
       </element>
       <element uuid="11743334-c43a-450d-9c67-6f2f164d237f" manual="true">
@@ -198,10 +198,10 @@
           <seg>C6_1</seg>
         </bo>
         <bendpoints>
-          <point x="842.3333333333333" y="443.6666666666667"/>
-          <point x="920.0" y="443.6666666666667"/>
-          <point x="920.0" y="904.0"/>
-          <point x="926.0" y="904.0"/>
+          <point x="862.3333333333333" y="443.6666666666667"/>
+          <point x="940.0" y="443.6666666666667"/>
+          <point x="940.0" y="904.0"/>
+          <point x="946.0" y="904.0"/>
         </bendpoints>
       </element>
       <element uuid="5fa09eab-281d-4b45-9cb1-c0d4833e9390" manual="true">
@@ -216,10 +216,10 @@
           <seg>C6_2</seg>
         </bo>
         <bendpoints>
-          <point x="842.3333333333333" y="573.6666666666667"/>
-          <point x="910.0" y="573.6666666666667"/>
-          <point x="910.0" y="914.0"/>
-          <point x="926.0" y="914.0"/>
+          <point x="862.3333333333333" y="573.6666666666667"/>
+          <point x="930.0" y="573.6666666666667"/>
+          <point x="930.0" y="914.0"/>
+          <point x="946.0" y="914.0"/>
         </bendpoints>
       </element>
       <element uuid="16c37575-79ac-436a-b8ca-f1757789f7ce" manual="true">
@@ -246,10 +246,10 @@
           <seg>Vc_1</seg>
         </bo>
         <bendpoints>
-          <point x="900.0" y="285.0"/>
-          <point x="900.0" y="335.0"/>
-          <point x="1447.0" y="335.0"/>
-          <point x="1447.0" y="385.0"/>
+          <point x="920.0" y="285.0"/>
+          <point x="920.0" y="335.0"/>
+          <point x="1467.0" y="335.0"/>
+          <point x="1467.0" y="385.0"/>
         </bendpoints>
       </element>
       <element uuid="968dc962-3190-4d2b-8938-3081c88bb210" manual="true">
@@ -264,9 +264,9 @@
           <seg>Vc_1a</seg>
         </bo>
         <bendpoints>
-          <point x="890.0" y="235.0"/>
-          <point x="890.0" y="402.3333333333333"/>
-          <point x="926.0" y="402.3333333333333"/>
+          <point x="910.0" y="235.0"/>
+          <point x="910.0" y="402.3333333333333"/>
+          <point x="946.0" y="402.3333333333333"/>
         </bendpoints>
       </element>
       <element uuid="201dd9af-a704-4754-a1f7-1db30f6df4a0" manual="true">
@@ -275,7 +275,7 @@
           <seg>Vc_1b</seg>
         </bo>
         <bendpoints>
-          <point x="930.0" y="412.3333333333333"/>
+          <point x="950.0" y="412.3333333333333"/>
         </bendpoints>
       </element>
       <element uuid="c69567ba-4d19-46b2-93fb-e4ee1b35e288" manual="true">
@@ -284,9 +284,9 @@
           <seg>Vc_1c</seg>
         </bo>
         <bendpoints>
-          <point x="890.0" y="542.3333333333333"/>
-          <point x="890.0" y="422.3333333333333"/>
-          <point x="926.0" y="422.3333333333333"/>
+          <point x="910.0" y="542.3333333333333"/>
+          <point x="910.0" y="422.3333333333333"/>
+          <point x="946.0" y="422.3333333333333"/>
         </bendpoints>
       </element>
       <element uuid="8c17379e-4270-47ba-838e-5d69571c9f50" manual="true">
@@ -301,8 +301,8 @@
           <seg>Vc_2</seg>
         </bo>
         <bendpoints>
-          <point x="1447.0" y="235.0"/>
-          <point x="1447.0" y="285.0"/>
+          <point x="1467.0" y="235.0"/>
+          <point x="1467.0" y="285.0"/>
         </bendpoints>
       </element>
       <element uuid="682bbcbb-8f90-4883-a279-140094966f51" manual="true">
@@ -311,10 +311,10 @@
           <seg>Vc_2a</seg>
         </bo>
         <bendpoints>
-          <point x="884.0" y="105.5"/>
-          <point x="900.0" y="105.5"/>
-          <point x="900.0" y="273.3333333333333"/>
-          <point x="926.0" y="273.3333333333333"/>
+          <point x="904.0" y="105.5"/>
+          <point x="920.0" y="105.5"/>
+          <point x="920.0" y="273.3333333333333"/>
+          <point x="946.0" y="273.3333333333333"/>
         </bendpoints>
       </element>
       <element uuid="607e275f-5cc7-41c9-a2bf-30868958aeb5" manual="true">
@@ -323,7 +323,7 @@
           <seg>Vc_2b</seg>
         </bo>
         <bendpoints>
-          <point x="930.0" y="285.0"/>
+          <point x="950.0" y="285.0"/>
         </bendpoints>
       </element>
       <element uuid="256e9197-65d8-48ae-b66a-cc6c809b6f0e" manual="true">
@@ -338,10 +338,10 @@
           <seg>Vc_3</seg>
         </bo>
         <bendpoints>
-          <point x="900.0" y="285.0"/>
-          <point x="900.0" y="335.0"/>
-          <point x="1447.0" y="335.0"/>
-          <point x="1447.0" y="435.0"/>
+          <point x="920.0" y="285.0"/>
+          <point x="920.0" y="335.0"/>
+          <point x="1467.0" y="335.0"/>
+          <point x="1467.0" y="435.0"/>
         </bendpoints>
       </element>
       <element uuid="98b6c82b-42f9-470f-a5eb-c7c942f65d6e" manual="true">
@@ -356,8 +356,8 @@
           <seg>Vc_4</seg>
         </bo>
         <bendpoints>
-          <point x="900.0" y="285.0"/>
-          <point x="900.0" y="335.0"/>
+          <point x="920.0" y="285.0"/>
+          <point x="920.0" y="335.0"/>
         </bendpoints>
       </element>
       <element uuid="01c9b905-2ba2-4b5c-afdf-5748f325f36e" manual="true">
@@ -384,8 +384,8 @@
           <seg>Vi_1a</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="399.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="399.0"/>
         </bendpoints>
       </element>
       <element uuid="80c893aa-4b08-48cf-ba34-a479729dc10f" manual="true">
@@ -400,8 +400,8 @@
           <seg>Vi_1b</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="529.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="529.0"/>
         </bendpoints>
       </element>
       <element uuid="319afcef-b435-46a5-b289-dd871537423d" manual="true">
@@ -428,8 +428,8 @@
           <seg>Vp_2a</seg>
         </bo>
         <bendpoints>
-          <point x="490.0" y="607.0"/>
-          <point x="490.0" y="851.0"/>
+          <point x="510.0" y="607.0"/>
+          <point x="510.0" y="851.0"/>
         </bendpoints>
       </element>
       <element uuid="c6074130-215a-4f97-8ecb-a90e683e9e5a" manual="true">
@@ -444,8 +444,8 @@
           <seg>Vp_2b</seg>
         </bo>
         <bendpoints>
-          <point x="490.0" y="607.0"/>
-          <point x="490.0" y="981.0"/>
+          <point x="510.0" y="607.0"/>
+          <point x="510.0" y="981.0"/>
         </bendpoints>
       </element>
       <element uuid="40002f5c-24f4-4409-a42c-0a5c00a26115" manual="true">
@@ -460,8 +460,8 @@
           <seg>Vp_2c</seg>
         </bo>
         <bendpoints>
-          <point x="490.0" y="607.0"/>
-          <point x="490.0" y="721.0"/>
+          <point x="510.0" y="607.0"/>
+          <point x="510.0" y="721.0"/>
         </bendpoints>
       </element>
       <element uuid="d17fb58e-94fe-4491-b119-cbdc6e64236a" manual="true">
@@ -476,8 +476,8 @@
           <seg>Vp_3a</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="801.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="801.0"/>
         </bendpoints>
       </element>
       <element uuid="aae8a0a7-9899-46a5-a5df-d63ced32a227" manual="true">
@@ -492,8 +492,8 @@
           <seg>Vp_3b</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="931.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="931.0"/>
         </bendpoints>
       </element>
       <element uuid="32859404-f66c-48eb-becc-5a693946a1be" manual="true">
@@ -508,8 +508,8 @@
           <seg>Vp_3c</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="671.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="671.0"/>
         </bendpoints>
       </element>
       <element uuid="6f5bdafa-2b6f-4813-8af9-fcf93fd15f0b" manual="true">
@@ -524,10 +524,10 @@
           <seg>Vp_4a</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="346.0"/>
-          <point x="1100.0" y="346.0"/>
-          <point x="1100.0" y="557.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="346.0"/>
+          <point x="1120.0" y="346.0"/>
+          <point x="1120.0" y="557.0"/>
         </bendpoints>
       </element>
       <element uuid="060a4429-754f-4241-880a-2eb1a124252d" manual="true">
@@ -542,8 +542,8 @@
           <seg>Vp_4b</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="1335.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="1335.0"/>
         </bendpoints>
       </element>
       <element uuid="e172be21-9e80-4c0c-b431-05e7facf7285" manual="true">
@@ -558,10 +558,10 @@
           <seg>Vp_4c</seg>
         </bo>
         <bendpoints>
-          <point x="500.0" y="235.0"/>
-          <point x="500.0" y="618.0"/>
-          <point x="1110.0" y="618.0"/>
-          <point x="1110.0" y="926.0"/>
+          <point x="520.0" y="235.0"/>
+          <point x="520.0" y="618.0"/>
+          <point x="1130.0" y="618.0"/>
+          <point x="1130.0" y="926.0"/>
         </bendpoints>
       </element>
       <element uuid="96b56037-ab86-48a3-ac6b-e1c57a7cb516" manual="true">
@@ -588,10 +588,10 @@
           <seg>Vp_5b</seg>
         </bo>
         <bendpoints>
-          <point x="1100.0" y="1385.0"/>
-          <point x="1100.0" y="1346.0"/>
-          <point x="490.0" y="1346.0"/>
-          <point x="490.0" y="607.0"/>
+          <point x="1120.0" y="1385.0"/>
+          <point x="1120.0" y="1346.0"/>
+          <point x="510.0" y="1346.0"/>
+          <point x="510.0" y="607.0"/>
         </bendpoints>
       </element>
       <element uuid="40dbd96b-8af6-487c-a37a-e954c19e8b83" manual="true">
@@ -606,10 +606,10 @@
           <seg>Vp_5c</seg>
         </bo>
         <bendpoints>
-          <point x="1100.0" y="986.0"/>
-          <point x="1100.0" y="1324.0"/>
-          <point x="490.0" y="1324.0"/>
-          <point x="490.0" y="607.0"/>
+          <point x="1120.0" y="986.0"/>
+          <point x="1120.0" y="1324.0"/>
+          <point x="510.0" y="1324.0"/>
+          <point x="510.0" y="607.0"/>
         </bendpoints>
       </element>
       <element uuid="87cc1330-e3bf-477a-b47f-1edcf4f7c329" manual="true" dockArea="right">
@@ -673,8 +673,10 @@
           <seg>realization</seg>
         </bo>
         <bendpoints>
-          <point x="1135.0" y="640.0"/>
-          <point x="1147.0" y="640.0"/>
+          <point x="186.0" y="50.0"/>
+          <point x="170.0" y="50.0"/>
+          <point x="170.0" y="1425.0"/>
+          <point x="1515.0" y="1425.0"/>
         </bendpoints>
       </element>
       <element uuid="2aa06af4-3e9d-48cc-b0b8-8912cdfa7923" manual="true">
@@ -971,14 +973,14 @@
             <seg>feature</seg>
             <seg>power_sp</seg>
           </bo>
-          <position y="10.0"/>
+          <position y="60.0"/>
         </element>
         <element uuid="774d3174-6b88-4e16-8110-a27ba4691ec5" manual="true" dockArea="left">
           <bo>
             <seg>feature</seg>
             <seg>power_V3</seg>
           </bo>
-          <position y="60.0"/>
+          <position y="10.0"/>
         </element>
         <bo>
           <seg>subcomponent</seg>
@@ -991,7 +993,7 @@
         <seg>classifier</seg>
         <seg>OBDH.impl</seg>
       </bo>
-      <position x="158.0" y="38.0"/>
+      <position x="178.0" y="38.0"/>
       <size width="1309.0" height="1365.0"/>
     </element>
     <bo>
@@ -999,7 +1001,7 @@
       <seg>SAT_OBDH_System</seg>
     </bo>
     <position x="12.0" y="12.0"/>
-    <size width="1467.0" height="1403.0"/>
+    <size width="1609.0" height="1443.0"/>
   </element>
   <config type="package" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>

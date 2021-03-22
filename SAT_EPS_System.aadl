@@ -13,19 +13,19 @@ public
 			BUS6: requires bus access Buses::UART::UART.impl;
 			BUS_JTAG: requires bus access Buses::UART::UART.impl;
 			-- Power Buses
-			BUS_DC_EPS_Beacon: provides bus access Buses::Power::Power.V3DC_EPS_Beacon;
-			BUS_DC_Antenna: provides bus access Buses::Power::Power.V3DC_Antenna;
-			BUS_DC_OBDH_TTC: provides bus access Buses::Power::Power.V3DC_OBDH_TTC;
-			BUS_DC_PA_TTC: provides bus access Buses::Power::Power.V3DC_PA_TTC;
-			BUS_DC_PA_Beacon: provides bus access Buses::Power::Power.V3DC_PA_Beacon;
-			BUS_DC_Payloads: provides bus access Buses::Power::Power.V5DC_Payloads;
+			BUS_DC_EPS_Beacon: provides bus access Buses::Power::Power_V3DC_EPS_Beacon;
+			BUS_DC_Antenna: provides bus access Buses::Power::Power_V3DC_Antenna;
+			BUS_DC_OBDH_TTC: provides bus access Buses::Power::Power_V3DC_OBDH_TTC;
+			BUS_DC_PA_TTC: provides bus access Buses::Power::Power_V3DC_PA_TTC;
+			BUS_DC_PA_Beacon: provides bus access Buses::Power::Power_V3DC_PA_Beacon;
+			BUS_DC_Payloads: provides bus access Buses::Power::Power_V5DC_Payloads;
 						-- Solar Panel Connection
-			BUS_SP_ym: requires bus access Buses::Power::Power.SolarPanel;
-			BUS_SP_xp: requires bus access Buses::Power::Power.SolarPanel;
-			BUS_SP_xm: requires bus access Buses::Power::Power.SolarPanel;
-			BUS_SP_zp: requires bus access Buses::Power::Power.SolarPanel;
-			BUS_SP_zm: requires bus access Buses::Power::Power.SolarPanel;
-			BUS_SP_yp: requires bus access Buses::Power::Power.SolarPanel;		
+			BUS_SP_ym: requires bus access Buses::Power::Power_SolarPanel;
+			BUS_SP_xp: requires bus access Buses::Power::Power_SolarPanel;
+			BUS_SP_xm: requires bus access Buses::Power::Power_SolarPanel;
+			BUS_SP_zp: requires bus access Buses::Power::Power_SolarPanel;
+			BUS_SP_zm: requires bus access Buses::Power::Power_SolarPanel;
+			BUS_SP_yp: requires bus access Buses::Power::Power_SolarPanel;		
 			
 	end EPS;
 
@@ -111,14 +111,25 @@ public
 			Vp_2e: bus access BUS_SP_zm  -> sens_V_sp_3.power_sp;
 			Vp_2f: bus access BUS_SP_yp -> sens_V_sp_3.power_sp;
 
-			V3_1c: bus access mppt_1.power_V3 -> DC_EPS_Beacon.power_V3;
-			V3_1d: bus access mppt_2.power_V3 -> DC_EPS_Beacon.power_V3;
-			V3_1e: bus access mppt_3.power_V3 -> DC_EPS_Beacon.power_V3;
+			V3_1c: bus access DC_EPS_Beacon.power_V3 -> mppt_1.power_V3;
+			V3_1d: bus access DC_EPS_Beacon.power_V3 -> mppt_2.power_V3;
+			V3_1e: bus access DC_EPS_Beacon.power_V3 -> mppt_3.power_V3;
+			
+			V2_2a: bus access DC_EPS_Beacon.power_V3 -> sens_I_sp_ym.power_V3;
+			V2_2b: bus access DC_EPS_Beacon.power_V3 -> sens_I_sp_xp.power_V3;
+			V2_2c: bus access DC_EPS_Beacon.power_V3 -> sens_I_sp_xm.power_V3;
+			V2_2d: bus access DC_EPS_Beacon.power_V3 -> sens_I_sp_zp.power_V3;
+			V2_2e: bus access DC_EPS_Beacon.power_V3 -> sens_I_sp_zm.power_V3;
+			V2_2f: bus access DC_EPS_Beacon.power_V3 -> sens_I_sp_yp.power_V3;
+			V2_2g: bus access DC_EPS_Beacon.power_V3 -> sens_V_sp_1.power_V3;
+			V2_2h: bus access DC_EPS_Beacon.power_V3 -> sens_V_sp_2.power_V3;
+			V2_2i: bus access DC_EPS_Beacon.power_V3 -> sens_V_sp_3.power_V3;
+			
 
-			V3_1: bus access mcu_eps.power_V3 -> DC_EPS_Beacon.power_V3;
-			V3_1b: bus access temp_sensor.power_V3 -> DC_EPS_Beacon.power_V3;
-			V3_1f: bus access lmc555.power_V3 -> DC_EPS_Beacon.power_V3;
-			V3_1g: bus access heat_driver.power_V3 <-> DC_EPS_Beacon.power_V3;
+			V3_1: bus access DC_EPS_Beacon.power_V3 -> mcu_eps.power_V3;
+			V3_1b: bus access DC_EPS_Beacon.power_V3 -> temp_sensor.power_V3;
+			V3_1f: bus access DC_EPS_Beacon.power_V3 -> lmc555.power_V3;
+			V3_1g: bus access DC_EPS_Beacon.power_V3 -> heat_driver.power_V3;
 
 			Vb_0a: bus access mppt_1.power_mppt -> battery_monitor.power_solar_panels;
 			Vb_0b: bus access mppt_2.power_mppt -> battery_monitor.power_solar_panels;

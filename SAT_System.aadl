@@ -11,7 +11,7 @@ public
 --		BUS2: provides bus access Buses::I2C::I2C.impl;
 --		BUS3: provides bus access Buses::SPI::SPI.impl;
 --		BUS4: provides bus access Buses::SPI::SPI.impl;
---		BUS5: provides bus access Buses::I2C::I2C.impl;
+--		BUS5: provides bus access Buses::I2C::I2C.impl;s
 --		BUS6: provides bus access Buses::UART::UART.impl;
 --		BUS7: provides bus access Buses::Radio::Radio.impl;
 --		BUS8:provides bus access Buses::Analog::Analog.impl;
@@ -49,7 +49,7 @@ public
 			BUS7: bus Buses::Radio::Radio.impl;
 			BUS8: bus Buses::Analog::Analog.impl;
 			BUS_JTAG: bus Buses::UART::UART.impl;
---		
+		
 		connections
 			-- BUS CONNECTIONS
 
