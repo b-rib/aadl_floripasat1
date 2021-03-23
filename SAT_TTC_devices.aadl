@@ -19,7 +19,7 @@ public
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
 		properties
 			Electricity_Properties::Idle_Current => 23.680mA;
-			Electricity_Properties::Input_Voltage => 3.3V;
+			Electricity_Properties::Input_Voltage => 3.3V;	
 			Electricity_Properties::Run_Current => 23.680mA; -- 370 uA/MHz (max 20 MHz)
 			Clock_Period => 50ns; -- 20 MHz(max)
 			Physical::Voltage => 3.6V; --(max) 1.6 V (min)		
@@ -54,6 +54,7 @@ public
 			mcu_data: in data port; -- spi connection to mcu
 		properties
 			Clock_Period => 685ps;
+			Communication_Properties::Data_Rate => 1 MBytesps;
 --			SEI::PowerCapacity => 1.0W;
 	end RF4463F30;
 
@@ -68,31 +69,4 @@ public
 	device implementation Antenna.impl
 	end Antenna.impl;
 
---	
---		-- BUSes
---	
---		-- BUS3: OBDH uC <-> TTC MCU
---	bus BUS3
---		
---	end BUS3;
---		
---		-- BUS4: OBDH <-> Main Radio
---	bus BUS4
---		
---	end BUS4;
---	
---		-- BUS5: TTC MCU <-> Antenna MUC 2
---	bus BUS5
---		
---	end BUS5;
---		
---		-- BUS6: EPS <-> TTC MCU
---	bus BUS6
---		
---	end BUS6;
---	
---		-- BUS7: Main Radio and Beacon Ratio <-> Antennas
---	bus BUS7
---		
---	end BUS7;
 end SAT_TTC_devices;

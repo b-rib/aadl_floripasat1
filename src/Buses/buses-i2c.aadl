@@ -24,9 +24,9 @@ public
 
 	bus implementation I2C.impl
 		properties
-			Bus_Properties::Bandwidth => 100_000 bitsps;
+			Bus_Properties::Bandwidth => 100000 bitsps;
 			Bus_Properties::Available_Bandwidth => ( 100000 bitsps , 400000 bitsps, 118000 bitsps);
-			Latency => 1Ms .. 1Ms;
+			Latency => 1Ms .. 1Ms;	
 			Data_Size => 2 Bytes;
 	--Bus_Properties::Bus_Bytes_Transfer => 
 	end I2C.impl;

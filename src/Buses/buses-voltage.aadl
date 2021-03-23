@@ -1,6 +1,6 @@
 package Buses::Power
 public
-	with Bus_Properties;
+--	with Bus_Properties;
 	with SEI;
 
 	bus Power_V5DC_Payloads

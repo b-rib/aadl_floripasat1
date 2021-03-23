@@ -107,10 +107,10 @@ public
 		features
 			signal_in: in data port;
 			bus_ADC: requires bus access Buses::Analog::Analog;
-			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 15.0 W;};
+			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 1.5 W;};
 		properties
-			Device_Property::Power_Consume => 15.0W; -- 3 A RMS (5V)z
-			Electricity_Properties::Idle_Current => 3.0 A;
+			Device_Property::Power_Consume => 1.5 W; -- 300 mA RMS (5V)
+			Electricity_Properties::Idle_Current => 300.0 mA;
 			Electricity_Properties::Input_Voltage => 5.0 V;
 			Electricity_Properties::Run_Current => 3.0 A; -- 370 uA/MHz (max 20 MHz)
 			Physical::Voltage => 5.0 V; --(max) 1.6 V (min)		
