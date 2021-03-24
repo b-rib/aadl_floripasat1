@@ -8,7 +8,9 @@ public
 		features
 			data_out: out data port;
 			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
-			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
+--			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
+			power_bus: requires bus access Buses::Power::Power_bus;
+
 	end RUSH_payload;
 
 	processor implementation RUSH_payload.impl
@@ -19,7 +21,8 @@ public
 		features
 			data_out: out data port;
 			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
-			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
+--			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
+			power_bus: requires bus access Buses::Power::Power_bus;
 	end Joinville_Payload;
 
 	processor implementation Joinville_Payload.impl
@@ -29,7 +32,9 @@ public
 	processor FS_Interface
 		features
 			uart_bus: requires bus access Buses::UART::UART.impl;
-			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
+--			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
+			power_bus: requires bus access Buses::Power::Power_bus;
+
 	end FS_Interface;
 
 	processor implementation FS_Interface.impl

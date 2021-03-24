@@ -54,12 +54,12 @@ public
 			-- BUS CONNECTIONS
 
 			-- EPS
-			Besp1: bus access solar_panel_ym.power_SP -> EPS_module.BUS_SP_ym;
-			Besp2: bus access solar_panel_xp.power_SP -> EPS_module.BUS_SP_xp;
-			Besp3: bus access solar_panel_xm.power_SP -> EPS_module.BUS_SP_xm;
-			Besp4: bus access solar_panel_zp.power_SP -> EPS_module.BUS_SP_zp;
-			Besp5: bus access solar_panel_zm.power_SP -> EPS_module.BUS_SP_zm;
-			Besp6: bus access solar_panel_yp.power_SP -> EPS_module.BUS_SP_yp;
+			Besp1: bus access solar_panel_ym.power -> EPS_module.BUS_SP_ym;
+			Besp2: bus access solar_panel_xp.power -> EPS_module.BUS_SP_xp;
+			Besp3: bus access solar_panel_xm.power -> EPS_module.BUS_SP_xm;
+			Besp4: bus access solar_panel_zp.power -> EPS_module.BUS_SP_zp;
+			Besp5: bus access solar_panel_zm.power -> EPS_module.BUS_SP_zm;
+			Besp6: bus access solar_panel_yp.power -> EPS_module.BUS_SP_yp;
 			
 			Besp_1: bus access solar_panel_ym.analog_bus <-> BUS8;
 			Besp_2: bus access solar_panel_xp.analog_bus <-> BUS8;

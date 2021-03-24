@@ -54,4 +54,8 @@ public
 		properties
 			SEI::PowerCapacity => 8.0 W; --?
 	end Power_Battery;
+	bus Power_bus
+		properties
+			SEI::PowerCapacity => 22.2 W;
+	end Power_bus;
 end Buses::Power;

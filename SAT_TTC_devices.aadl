@@ -15,7 +15,8 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 0.01023W;};
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 0.01023W;};
+			power_V3: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.01023W;};
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
 		properties
 			Electricity_Properties::Idle_Current => 23.680mA;
@@ -47,8 +48,10 @@ public
 	-- Transceiver for Main Radio and Beacon Radio
 	device RF4463F30
 		features
-			power_pa_beacon: requires bus access Buses::Power::Power_V3DC_PA_Beacon{SEI::PowerBudget => 0.01916 W;};
-			power_pa_ttc: requires bus access Buses::Power::Power_V3DC_PA_TTC{SEI::PowerBudget => 0.01916 W;};
+--			power_pa_beacon: requires bus access Buses::Power::Power_V3DC_PA_Beacon{SEI::PowerBudget => 0.01916 W;};
+--			power_pa_ttc: requires bus access Buses::Power::Power_V3DC_PA_TTC{SEI::PowerBudget => 0.01916 W;};
+			power_pa_ttc: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.01916 W;};
+			power_pa_beacon: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.01916 W;};
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
 			mcu_data: in data port; -- spi connection to mcu
@@ -62,7 +65,8 @@ public
 	device Antenna
 		features
 			radio_bus: requires bus access Buses::Radio::Radio.impl;
-			power_antenna: requires bus access Buses::Power::Power_V3DC_Antenna{SEI::PowerBudget => 2.5 W;};
+--			power_antenna: requires bus access Buses::Power::Power_V3DC_Antenna{SEI::PowerBudget => 2.5 W;};
+			power_antenna: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 2.5 W;};
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 	end Antenna;
 

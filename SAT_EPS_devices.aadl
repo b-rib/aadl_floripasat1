@@ -15,7 +15,8 @@ public
 			magnetorq_in: in data port;
 			coarse_sensor: out data port;
 			analog_bus: requires bus access Buses::Analog::Analog.impl;
-			power_SP: provides bus access Buses::Power::Power_SolarPanel{SEI::PowerSupply => 2.4 W;};
+--			power_SP: provides bus access Buses::Power::Power_SolarPanel{SEI::PowerSupply => 2.4 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerSupply => 2.4 W;};
 
 		properties
 			SEI::PowerCapacity => 2.4W; --(2270 ... 2400) W;
@@ -29,7 +30,8 @@ public
 	device LMC555
 		features
 			out_data: out data port;
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget =>  0.000075W;};
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget =>  0.000075W;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 2.4 W;};	
 			trigger_in: in event port;
 		properties
 --			SEI::PowerCapacity => 0.000075W;
@@ -47,7 +49,8 @@ public
 		features
 			temp_data: out data port;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget =>  0.00066W;};
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget =>  0.00066W;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.00066 W;};
 		flows
 			t: flow source temp_data;
 		properties
@@ -63,29 +66,25 @@ public
 -- Battery monitor
 	device battery_monitor
 		features
-			solar_power: in data port;
-			battery_power: in data port;
-			solar_power_out: out data port;
 			status: out data port;
-			vbus: provides bus access Buses::Power::Power_VBUS;
-			power_solar_panels: requires bus access Buses::Power::Power_SP_MPPT;
-			power_battery: requires bus access Buses::Power::Power_Battery;
+--			vbus: provides bus access Buses::Power::Power_VBUS;
+--			power_solar_panels: requires bus access Buses::Power::Power_SP_MPPT;
+--			power_battery: requires bus access Buses::Power::Power_Battery;
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.0 mW;};
 	end battery_monitor;
 
 -- Battery charger
 	device battery_charger
 		features
-			power_in: in data port;
-			power_out: out data port;
-			power_battery: requires bus access Buses::Power::Power_Battery;
+--			power_battery: requires bus access Buses::Power::Power_Battery;
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.000 W;};
 	end battery_charger;
 
 -- Battery
 	device battery
 		features
-			power_out: out data port;
-			power_in: in data port;
-			power_battery: provides bus access Buses::Power::Power_Battery{SEI::PowerSupply => 22.2 W;};
+--			power_battery: provides bus access Buses::Power::Power_Battery{SEI::PowerSupply => 22.2 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerSupply => 22.2 W;};
 		properties
 			SEI::PowerCapacity => 22.2W; -- V: 3.78V I: 2950 mA 7.4V - 3A
 			Device_Property::Power_Provide => 11.15W;
@@ -103,8 +102,9 @@ public
 			pwm1_in: in data port;
 			pwm2_in: in data port;
 			data_out: out data port;
-			vbus: requires bus access Buses::Power::Power_VBUS;
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon;
+--			vbus: requires bus access Buses::Power::Power_VBUS;
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon;
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 1.0 W;};
 	end heat_driver;
 
 	device implementation heat_driver.impl
@@ -115,11 +115,10 @@ public
 		features
 			pwm_in: in data port;
 			lmc555_in: in data port;
---			power_in: in data port;
---			power_out: out data port;
-			power_mppt: provides bus access Buses::Power::Power_SP_MPPT{SEI::PowerSupply => 2.4 W;};
-			power_sp: requires bus access Buses::Power::Power_SolarPanel{SEI::PowerBudget => 2.4 W;};
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 10.0 mW;};
+--			power_mppt: provides bus access Buses::Power::Power_SP_MPPT{SEI::PowerSupply => 2.4 W;};
+--			power_sp: requires bus access Buses::Power::Power_SolarPanel{SEI::PowerBudget => 2.4 W;};
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 10.0 mW;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 10.0 mW;};
 			
 	end mppt;
 
@@ -129,8 +128,9 @@ public
 -- DC-DC Step-Down Beacon/EPS
 	device TPS5420
 		features
-			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
-			power_V3: provides bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerSupply => 6.6 W;};
+--			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
+--			power_V3: provides bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerSupply => 6.6 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 6.6w;
@@ -145,8 +145,9 @@ public
 	-- DC-DC Step-Down Antenna
 	device TPS54202
 		features
-			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
-			power_V3: provides bus access Buses::Power::Power_V3DC_Antenna{SEI::PowerSupply => 6.6 W;};
+--			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
+--			power_V3: provides bus access Buses::Power::Power_V3DC_Antenna{SEI::PowerSupply => 6.6 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 6.6w;
@@ -162,8 +163,9 @@ public
 	device TPS5430
 		features
 			enable_in: in event port;
-			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
-			power_V3: provides bus access Buses::Power::Power_V5DC_Payloads;--{SEI::PowerSupply => 15.0 W;};
+--			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
+--			power_V3: provides bus access Buses::Power::Power_V5DC_Payloads;--{SEI::PowerSupply => 15.0 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 15.0 W;
@@ -179,8 +181,9 @@ public
 	device TPS5410
 		features
 			enable_in: in event port;
-			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
-			power_V3: provides bus access Buses::Power::Power_V3DC_OBDH_TTC;--{SEI::PowerSupply => 3.3 W;};
+--			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
+--			power_V3: provides bus access Buses::Power::Power_V3DC_OBDH_TTC;--{SEI::PowerSupply => 3.3 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 3.3 W;
@@ -196,8 +199,9 @@ public
 	device TPS54540
 		features
 			enable_in: in event port;
-			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
-			power_V3: provides bus access Buses::Power::Power_V3DC_PA_TTC;--{SEI::PowerSupply => 16.5 W;};
+--			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
+--			power_V3: provides bus access Buses::Power::Power_V3DC_PA_TTC;--{SEI::PowerSupply => 16.5 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
 		properties
 			SEI::PowerCapacity => 16.5W;
 			Electricity_Properties::Idle_Current => 5.0 A;
@@ -211,8 +215,9 @@ public
 		device TPS545401
 		features
 			enable_in: in event port;
-			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
-			power_V3: provides bus access Buses::Power::Power_V3DC_PA_Beacon;--{SEI::PowerSupply => 16.5 W;};
+--			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
+--			power_V3: provides bus access Buses::Power::Power_V3DC_PA_Beacon;--{SEI::PowerSupply => 16.5 W;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
 			properties
 				SEI::PowerCapacity => 16.5W;
 			Electricity_Properties::Idle_Current => 5.0 A;
@@ -228,7 +233,8 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 0.01023 W;};
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 0.01023 W;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 10.23 mW;};
 		properties
 			Electricity_Properties::Idle_Current => 23.680 mA;
 			Electricity_Properties::Input_Voltage => 3.3 V;
@@ -261,8 +267,9 @@ public
 	device MAX9934TAUA
 		features
 			current_data: out data port;
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{ SEI::PowerBudget => 0.000432 W;};					
-			power_sp: requires bus access Buses::Power::Power_SolarPanel;
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{ SEI::PowerBudget => 0.000432 W;};					
+--			power_sp: requires bus access Buses::Power::Power_SolarPanel;
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.432 mW;};
 		flows
 			c: flow source current_data;
 		properties
@@ -279,9 +286,10 @@ public
 	device TLV341AIDBVR
 		features
 			voltage_data: out data port;
-			power_sp: requires bus access Buses::Power::Power_SolarPanel;
-			power_vbus: requires bus access Buses::Power::Power_VBUS;
-			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{ SEI::PowerBudget => 0.000432 W;};
+--			power_sp: requires bus access Buses::Power::Power_SolarPanel;
+--			power_vbus: requires bus access Buses::Power::Power_VBUS;
+--			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{ SEI::PowerBudget => 0.000432 W;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.432 mW;};
 		flows
 			v: flow source voltage_data;
 		properties

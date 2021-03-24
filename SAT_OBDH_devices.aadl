@@ -35,7 +35,9 @@ public
 			DOF6: out data port Data_Types::Six_Axis.impl;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.02 W;};
+--			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.02 W;};
+			power_3v3: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.02 W;};
+
 		flows
 			f1: flow source DOF6 {latency => 200us .. 500us;};
 		properties
@@ -66,7 +68,8 @@ public
 			DOF6: out data port Data_Types::Six_Axis.impl;
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.02 W;};
+--			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.02 W;};
+			power_3v3: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.02 W;};
 		flows
 			f1: flow source DOF6 {latency => 200us .. 500us;};
 		properties
@@ -107,7 +110,8 @@ public
 		features
 			signal_in: in data port;
 			bus_ADC: requires bus access Buses::Analog::Analog;
-			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 1.5 W;};
+--			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 1.5 W;};
+			power_3v3: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 1.5 W;};
 		properties
 			Device_Property::Power_Consume => 1.5 W; -- 300 mA RMS (5V)
 			Electricity_Properties::Idle_Current => 300.0 mA;
@@ -124,7 +128,8 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
-			power_V3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.01023 W;};
+--			power_V3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.01023 W;};
+			power_V3: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.01023 W;};
 
 --			SEI::PowerBudget => 0.01023 W;
 		properties
@@ -161,7 +166,8 @@ public
 		features
 			current_data: out data port;
 			power_ADC: requires bus access Buses::Analog::Analog;
-			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.000432 W;};
+--			power_3v3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.000432 W;};
+			power_3v3: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.432 mW;};
 		flows
 			c: flow source current_data;
 		properties
@@ -179,8 +185,9 @@ public
 	device TLV341AIDBVR
 		features
 			voltage_data: out data port;
-			power_V3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.0004125 W;};
+--			power_V3: requires bus access Buses::Power::Power_V3DC_OBDH_TTC{SEI::PowerBudget => 0.0004125 W;};
 			power_sp: requires bus access Buses::Power::Power_SolarPanel;
+			power_V3: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 0.0004125 W;};
 		flows
 			v: flow source voltage_data;
 		properties
