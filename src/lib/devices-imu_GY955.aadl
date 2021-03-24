@@ -1,0 +1,65 @@
+package Devices::IMU::IMU_GY955
+public
+	with Buses::I2C;
+
+	with SAT_data;
+
+	with Electricity_Properties;
+
+	with Buses::SPI;
+
+	with Device_Property;
+
+	with SEI;
+
+	with Buses::UART;
+
+	with Bus_Properties;
+
+	device IMU_GY955
+		features
+			DOF9: out data port SAT_data::Nine_Axis.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			uart_bus: requires bus access Buses::UART::UART.impl;
+		flows
+			f1: flow source DOF9 {latency => 200us .. 500us;};
+		properties
+--			Accel_Sensitivy => [16384 8192 4096 2048] LBS/g;
+--			Gyro_Sensitivity => [131 65.5 32.8 16.4] LSB/deg/sec;
+			Dispatch_Protocol => Periodic;
+			Device_property::Device_Functionality => (Gyroscope, Accelerometer, Magnetometer);
+			Device_Property::Device_Period => (32ms, 16ms, 100ms);
+			Period => 16ms;
+			Electricity_Properties::Core_Voltage => 3.3V;
+			Electricity_Properties::Run_Current => 254.0mA;
+			Device_property::Power_Consume => 0.02W;
+			Device_property::Accelerometer_Range => (2.0g, 4.0g, 8.0g, 16.0g);
+			Device_property::Gyroscope_Range => (125.0 dps, 250.0 dps, 500.0 dps, 1000.0 dps, 2000.0 dps);
+			Device_property::Magnetic_field_range => (1300.0uT);
+			Device_property::Magnetic_field_resolution => (0.3uT);
+			Device_property::Device_Software => (DitigalFilter, Power_Management, FusionData);
+			Device_property::Device_Data_Type_Output => (Nine_Axis, Quaternion, Euler_angles, Rotation_vector,
+						Linear_acceleration, Gravity);
+			Device_property::Device_Application => (general_purpose);
+			Device_property::On_Chip_Int_Controller => (Gyroscope, Accelerometer);
+			Device_property::Device_Bus_Avaliable => (I2C, UART);
+			Bus_Properties::Available_Bandwidth => (400000 bitsps);
+			Device_property::Power_Management_Modes => (NORMAL, LOW_POWER, SUSPEND);
+			Device_property::Mass => 10.0g;
+			Device_property::Device_Noise_Accelerometer => 150.0 ug_sqrHz;
+			Device_property::Device_Noise_gyroscope => 10.0 mdps_sqrHz;
+			Device_property::ZRO_25C_GYRO => (-10.0 dps, 10.0 dps);
+			Device_property::Temperature_Operation => (-40.0C, 85.0C);
+			Device_property::Device_address => ("0xE2");
+			Device_property::Device_Purchase_data => ("10/03/2019");
+			Device_property::Device_LifeCycle => (Active);
+			Device_property::Device_Last_Update => ("15/03/2016");
+			Device_property::Device_review => ("GY955 tested, working.");
+			Device_property::Device_review_rate => 5.0;
+			SEI::price => 35.0;
+	end IMU_GY955;
+
+	device implementation IMU_GY955.impl
+	end IMU_GY955.impl;
+  
+  end Devices::IMU::IMU_GY955;

@@ -1,0 +1,57 @@
+package Devices::IMU::ADIS16480
+ public
+	with provant_data;
+
+	with Buses::SPI;
+
+	with Device_property;
+
+	with Electricity_Properties;
+
+	with SEI;
+
+	-------------
+	-- ADIS16480 --
+	-------------
+	device ADIS16480
+		features
+			DOF9: out data port provant_data::Nine_Axis.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.IMPL;
+		flows
+			f1: flow source DOF9 {latency => 200us .. 500us;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms;
+			Electricity_Properties::Core_Voltage => 3.3V;
+			Electricity_Properties::Run_Current => 254.0mA;
+			Device_property::Power_Consume => 0.02W;
+			Device_property::Device_Functionality => (Gyroscope, Compass, Accelerometer, Barometric_Pressure,
+						Magnetometer);
+			Accelerometer::Accelerometer_Range => (2.0g,4.0g,8.0g,16.0g);
+			Gyroscope::Gyroscope_Range => (125.0dps,2000.0dps);
+			Compass::Magnetic_field_range => (1300.0uT,1300.0uT,2500.0uT);   
+			Compass::Magnetic_field_resolution => (0.3uT);
+			Device_property::Device_Software => (EKF, DigitalMotionProcessing);
+			Device_property::Device_Application => (Militar);
+			Device_property::Device_Bus_Avaliable => (SPI);
+			--Device_property::Device_Max_Bus_Bandwidth => (1000.0 Kbitsps);
+			Accelerometer::Device_Noise_Accelerometer => 100.0 ug_sqrHz;
+			Gyroscope::Device_Noise_gyroscope => 3.0 mdps_sqrHz;
+			Gyroscope::ZRO_25C_GYRO => (-5.0 dps, 5.0 dps);
+			Gyroscope::ZRO_Over_temp_gyro => (-0.002 dps_C, 0.002 dps_C);
+			Gyroscope::Temperature_Operation => (-40.0 C, 85.0 C);
+			Device_property::Mass => 48.0g;
+			Device_property::Device_address => ("0xE0", "0x53");
+			Device_property::Device_Purchase_data => ("10/03/2016");
+			Device_property::Device_LifeCycle => (Active);
+			Device_property::Device_Last_Update => ("15/03/2016");
+			Device_property::Device_review => ("Changed from GY85 IMU with more features and accuracy");
+			--Device_property::review_rate => 5.0;
+			SEI::price => 400.0;
+			
+	end ADIS16480;
+
+	device implementation ADIS16480.impl
+	end ADIS16480.impl;
+  
+    end Devices::IMU::ADIS16480;

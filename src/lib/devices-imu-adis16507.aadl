@@ -1,0 +1,54 @@
+package Devices::IMU::ADIS16507
+ public
+	with provant_data;
+
+
+	with Electricity_Properties;
+
+	with Buses::SPI;
+
+	with Device_Property;
+
+	with SEI;
+
+	-------------
+	-- ADIS16480 --
+	-------------
+	device ADIS165052
+		features
+			DOF6: out data port provant_data::Six_Axis.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.IMPL;
+		flows
+			f1: flow source DOF6 {latency => 305us .. 405us;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms;
+			Electricity_Properties::Core_Voltage => 3.3V;
+			Electricity_Properties::Run_Current => 254.0mA;
+			Device_property::Power_Consume => 0.02W;
+			Device_property::Device_Functionality => (Gyroscope, Accelerometer);
+			Device_property::Accelerometer_Range => (2.0g, 4.0g, 8.0g, 16.0g);
+			Device_property::Gyroscope_Range => (125.0 dps, 500.0 dps, 2000.0 dps);
+			Device_property::Device_Software => (DitigalFilter);
+			Device_property::Device_Application => (Militar);
+			Device_property::Device_Bus_Avaliable => (SPI);
+					--Device_property::Device_Max_Bus_Bandwidth => (1000.0 Kbitsps);
+			Device_property::Device_Noise_Accelerometer => 880.0 ug_sqrHz;
+			Device_property::Device_Noise_gyroscope => 3.0 mdps_sqrHz;
+			Device_property::ZRO_25C_GYRO => (-0.7 dps, 0.7 dps);
+			Device_property::ZRO_Over_temp_gyro => (-0.002 dps_C, 0.002 dps_C);
+			Device_property::Temperature_Operation => (-40.0C, 85.0C);
+			Device_property::Mass => 48.0g;
+			Device_property::Device_address => ("0xE0", "0x53");
+			Device_property::Device_Purchase_data => ("10/03/2016");
+			Device_property::Device_LifeCycle => (Active);
+			Device_property::Device_Last_Update => ("15/03/2016");
+			Device_property::Device_review => ("Changed from GY85 IMU with more features and accuracy");
+					--Device_property::review_rate => 5.0;
+			SEI::price => 382.50;
+	end ADIS165052;
+
+	device implementation ADIS165052.impl
+	end ADIS165052.impl;
+  
+    end Devices::IMU::ADIS16507;

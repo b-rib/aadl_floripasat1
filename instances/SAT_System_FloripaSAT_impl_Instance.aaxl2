@@ -743,7 +743,7 @@
     <featureInstance name="analog_bus" category="busAccess">
       <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
     </featureInstance>
-    <featureInstance name="power_SP" category="busAccess" direction="out">
+    <featureInstance name="power" category="busAccess" direction="out">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
         <ownedValue>
@@ -817,7 +817,7 @@
     <featureInstance name="analog_bus" category="busAccess">
       <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
     </featureInstance>
-    <featureInstance name="power_SP" category="busAccess" direction="out">
+    <featureInstance name="power" category="busAccess" direction="out">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
         <ownedValue>
@@ -891,7 +891,7 @@
     <featureInstance name="analog_bus" category="busAccess">
       <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
     </featureInstance>
-    <featureInstance name="power_SP" category="busAccess" direction="out">
+    <featureInstance name="power" category="busAccess" direction="out">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
         <ownedValue>
@@ -965,7 +965,7 @@
     <featureInstance name="analog_bus" category="busAccess">
       <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
     </featureInstance>
-    <featureInstance name="power_SP" category="busAccess" direction="out">
+    <featureInstance name="power" category="busAccess" direction="out">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
         <ownedValue>
@@ -1039,7 +1039,7 @@
     <featureInstance name="analog_bus" category="busAccess">
       <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
     </featureInstance>
-    <featureInstance name="power_SP" category="busAccess" direction="out">
+    <featureInstance name="power" category="busAccess" direction="out">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
         <ownedValue>
@@ -1113,7 +1113,7 @@
     <featureInstance name="analog_bus" category="busAccess">
       <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
     </featureInstance>
-    <featureInstance name="power_SP" category="busAccess" direction="out">
+    <featureInstance name="power" category="busAccess" direction="out">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
         <ownedValue>
@@ -1684,20 +1684,17 @@
       <featureInstance name="current_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="c" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedFlowSpecification.0"/>
@@ -1751,20 +1748,17 @@
       <featureInstance name="current_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="c" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedFlowSpecification.0"/>
@@ -1818,20 +1812,17 @@
       <featureInstance name="current_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="c" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedFlowSpecification.0"/>
@@ -1885,20 +1876,17 @@
       <featureInstance name="current_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="c" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedFlowSpecification.0"/>
@@ -1952,20 +1940,17 @@
       <featureInstance name="current_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="c" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedFlowSpecification.0"/>
@@ -2019,20 +2004,17 @@
       <featureInstance name="current_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="c" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedFlowSpecification.0"/>
@@ -2077,23 +2059,17 @@
       <featureInstance name="voltage_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_vbus" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
       </featureInstance>
       <flowSpecification name="v" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedFlowSpecification.0"/>
@@ -2138,23 +2114,17 @@
       <featureInstance name="voltage_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_vbus" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
       </featureInstance>
       <flowSpecification name="v" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedFlowSpecification.0"/>
@@ -2199,23 +2169,17 @@
       <featureInstance name="voltage_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_vbus" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
       </featureInstance>
       <flowSpecification name="v" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedFlowSpecification.0"/>
@@ -2231,31 +2195,7 @@
       <featureInstance name="lmc555_in">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
       </featureInstance>
-      <featureInstance name="power_mppt" category="busAccess" direction="out">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="2.4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="2.4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -2263,9 +2203,9 @@
               <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.9"/>
       <index>0</index>
@@ -2278,31 +2218,7 @@
       <featureInstance name="lmc555_in">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
       </featureInstance>
-      <featureInstance name="power_mppt" category="busAccess" direction="out">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="2.4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="2.4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -2310,9 +2226,9 @@
               <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.10"/>
       <index>0</index>
@@ -2325,31 +2241,7 @@
       <featureInstance name="lmc555_in">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedDataPort.1"/>
       </featureInstance>
-      <featureInstance name="power_mppt" category="busAccess" direction="out">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="2.4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="2.4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -2357,9 +2249,9 @@
               <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.11/@ownedBusAccess.0"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.11"/>
       <index>0</index>
@@ -2431,7 +2323,7 @@
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.3/@ownedBusAccess.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -2460,11 +2352,17 @@
       <featureInstance name="data_out" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedDataPort.2"/>
       </featureInstance>
-      <featureInstance name="vbus" category="busAccess">
+      <featureInstance name="power" category="busAccess">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="1.0">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedBusAccess.1"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.13"/>
       <index>0</index>
@@ -2516,13 +2414,7 @@
         </ownedValue>
         <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedPropertyAssociation.4"/>
       </ownedPropertyAssociation>
-      <featureInstance name="power_out" direction="out">
-        <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.0"/>
-      </featureInstance>
-      <featureInstance name="power_in">
-        <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.7/@ownedDataPort.1"/>
-      </featureInstance>
-      <featureInstance name="power_battery" category="busAccess" direction="out">
+      <featureInstance name="power" category="busAccess" direction="out">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
           <ownedValue>
@@ -2539,13 +2431,16 @@
       <classifier xsi:type="aadl2:DeviceType" href="../SAT_EPS_devices.aadl#SAT_EPS_devices.battery"/>
     </componentInstance>
     <componentInstance name="battery_charge" category="device">
-      <featureInstance name="power_in">
-        <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.0"/>
-      </featureInstance>
-      <featureInstance name="power_out" direction="out">
-        <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedDataPort.1"/>
-      </featureInstance>
-      <featureInstance name="power_battery" category="busAccess">
+      <featureInstance name="power" category="busAccess">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.6/@ownedBusAccess.0"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.15"/>
@@ -2553,26 +2448,20 @@
       <classifier xsi:type="aadl2:DeviceType" href="../SAT_EPS_devices.aadl#SAT_EPS_devices.battery_charger"/>
     </componentInstance>
     <componentInstance name="battery_monitor" category="device">
-      <featureInstance name="solar_power">
+      <featureInstance name="status" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="battery_power">
-        <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.1"/>
-      </featureInstance>
-      <featureInstance name="solar_power_out" direction="out">
-        <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.2"/>
-      </featureInstance>
-      <featureInstance name="status" direction="out">
-        <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedDataPort.3"/>
-      </featureInstance>
-      <featureInstance name="vbus" category="busAccess" direction="out">
+      <featureInstance name="power" category="busAccess">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:RealLiteral">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_solar_panels" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_battery" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.5/@ownedBusAccess.2"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.16"/>
       <index>0</index>
@@ -2626,11 +2515,11 @@
       <featureInstance name="trigger_in" category="eventPort">
         <feature xsi:type="aadl2:EventPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedEventPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="7.5E-5">
+            <ownedValue xsi:type="aadl2:RealLiteral" value="2.4">
               <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
             </ownedValue>
           </ownedValue>
@@ -2687,20 +2576,17 @@
       <featureInstance name="current_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="c" destination="//@componentInstance.21/@componentInstance.21/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.23/@ownedFlowSpecification.0"/>
@@ -2745,23 +2631,17 @@
       <featureInstance name="voltage_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_vbus" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
       </featureInstance>
       <flowSpecification name="v" destination="//@componentInstance.21/@componentInstance.22/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedFlowSpecification.0"/>
@@ -2806,23 +2686,17 @@
       <featureInstance name="voltage_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_vbus" category="busAccess">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.1"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.2"/>
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedBusAccess.0"/>
       </featureInstance>
       <flowSpecification name="v" destination="//@componentInstance.21/@componentInstance.23/@featureInstance.0">
         <flowSpecification href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.25/@ownedFlowSpecification.0"/>
@@ -2900,7 +2774,7 @@
         </ownedValue>
         <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedPropertyAssociation.6"/>
       </ownedPropertyAssociation>
-      <featureInstance name="vbus" category="busAccess">
+      <featureInstance name="power" category="busAccess" direction="out">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -2911,18 +2785,6 @@
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess" direction="out">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="6.6">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.13/@ownedBusAccess.1"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.21"/>
       <index>0</index>
@@ -2997,7 +2859,7 @@
         </ownedValue>
         <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.6"/>
       </ownedPropertyAssociation>
-      <featureInstance name="vbus" category="busAccess">
+      <featureInstance name="power" category="busAccess" direction="out">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -3008,18 +2870,6 @@
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess" direction="out">
-        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-          <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerSupply"/>
-          <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="6.6">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
-            </ownedValue>
-          </ownedValue>
-          <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
-        </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedBusAccess.1"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.22"/>
       <index>0</index>
@@ -3097,7 +2947,7 @@
       <featureInstance name="enable_in" category="eventPort">
         <feature xsi:type="aadl2:EventPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedEventPort.0"/>
       </featureInstance>
-      <featureInstance name="vbus" category="busAccess">
+      <featureInstance name="power" category="busAccess" direction="out">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -3108,9 +2958,6 @@
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess" direction="out">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusAccess.1"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.23"/>
       <index>0</index>
@@ -3174,7 +3021,7 @@
       <featureInstance name="enable_in" category="eventPort">
         <feature xsi:type="aadl2:EventPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedEventPort.0"/>
       </featureInstance>
-      <featureInstance name="vbus" category="busAccess">
+      <featureInstance name="power" category="busAccess" direction="out">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -3185,9 +3032,6 @@
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess" direction="out">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedBusAccess.1"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.24"/>
       <index>0</index>
@@ -3251,7 +3095,7 @@
       <featureInstance name="enable_in" category="eventPort">
         <feature xsi:type="aadl2:EventPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedEventPort.0"/>
       </featureInstance>
-      <featureInstance name="vbus" category="busAccess">
+      <featureInstance name="power" category="busAccess" direction="out">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -3262,9 +3106,6 @@
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess" direction="out">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.1"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.25"/>
       <index>0</index>
@@ -3342,7 +3183,7 @@
       <featureInstance name="enable_in" category="eventPort">
         <feature xsi:type="aadl2:EventPort" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedEventPort.0"/>
       </featureInstance>
-      <featureInstance name="vbus" category="busAccess">
+      <featureInstance name="power" category="busAccess" direction="out">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -3353,9 +3194,6 @@
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_V3" category="busAccess" direction="out">
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedBusAccess.1"/>
       </featureInstance>
       <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedDeviceSubcomponent.26"/>
       <index>0</index>
@@ -3691,12 +3529,12 @@
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedBusAccess.2"/>
       </featureInstance>
-      <featureInstance name="power_V3" category="busAccess">
+      <featureInstance name="power" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="0.01023">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="10.23">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_EPS_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.19/@ownedBusAccess.3/@ownedPropertyAssociation.0"/>
@@ -3794,110 +3632,75 @@
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.8"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="mppt_1.power_mppt -> battery_monitor.power_solar_panels" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.5" source="//@componentInstance.21/@componentInstance.12/@featureInstance.2">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.12/@featureInstance.2" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.5">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.37"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="mppt_2.power_mppt -> battery_monitor.power_solar_panels" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.5" source="//@componentInstance.21/@componentInstance.13/@featureInstance.2">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.13/@featureInstance.2" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.5">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.38"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="mppt_3.power_mppt -> battery_monitor.power_solar_panels" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.5" source="//@componentInstance.21/@componentInstance.14/@featureInstance.2">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.14/@featureInstance.2" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.5">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.39"/>
-      </connectionReference>
-    </connectionInstance>
     <connectionInstance name="temp_sensor.temp_data -> EPS_firmware.temp_control.T_sensor" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.1" source="//@componentInstance.21/@componentInstance.15/@featureInstance.0">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.15/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.30/@featureInstance.13">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21/@componentInstance.30" source="//@componentInstance.21/@componentInstance.30/@featureInstance.13" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.1">
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="battery.power_out -> battery_monitor.battery_power" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.1" source="//@componentInstance.21/@componentInstance.17/@featureInstance.0">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.17/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.19/@featureInstance.1">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
+    <connectionInstance name="battery_charge.power -> battery.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.0" source="//@componentInstance.21/@componentInstance.18/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.18/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.37"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="battery_charge.power_out -> battery.power_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.1" source="//@componentInstance.21/@componentInstance.18/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.18/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.1">
+    <connectionInstance name="battery_monitor.status -> EPS_firmware.temp_control.Bat_status" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.3" source="//@componentInstance.21/@componentInstance.19/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.30/@featureInstance.14">
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_charge.power_battery -> battery.power_battery" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.2" source="//@componentInstance.21/@componentInstance.18/@featureInstance.2">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.18/@featureInstance.2" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.2">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.40"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_monitor.solar_power_out -> battery_charge.power_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.18/@featureInstance.0" source="//@componentInstance.21/@componentInstance.19/@featureInstance.2">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.2" destination="//@componentInstance.21/@componentInstance.18/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_monitor.status -> EPS_firmware.temp_control.Bat_status" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.3" source="//@componentInstance.21/@componentInstance.19/@featureInstance.3">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.3" destination="//@componentInstance.21/@componentInstance.30/@featureInstance.14">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.13"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21/@componentInstance.30" source="//@componentInstance.21/@componentInstance.30/@featureInstance.14" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.3">
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="battery_monitor.vbus -> DC_Antenna.vbus" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.25/@featureInstance.0" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.25/@featureInstance.0">
+    <connectionInstance name="battery_monitor.power -> battery.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.0" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.38"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="battery_monitor.power -> DC_Antenna.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.25/@featureInstance.0" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.25/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.39"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="battery_monitor.power -> DC_EPS_Beacon.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.24/@featureInstance.0" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.40"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="battery_monitor.power -> DC_OBDH_TTC.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.26/@featureInstance.1" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.41"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="battery_monitor.power -> DC_PA_Beacon.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.28/@featureInstance.1" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.28/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.42"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="battery_monitor.vbus -> DC_EPS_Beacon.vbus" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.24/@featureInstance.0" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+    <connectionInstance name="battery_monitor.power -> DC_Payloads.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.29/@featureInstance.1" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.29/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.43"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_monitor.vbus -> DC_OBDH_TTC.vbus" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.26/@featureInstance.1" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.44"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_monitor.vbus -> DC_PA_Beacon.vbus" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.28/@featureInstance.1" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.28/@featureInstance.1">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_monitor.vbus -> DC_Payloads.vbus" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.29/@featureInstance.1" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.29/@featureInstance.1">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.46"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_monitor.vbus -> SP_Total_V.power_vbus" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.23/@featureInstance.2" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.4" destination="//@componentInstance.21/@componentInstance.23/@featureInstance.2">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.47"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="battery_monitor.power_battery -> battery.power_battery" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.2" source="//@componentInstance.21/@componentInstance.19/@featureInstance.6">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.19/@featureInstance.6" destination="//@componentInstance.21/@componentInstance.17/@featureInstance.2">
-        <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.41"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="lmc555.out_data -> mppt_1.lmc555_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.1" source="//@componentInstance.21/@componentInstance.20/@featureInstance.0">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.20/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.1">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.20"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.17"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="lmc555.out_data -> mppt_2.lmc555_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.1" source="//@componentInstance.21/@componentInstance.20/@featureInstance.0">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.20/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.1">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.21"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.18"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="lmc555.out_data -> mppt_3.lmc555_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.1" source="//@componentInstance.21/@componentInstance.20/@featureInstance.0">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.20/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.1">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.22"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.19"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="beacon_current.current_data -> EPS_firmware.temp_control.BC_sensor" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.2" source="//@componentInstance.21/@componentInstance.21/@featureInstance.0">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.21/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.30/@featureInstance.11">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.27"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.24"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21/@componentInstance.30" source="//@componentInstance.21/@componentInstance.30/@featureInstance.11" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.2">
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.13"/>
@@ -3905,120 +3708,120 @@
     </connectionInstance>
     <connectionInstance name="vbus_voltage.voltage_data -> EPS_firmware.vbus_V_sensor" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.30/@featureInstance.10" source="//@componentInstance.21/@componentInstance.22/@featureInstance.0">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.22/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.30/@featureInstance.10">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.28"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.25"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="SP_Total_V.voltage_data -> EPS_firmware.temp_control.V_sensor" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.0" source="//@componentInstance.21/@componentInstance.23/@featureInstance.0">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.23/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.30/@featureInstance.9">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.29"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.26"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21/@componentInstance.30" source="//@componentInstance.21/@componentInstance.30/@featureInstance.9" destination="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.0">
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> mppt_1.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.4" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.4">
+    <connectionInstance name="DC_EPS_Beacon.power -> mppt_1.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.2" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.2">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.21"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> mppt_2.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.4" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.4">
+    <connectionInstance name="DC_EPS_Beacon.power -> mppt_2.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.2" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.2">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> mppt_3.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.4" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.4">
+    <connectionInstance name="DC_EPS_Beacon.power -> mppt_3.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.2" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.2">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.23"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_I_sp_ym.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.1">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_I_sp_ym.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.24"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_I_sp_xp.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.1">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_I_sp_xp.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.25"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_I_sp_xm.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.1">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_I_sp_xm.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.26"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_I_sp_zp.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.1">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_I_sp_zp.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.27"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_I_sp_zm.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.1">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_I_sp_zm.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.28"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_I_sp_yp.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.1">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_I_sp_yp.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.29"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_V_sp_1.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.3" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.3">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_V_sp_1.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.30"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_V_sp_2.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.3" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.3">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_V_sp_2.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.31"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> sens_V_sp_3.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.3" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.3">
+    <connectionInstance name="DC_EPS_Beacon.power -> sens_V_sp_3.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.1" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.1">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.32"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> mcu_eps.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.31/@featureInstance.3" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.31/@featureInstance.3">
+    <connectionInstance name="DC_EPS_Beacon.power -> mcu_eps.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.31/@featureInstance.3" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.31/@featureInstance.3">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.33"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> temp_sensor.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.15/@featureInstance.2" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.15/@featureInstance.2">
+    <connectionInstance name="DC_EPS_Beacon.power -> temp_sensor.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.15/@featureInstance.2" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.15/@featureInstance.2">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.34"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> lmc555.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.20/@featureInstance.2" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.20/@featureInstance.2">
+    <connectionInstance name="DC_EPS_Beacon.power -> lmc555.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.20/@featureInstance.2" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.20/@featureInstance.2">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.35"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="DC_EPS_Beacon.power_V3 -> heat_driver.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.4" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.4">
+    <connectionInstance name="DC_EPS_Beacon.power -> heat_driver.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.3" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+      <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.3">
         <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.36"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.en_lmc555 -> lmc555.trigger_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.20/@featureInstance.1" source="//@componentInstance.21/@componentInstance.30/@featureInstance.20">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.20" destination="//@componentInstance.21/@componentInstance.20/@featureInstance.1">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.19"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.16"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.En_OBDH_TTC -> DC_OBDH_TTC.enable_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.26/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@featureInstance.21">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.21" destination="//@componentInstance.21/@componentInstance.26/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.23"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.20"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.En_PA_TTC -> DC_PA_TTC.enable_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.27/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@featureInstance.22">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.22" destination="//@componentInstance.21/@componentInstance.27/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.25"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.22"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.En_PA_Beacon -> DC_PA_Beacon.enable_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.28/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@featureInstance.23">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.23" destination="//@componentInstance.21/@componentInstance.28/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.24"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.21"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.En_Payloads -> DC_Payloads.enable_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.29/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@featureInstance.24">
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.24" destination="//@componentInstance.21/@componentInstance.29/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.26"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.23"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.temp_control.cmd_heat1 -> heat_driver.pwm1_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.4">
@@ -4026,7 +3829,7 @@
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.16"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.15" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.temp_control.cmd_heat2 -> heat_driver.pwm2_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.1" source="//@componentInstance.21/@componentInstance.30/@componentInstance.0/@featureInstance.5">
@@ -4034,7 +3837,7 @@
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.17"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.16" destination="//@componentInstance.21/@componentInstance.16/@featureInstance.1">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.12"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.mppt_control.mppt_cmd_1 -> mppt_1.pwm_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@componentInstance.1/@featureInstance.9">
@@ -4042,7 +3845,7 @@
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.9"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.17" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.16"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.13"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.mppt_control.mppt_cmd_2 -> mppt_2.pwm_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@componentInstance.1/@featureInstance.10">
@@ -4050,7 +3853,7 @@
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.10"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.18" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.17"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.14"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="EPS_firmware.mppt_control.mppt_cmd_3 -> mppt_3.pwm_in" complete="true" kind="portConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.0" source="//@componentInstance.21/@componentInstance.30/@componentInstance.1/@featureInstance.11">
@@ -4058,7 +3861,7 @@
         <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_process.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.11"/>
       </connectionReference>
       <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.30/@featureInstance.19" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.0">
-        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.18"/>
+        <connection xsi:type="aadl2:PortConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedPortConnection.15"/>
       </connectionReference>
     </connectionInstance>
     <connectionInstance name="mcu_eps.i2c_bus -> i2C_BUS" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.2" source="//@componentInstance.21/@componentInstance.31/@featureInstance.0">
@@ -5285,8 +5088,8 @@
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
@@ -5352,8 +5155,8 @@
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
@@ -5419,8 +5222,8 @@
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
@@ -5486,8 +5289,8 @@
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
-            <ownedValue xsi:type="aadl2:RealLiteral" value="4.32E-4">
-              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
+            <ownedValue xsi:type="aadl2:RealLiteral" value="0.432">
+              <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.0"/>
             </ownedValue>
           </ownedValue>
           <propertyAssociation href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
@@ -5537,6 +5340,9 @@
       <featureInstance name="voltage_data" direction="out">
         <feature xsi:type="aadl2:DataPort" href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedDataPort.0"/>
       </featureInstance>
+      <featureInstance name="power_sp" category="busAccess">
+        <feature xsi:type="aadl2:BusAccess" href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.0"/>
+      </featureInstance>
       <featureInstance name="power_V3" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
@@ -5545,11 +5351,8 @@
               <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.5/@ownedLiteral.1"/>
             </ownedValue>
           </ownedValue>
-          <propertyAssociation href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.0/@ownedPropertyAssociation.0"/>
+          <propertyAssociation href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.1/@ownedPropertyAssociation.0"/>
         </ownedPropertyAssociation>
-        <feature xsi:type="aadl2:BusAccess" href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.0"/>
-      </featureInstance>
-      <featureInstance name="power_sp" category="busAccess">
         <feature xsi:type="aadl2:BusAccess" href="../SAT_OBDH_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedBusAccess.1"/>
       </featureInstance>
       <flowSpecification name="v" destination="//@componentInstance.22/@componentInstance.12/@featureInstance.0">
@@ -6318,7 +6121,7 @@
       <featureInstance name="mcu_data">
         <feature xsi:type="aadl2:DataPort" href="../SAT_TTC_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_pa_beacon" category="busAccess">
+      <featureInstance name="power_pa_ttc" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -6330,7 +6133,7 @@
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_TTC_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
       </featureInstance>
-      <featureInstance name="power_pa_ttc" category="busAccess">
+      <featureInstance name="power_pa_beacon" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -6397,7 +6200,7 @@
       <featureInstance name="mcu_data">
         <feature xsi:type="aadl2:DataPort" href="../SAT_TTC_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedDataPort.0"/>
       </featureInstance>
-      <featureInstance name="power_pa_beacon" category="busAccess">
+      <featureInstance name="power_pa_ttc" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -6409,7 +6212,7 @@
         </ownedPropertyAssociation>
         <feature xsi:type="aadl2:BusAccess" href="../SAT_TTC_devices.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedBusAccess.0"/>
       </featureInstance>
-      <featureInstance name="power_pa_ttc" category="busAccess">
+      <featureInstance name="power_pa_beacon" category="busAccess">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.PowerBudget"/>
           <ownedValue>
@@ -6924,7 +6727,7 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.12"/>
     </connectionReference>
     <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.0" destination="//@componentInstance.21/@componentInstance.31/@featureInstance.0" reverse="true">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.55"/>
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.51"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="BUS0 -> OBDH_module.BUS0" complete="true" kind="accessConnection" destination="//@componentInstance.22/@featureInstance.0" source="//@componentInstance.0">
@@ -7001,7 +6804,7 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.13"/>
     </connectionReference>
     <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.1" destination="//@componentInstance.21/@componentInstance.31/@featureInstance.1" reverse="true">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.54"/>
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.50"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="BUS6 -> TTC_module.mcu_ttc.uart_bus" complete="true" kind="accessConnection" destination="//@componentInstance.23/@componentInstance.4/@featureInstance.1" source="//@componentInstance.6">
@@ -7097,7 +6900,7 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.14"/>
     </connectionReference>
     <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.2" destination="//@componentInstance.21/@componentInstance.31/@featureInstance.1" reverse="true">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.56"/>
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.52"/>
     </connectionReference>
   </connectionInstance>
   <connectionInstance name="BUS_JTAG -> OBDH_module.BUS_JTAG" complete="true" kind="accessConnection" destination="//@componentInstance.22/@featureInstance.6" source="//@componentInstance.9">
@@ -7115,23 +6918,23 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_ym.power_SP -> EPS_module.sens_I_sp_ym.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.2" source="//@componentInstance.10/@featureInstance.4">
+  <connectionInstance name="solar_panel_ym.power -> EPS_module.sens_I_sp_ym.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.1" source="//@componentInstance.10/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.10/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.9">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.9" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.2">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.9" destination="//@componentInstance.21/@componentInstance.3/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_ym.power_SP -> EPS_module.mppt_1.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.3" source="//@componentInstance.10/@featureInstance.4">
+  <connectionInstance name="solar_panel_ym.power -> EPS_module.mppt_1.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.2" source="//@componentInstance.10/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.10/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.9">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.9" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.3">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.9" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_ym.power_SP -> EPS_module.sens_V_sp_1.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.1" source="//@componentInstance.10/@featureInstance.4">
+  <connectionInstance name="solar_panel_ym.power -> EPS_module.sens_V_sp_1.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.1" source="//@componentInstance.10/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.10/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.9">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.0"/>
     </connectionReference>
@@ -7144,23 +6947,23 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_xp.power_SP -> EPS_module.sens_I_sp_xp.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.2" source="//@componentInstance.11/@featureInstance.4">
+  <connectionInstance name="solar_panel_xp.power -> EPS_module.sens_I_sp_xp.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.1" source="//@componentInstance.11/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.11/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.10">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.10" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.2">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.10" destination="//@componentInstance.21/@componentInstance.4/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_xp.power_SP -> EPS_module.mppt_1.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.3" source="//@componentInstance.11/@featureInstance.4">
+  <connectionInstance name="solar_panel_xp.power -> EPS_module.mppt_1.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.2" source="//@componentInstance.11/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.11/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.10">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.10" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.3">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.10" destination="//@componentInstance.21/@componentInstance.12/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.10"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_xp.power_SP -> EPS_module.sens_V_sp_1.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.1" source="//@componentInstance.11/@featureInstance.4">
+  <connectionInstance name="solar_panel_xp.power -> EPS_module.sens_V_sp_1.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.9/@featureInstance.1" source="//@componentInstance.11/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.11/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.10">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.1"/>
     </connectionReference>
@@ -7173,23 +6976,23 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_xm.power_SP -> EPS_module.sens_I_sp_xm.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.2" source="//@componentInstance.12/@featureInstance.4">
+  <connectionInstance name="solar_panel_xm.power -> EPS_module.sens_I_sp_xm.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.1" source="//@componentInstance.12/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.12/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.11">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.11" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.2">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.11" destination="//@componentInstance.21/@componentInstance.5/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_xm.power_SP -> EPS_module.mppt_2.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.3" source="//@componentInstance.12/@featureInstance.4">
+  <connectionInstance name="solar_panel_xm.power -> EPS_module.mppt_2.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.2" source="//@componentInstance.12/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.12/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.11">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.11" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.3">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.11" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.11"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_xm.power_SP -> EPS_module.sens_V_sp_2.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.1" source="//@componentInstance.12/@featureInstance.4">
+  <connectionInstance name="solar_panel_xm.power -> EPS_module.sens_V_sp_2.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.1" source="//@componentInstance.12/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.12/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.11">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.2"/>
     </connectionReference>
@@ -7202,23 +7005,23 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.9"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_zp.power_SP -> EPS_module.sens_I_sp_zp.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.2" source="//@componentInstance.13/@featureInstance.4">
+  <connectionInstance name="solar_panel_zp.power -> EPS_module.sens_I_sp_zp.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.1" source="//@componentInstance.13/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.13/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.12">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.12" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.2">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.12" destination="//@componentInstance.21/@componentInstance.6/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_zp.power_SP -> EPS_module.mppt_2.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.3" source="//@componentInstance.13/@featureInstance.4">
+  <connectionInstance name="solar_panel_zp.power -> EPS_module.mppt_2.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.2" source="//@componentInstance.13/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.13/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.12">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.12" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.3">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.12" destination="//@componentInstance.21/@componentInstance.13/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.12"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_zp.power_SP -> EPS_module.sens_V_sp_2.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.1" source="//@componentInstance.13/@featureInstance.4">
+  <connectionInstance name="solar_panel_zp.power -> EPS_module.sens_V_sp_2.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.10/@featureInstance.1" source="//@componentInstance.13/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.13/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.12">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
     </connectionReference>
@@ -7231,23 +7034,23 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.10"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_zm.power_SP -> EPS_module.sens_I_sp_zm.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.2" source="//@componentInstance.14/@featureInstance.4">
+  <connectionInstance name="solar_panel_zm.power -> EPS_module.sens_I_sp_zm.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.1" source="//@componentInstance.14/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.14/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.13">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.13" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.2">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.13" destination="//@componentInstance.21/@componentInstance.7/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_zm.power_SP -> EPS_module.mppt_3.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.3" source="//@componentInstance.14/@featureInstance.4">
+  <connectionInstance name="solar_panel_zm.power -> EPS_module.mppt_3.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.2" source="//@componentInstance.14/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.14/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.13">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.13" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.3">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.13" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.13"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_zm.power_SP -> EPS_module.sens_V_sp_3.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.1" source="//@componentInstance.14/@featureInstance.4">
+  <connectionInstance name="solar_panel_zm.power -> EPS_module.sens_V_sp_3.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.1" source="//@componentInstance.14/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.14/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.13">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
     </connectionReference>
@@ -7260,23 +7063,23 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.11"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_yp.power_SP -> EPS_module.sens_I_sp_yp.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.2" source="//@componentInstance.15/@featureInstance.4">
+  <connectionInstance name="solar_panel_yp.power -> EPS_module.sens_I_sp_yp.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.1" source="//@componentInstance.15/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.15/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.14">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.14" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.2">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.14" destination="//@componentInstance.21/@componentInstance.8/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_yp.power_SP -> EPS_module.mppt_3.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.3" source="//@componentInstance.15/@featureInstance.4">
+  <connectionInstance name="solar_panel_yp.power -> EPS_module.mppt_3.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.2" source="//@componentInstance.15/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.15/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.14">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
     </connectionReference>
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.14" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.3">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@featureInstance.14" destination="//@componentInstance.21/@componentInstance.14/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.14"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="solar_panel_yp.power_SP -> EPS_module.sens_V_sp_3.power_sp" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.1" source="//@componentInstance.15/@featureInstance.4">
+  <connectionInstance name="solar_panel_yp.power -> EPS_module.sens_V_sp_3.power" complete="true" kind="accessConnection" destination="//@componentInstance.21/@componentInstance.11/@featureInstance.1" source="//@componentInstance.15/@featureInstance.4">
     <connectionReference context="/" source="//@componentInstance.15/@featureInstance.4" destination="//@componentInstance.21/@featureInstance.14">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
     </connectionReference>
@@ -7319,33 +7122,33 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.40"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_EPS_Beacon.power_V3 -> TTC_module.BUS_DC_EPS_Beacon" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.6" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.3">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.48"/>
+  <connectionInstance name="EPS_module.DC_EPS_Beacon.power -> TTC_module.BUS_DC_EPS_Beacon" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.6" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.24/@featureInstance.0" destination="//@componentInstance.21/@featureInstance.3">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.44"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.3" destination="//@componentInstance.23/@featureInstance.6">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.34"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_Antenna.power_V3 -> antenna_beacon.power_antenna" complete="true" kind="accessConnection" destination="//@componentInstance.16/@featureInstance.1" source="//@componentInstance.21/@componentInstance.25/@featureInstance.1">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.25/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.4">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.50"/>
+  <connectionInstance name="EPS_module.DC_Antenna.power -> antenna_beacon.power_antenna" complete="true" kind="accessConnection" destination="//@componentInstance.16/@featureInstance.1" source="//@componentInstance.21/@componentInstance.25/@featureInstance.0">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.25/@featureInstance.0" destination="//@componentInstance.21/@featureInstance.4">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.46"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.4" destination="//@componentInstance.16/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.28"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_Antenna.power_V3 -> antenna_main.power_antenna" complete="true" kind="accessConnection" destination="//@componentInstance.17/@featureInstance.1" source="//@componentInstance.21/@componentInstance.25/@featureInstance.1">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.25/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.4">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.50"/>
+  <connectionInstance name="EPS_module.DC_Antenna.power -> antenna_main.power_antenna" complete="true" kind="accessConnection" destination="//@componentInstance.17/@featureInstance.1" source="//@componentInstance.21/@componentInstance.25/@featureInstance.0">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.25/@featureInstance.0" destination="//@componentInstance.21/@featureInstance.4">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.46"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.4" destination="//@componentInstance.17/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.29"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.current_sensor_x.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.9/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.current_sensor_x.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.9/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7354,9 +7157,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.3"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.current_sensor_y.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.10/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.current_sensor_y.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.10/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7365,9 +7168,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.4"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.current_sensor_z.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.11/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.current_sensor_z.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.11/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7376,9 +7179,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.5"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.current_driver_x.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.5/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.current_driver_x.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.5/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7387,9 +7190,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.6"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.current_driver_y.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.6/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.current_driver_y.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.6/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7398,9 +7201,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.7"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.current_driver_z.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.7/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.current_driver_z.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.7/@featureInstance.2" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7409,9 +7212,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.8"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.imu_1.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.2/@featureInstance.3" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.imu_1.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.2/@featureInstance.3" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7420,9 +7223,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.12"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.imu_2.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.3/@featureInstance.3" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.imu_2.power_3v3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.3/@featureInstance.3" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7431,9 +7234,9 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.13"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> OBDH_module.mcu_obdh.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.15/@featureInstance.3" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> OBDH_module.mcu_obdh.power_V3" complete="true" kind="accessConnection" destination="//@componentInstance.22/@componentInstance.15/@featureInstance.3" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.22/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.22"/>
@@ -7442,49 +7245,49 @@
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_OBDH_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.14"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_OBDH_TTC.power_V3 -> TTC_module.BUS_DC_OBDH_TTC" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.7" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.5">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
+  <connectionInstance name="EPS_module.DC_OBDH_TTC.power -> TTC_module.BUS_DC_OBDH_TTC" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.7" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.26/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.5">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.45"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.5" destination="//@componentInstance.23/@featureInstance.7">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.35"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_PA_TTC.power_V3 -> TTC_module.BUS_DC_PA_TTC" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.8" source="//@componentInstance.21/@componentInstance.27/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.27/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.6">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.51"/>
+  <connectionInstance name="EPS_module.DC_PA_TTC.power -> TTC_module.BUS_DC_PA_TTC" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.8" source="//@componentInstance.21/@componentInstance.27/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.27/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.6">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.47"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.6" destination="//@componentInstance.23/@featureInstance.8">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.37"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_PA_Beacon.power_V3 -> TTC_module.BUS_DC_PA_Beacon" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.9" source="//@componentInstance.21/@componentInstance.28/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.28/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.7">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.52"/>
+  <connectionInstance name="EPS_module.DC_PA_Beacon.power -> TTC_module.BUS_DC_PA_Beacon" complete="true" kind="accessConnection" destination="//@componentInstance.23/@featureInstance.9" source="//@componentInstance.21/@componentInstance.28/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.28/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.7">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.48"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.7" destination="//@componentInstance.23/@featureInstance.9">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.36"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_Payloads.power_V3 -> RUSH_payload.power_bus" complete="true" kind="accessConnection" destination="//@componentInstance.19/@featureInstance.2" source="//@componentInstance.21/@componentInstance.29/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.29/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.8">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.53"/>
+  <connectionInstance name="EPS_module.DC_Payloads.power -> RUSH_payload.power_bus" complete="true" kind="accessConnection" destination="//@componentInstance.19/@featureInstance.2" source="//@componentInstance.21/@componentInstance.29/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.29/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.8">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.8" destination="//@componentInstance.19/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.41"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_Payloads.power_V3 -> JOINVILLE_payload.power_bus" complete="true" kind="accessConnection" destination="//@componentInstance.18/@featureInstance.2" source="//@componentInstance.21/@componentInstance.29/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.29/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.8">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.53"/>
+  <connectionInstance name="EPS_module.DC_Payloads.power -> JOINVILLE_payload.power_bus" complete="true" kind="accessConnection" destination="//@componentInstance.18/@featureInstance.2" source="//@componentInstance.21/@componentInstance.29/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.29/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.8">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.8" destination="//@componentInstance.18/@featureInstance.2">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.42"/>
     </connectionReference>
   </connectionInstance>
-  <connectionInstance name="EPS_module.DC_Payloads.power_V3 -> FS_interface.power_bus" complete="true" kind="accessConnection" destination="//@componentInstance.20/@featureInstance.1" source="//@componentInstance.21/@componentInstance.29/@featureInstance.2">
-    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.29/@featureInstance.2" destination="//@componentInstance.21/@featureInstance.8">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.53"/>
+  <connectionInstance name="EPS_module.DC_Payloads.power -> FS_interface.power_bus" complete="true" kind="accessConnection" destination="//@componentInstance.20/@featureInstance.1" source="//@componentInstance.21/@componentInstance.29/@featureInstance.1">
+    <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.29/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.8">
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.49"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.8" destination="//@componentInstance.20/@featureInstance.1">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.43"/>
@@ -7492,7 +7295,7 @@
   </connectionInstance>
   <connectionInstance name="EPS_module.mcu_eps.i2c_bus -> BUS0" complete="true" kind="accessConnection" destination="//@componentInstance.0" source="//@componentInstance.21/@componentInstance.31/@featureInstance.0">
     <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.31/@featureInstance.0" destination="//@componentInstance.21/@featureInstance.0">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.55"/>
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.51"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.0" destination="//@componentInstance.0">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.12"/>
@@ -7500,7 +7303,7 @@
   </connectionInstance>
   <connectionInstance name="EPS_module.mcu_eps.uart_bus -> BUS6" complete="true" kind="accessConnection" destination="//@componentInstance.6" source="//@componentInstance.21/@componentInstance.31/@featureInstance.1">
     <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.31/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.1">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.54"/>
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.50"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.1" destination="//@componentInstance.6">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.13"/>
@@ -7508,7 +7311,7 @@
   </connectionInstance>
   <connectionInstance name="EPS_module.mcu_eps.uart_bus -> BUS_JTAG" complete="true" kind="accessConnection" destination="//@componentInstance.9" source="//@componentInstance.21/@componentInstance.31/@featureInstance.1">
     <connectionReference context="//@componentInstance.21" source="//@componentInstance.21/@componentInstance.31/@featureInstance.1" destination="//@componentInstance.21/@featureInstance.2">
-      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.56"/>
+      <connection xsi:type="aadl2:AccessConnection" href="../SAT_EPS_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.52"/>
     </connectionReference>
     <connectionReference context="/" source="//@componentInstance.21/@featureInstance.2" destination="//@componentInstance.9">
       <connection xsi:type="aadl2:AccessConnection" href="../SAT_System.aadl#/0/@ownedPublicSection/@ownedClassifier.1/@ownedAccessConnection.14"/>

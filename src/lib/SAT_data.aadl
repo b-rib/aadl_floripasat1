@@ -1,0 +1,36 @@
+package SAT_data
+public
+
+	with Custom_Data_Models;
+
+  data Integer
+  properties
+    Custom_Data_Models::Data_Representation => Integer;
+  end Integer;
+  
+	data Integer_16 extends Integer
+	properties
+	  Custom_Data_Models::Number_Representation => Signed;
+	  Data_Size => 2 Bytes;
+	end Integer_16;
+
+	data Nine_Axis
+	end Nine_Axis;
+	
+	data implementation Nine_Axis.impl
+		subcomponents
+			Acc_X: data Integer_16;
+			Acc_Y: data Integer_16;
+			Acc_Z: data Integer_16;
+			Gyro_X: data Integer_16;
+			Gyro_Y: data Integer_16;
+			Gyro_Z: data Integer_16;
+			Mag_X: data Integer_16;
+			Mag_Y: data Integer_16;
+			Mag_Z: data Integer_16;
+		properties
+			Type_Source_Name => "__po_hi_float32_t";
+			Source_Text => ("types");
+			Data_Size => 18 Bytes;
+	end Nine_Axis.impl;
+end SAT_data;

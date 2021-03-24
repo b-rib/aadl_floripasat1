@@ -1,0 +1,52 @@
+package Devices::IMU::MPU9250
+public
+	with Buses::I2C;
+
+	with provant_data;
+
+	with Device_property;
+
+	with Electricity_Properties;
+
+	with Buses::SPI;
+
+	with SEI;
+
+	device MPU9250
+		features
+			DOF6: out data port provant_data::Six_Axis.impl;
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+			power_3v3: requires bus access;
+		flows
+			f1: flow source DOF6 {latency => 200us .. 500us;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms;
+			Device_property::Device_Functionality => (Gyroscope, Accelerometer, Compass, Magnetometer);
+			Device_property::Device_Software => (DigitalMotionProcessing, DitigalFilter);
+			Device_property::Device_Bus_Avaliable => (SPI, I2C);
+			Device_property::Device_Support_design => (Library, API);
+			Device_property::Accelerometer_Range => (2.0g, 4.0g, 8.0g, 16.0g);
+			Device_property::Device_Max_Bus_Bandwidth => (10000 bitsps, 400 bitsps);
+			Electricity_Properties::Core_Voltage => 3.3V;
+			Device_property::Power_Consume => 0.02W;
+			Device_property::Mass => 10.0g;
+			Device_property::Device_address => ("0xE0");
+			Device_property::Device_Purchase_data => ("10/03/2016");
+			Device_property::Device_LifeCycle => (Active);
+			Device_property::Device_Last_Update => ("10/03/2016");
+			Device_property::Device_review => ("Changed from GY85 IMU with more features and accuracy");
+			Device_property::Device_Noise_Accelerometer => 300.0 ug_sqrHz;
+			Device_property::Device_Noise_gyroscope => 10.0 mdps_sqrHz;
+			Device_property::ZRO_25C_GYRO => (-5.0 dps, 5.0 dps);
+			Device_property::ZRO_Over_temp_gyro => (-0.24 dps_C, 0.24 dps_C);
+			Device_property::Temperature_Operation => (-40.0 C, 85.0 C);
+				SEI::price => 3.0;
+			
+	end MPU9250;
+
+	device implementation MPU9250.impl
+	end MPU9250.impl;
+  
+  end Devices::IMU::MPU9250;

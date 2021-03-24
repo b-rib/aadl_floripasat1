@@ -1,0 +1,47 @@
+package Devices::IMU::ICM20948
+public
+	with Buses::I2C;
+
+	with Data_Types;
+
+	with Device_Property;
+
+	with Electricity_Properties;
+
+	with Buses::SPI;
+
+	device ICM20948
+		features
+			DOF6: out data port Data_Types::Six_Axis.impl;
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+			spi_bus: requires bus access Buses::SPI::SPI.impl;
+		flows
+			f1: flow source DOF6 {latency => 200us .. 500us;};
+		properties
+			Dispatch_Protocol => Periodic;
+			Period => 10ms;
+			Device_property::Device_Functionality => (Gyroscope, Accelerometer);
+--			System in package (SiP) ( MPU6500 , DMP, AKM-8963);
+--			Accel_Range => [2 4 8 16] g
+--			Magnetometer_Range => 4800uT
+--			Gyro_Range => [250 500 1000 2000] dps
+--			Accel_Sensitivy => [16384 8192 4096 2048] LBS/g;
+--			Gyro_Sensitivity => [131 65.5 32.8 16.4] LSB/deg/sec;
+--			SPI_Maxspeed => 8 MHz 
+--			I2C_Maxspeed => 400 kHz 
+--			FiFo_Buffer => 4K-byte
+			Electricity_Properties::Core_Voltage => 1.8V; -- 2.7 V - 3.3 power supply
+			Electricity_Properties::Device_Type => Slave;
+			Physical_Properties::Power_Consume => 0.02W;
+			Physical_Properties::Mass => 10.0g;
+--			price => 2.90
+
+	SEI::price => 5.0;
+			price => 5.0;
+			Device_Property::Price => 5.0;
+	end ICM20948;
+
+	device implementation ICM20948.impl
+	end ICM20948.impl;
+  
+  end Devices::IMU::ICM20948;

@@ -1,0 +1,51 @@
+package Devices::IMU::LSM303
+public
+	with Buses::I2C;
+
+	with provant_data;
+
+	with Electricity_Properties;
+
+	with Device_Property;
+
+	with SEI;
+
+	with Bus_Properties;
+
+	device LSM303
+		features
+			DOF9: out data port provant_data::Nine_Axis.impl;
+			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+		flows
+			f1: flow source DOF9 {latency => 200us .. 300us;};
+		properties
+--			Accel_Sensitivy => [16384 8192 4096 2048] LBS/g;
+--			Gyro_Sensitivity => [131 65.5 32.8 16.4] LSB/deg/sec;
+			Dispatch_Protocol => Periodic;
+			Device_property::Device_Functionality => (Accelerometer, Magnetometer);
+			Period => 10ms;
+			Electricity_Properties::Core_Voltage => 3.3V;
+			Electricity_Properties::Run_Current => 254.0mA;
+			Device_property::Power_Consume => 0.02W;
+			Device_property::Accelerometer_Range => (2.0g, 4.0g, 8.0g, 16.0g);
+			Device_property::Magnetic_field_range => (1100.0uT);
+			Device_property::Magnetic_field_resolution => (1.3uT);
+			Device_property::Device_Application => (general_purpose);
+			Bus_Properties::Available_Bandwidth => (1000000 bitsps, 400000 bitsps);
+			Device_property::Power_Management_Modes => (NORMAL, LOW_POWER, SUSPEND);
+			Device_property::Mass => 10.0g;
+			Device_property::Device_Noise_Accelerometer => 220.0 ug_sqrHz;
+			Device_property::Temperature_Operation => (-40.0C, 85.0C);
+			Device_property::Device_address => ("0xE2");
+			Device_property::Device_Purchase_data => ("10/03/2016");
+			Device_property::Device_LifeCycle => (Active);
+			Device_property::Device_Last_Update => ("15/03/2016");
+			Device_property::Device_review => ("BNO55 tested, working.");
+			Device_property::Device_review_rate => 5.0;
+			SEI::price => 35.0;
+	end LSM303;
+
+	device implementation LSM303.impl
+	end LSM303.impl;
+  
+  end Devices::IMU::LSM303;

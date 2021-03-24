@@ -1,0 +1,8 @@
+property set Custom_Data_Models is
+	Data_Representation : enumeration
+     (Array, Boolean, Character, Enum, Float, 
+      Fixed, Integer, String, Struct, Union) 
+      applies to ( data );
+      
+    Number_Representation : enumeration (Signed, Unsigned) applies to ( data, feature );
+end Data_Model;	
