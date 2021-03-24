@@ -1,0 +1,62 @@
+Bound Resource Budget Analysis Report
+
+
+Processor Summary Report: 
+** Processor JOINVILLE_payload has no MIPS capacity but has bound components.
+*   Processor JOINVILLE_payload: Bound app's have no MIPS budget.
+** Processor RUSH_payload has no MIPS capacity but has bound components.
+*   Processor RUSH_payload: Bound app's have no MIPS budget.
+** Processor FS_interface has no MIPS capacity but has bound components.
+*   Processor FS_interface: Bound app's have no MIPS budget.
+** Processor EPS_module.mcu_eps has no MIPS capacity but has bound components.
+*   Processor EPS_module.mcu_eps: Bound app's have no MIPS budget.
+** Processor OBDH_module.mcu_obdh has no MIPS capacity but has bound components.
+*   Processor OBDH_module.mcu_obdh: Bound app's have no MIPS budget.
+** Processor TTC_module.mcu_ttc has no MIPS capacity but has bound components.
+*   Processor TTC_module.mcu_ttc: Bound app's have no MIPS budget.
+
+Memory Summary Report: 
+  No application components bound to OBDH_module.sd_card with Memory capacity 2,000 GByte
+  No application components bound to OBDH_module.mcu_obdh.RAM with RAM capacity 66,000 KByte
+  No application components bound to OBDH_module.mcu_obdh.Non_Vol with Memory capacity 512,000 KByte
+  No application components bound to OBDH_module.mcu_obdh.sd_card with Memory capacity 2,000 GByte
+  No application components bound to OBDH_module.mcu_obdh.ic_mem1 with Memory capacity 16,384 MByte
+  No application components bound to OBDH_module.mcu_obdh.ic_mem2 with Memory capacity 16,384 MByte
+  No application components bound to TTC_module.mcu_ttc.RAM with RAM capacity 66,000 KByte
+  No application components bound to TTC_module.mcu_ttc.Non_Vol with Memory capacity 512,000 KByte
+
+
+Detailed Workload Report:  for Processor JOINVILLE_payload with Capacity 0,000 MIPS
+
+Component,Budget,Actual
+Total,,0,000 MIPS
+
+
+Detailed Workload Report:  for Processor RUSH_payload with Capacity 0,000 MIPS
+
+Component,Budget,Actual
+Total,,0,000 MIPS
+
+
+Detailed Workload Report:  for Processor FS_interface with Capacity 0,000 MIPS
+
+Component,Budget,Actual
+Total,,0,000 MIPS
+
+
+Detailed Workload Report:  for Processor EPS_module.mcu_eps with Capacity 0,000 MIPS
+
+Component,Budget,Actual
+Total,,0,000 MIPS
+
+
+Detailed Workload Report:  for Processor OBDH_module.mcu_obdh with Capacity 0,000 MIPS
+
+Component,Budget,Actual
+Total,,0,000 MIPS
+
+
+Detailed Workload Report:  for Processor TTC_module.mcu_ttc with Capacity 0,000 MIPS
+
+Component,Budget,Actual
+Total,,0,000 MIPS

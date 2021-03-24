@@ -1,0 +1,114 @@
+Bus load analysis of FloripaSAT_impl_Instance
+
+
+"Physical Bus","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"BUS0","0.0","0.0","0.0","0.0"
+"BUS1","0.0","0.0","0.0","0.0"
+"BUS2","0.0","0.0","0.0","0.0"
+"BUS3","0.0","0.0","0.0","0.0"
+"BUS4","0.0","0.0","0.0","0.0"
+"BUS5","0.0","0.0","0.0","0.0"
+"BUS6","12.5","0.0","0.0","0.0"
+"BUS7","0.0","0.0","0.0","0.0"
+"BUS8","0.0","0.0","0.0","0.0"
+"BUS_JTAG","12.5","0.0","0.0","0.0"
+"JTAG_BUS","12.5","0.0","0.0","0.0"
+"UART_BUS","12.5","0.0","0.0","0.0"
+"i2C_BUS","0.0","0.0","0.0","0.0"
+"i2c_bus","0.0","0.0","0.0","0.0"
+"spi_bus","0.0","0.0","0.0","0.0"
+"spi_bus","0.0","0.0","0.0","0.0"
+
+"Bus BUS0 has data overhead of 2 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS0 has no capacity"
+"WARNING: Bus BUS0 has no bandwidth budget"
+
+"Bus BUS1 has data overhead of 1 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS1 has no capacity"
+"WARNING: Bus BUS1 has no bandwidth budget"
+
+"Bus BUS2 has data overhead of 2 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS2 has no capacity"
+"WARNING: Bus BUS2 has no bandwidth budget"
+
+"Bus BUS3 has data overhead of 1 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS3 has no capacity"
+"WARNING: Bus BUS3 has no bandwidth budget"
+
+"Bus BUS4 has data overhead of 1 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS4 has no capacity"
+"WARNING: Bus BUS4 has no bandwidth budget"
+
+"Bus BUS5 has data overhead of 2 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS5 has no capacity"
+"WARNING: Bus BUS5 has no bandwidth budget"
+
+"Bus BUS6 has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS6 has no bandwidth budget"
+
+"Bus BUS7 has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS7 has no capacity"
+"WARNING: Bus BUS7 has no bandwidth budget"
+
+"Bus BUS8 has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS8 has no capacity"
+"WARNING: Bus BUS8 has no bandwidth budget"
+
+"Bus BUS_JTAG has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus BUS_JTAG has no bandwidth budget"
+
+"Bus JTAG_BUS has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus JTAG_BUS has no bandwidth budget"
+
+"Bus UART_BUS has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus UART_BUS has no bandwidth budget"
+
+"Bus i2C_BUS has data overhead of 2 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus i2C_BUS has no capacity"
+"WARNING: Bus i2C_BUS has no bandwidth budget"
+
+"Bus i2c_bus has data overhead of 2 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus i2c_bus has no capacity"
+"WARNING: Bus i2c_bus has no bandwidth budget"
+
+"Bus spi_bus has data overhead of 1 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus spi_bus has no capacity"
+"WARNING: Bus spi_bus has no bandwidth budget"
+
+"Bus spi_bus has data overhead of 1 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus spi_bus has no capacity"
+"WARNING: Bus spi_bus has no bandwidth budget"
+
+

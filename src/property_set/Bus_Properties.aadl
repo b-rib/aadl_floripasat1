@@ -6,7 +6,7 @@ property set Bus_Properties is
 
   Bandwidth_Scale : Bus_Properties::Bandwidth_Range applies to (bus);
 
-  Available_Bandwidth : list of Data_Volume applies to (bus);
+  Available_Bandwidth : list of Data_Volume applies to (bus, device);
 
   Required_Bandwidth : Data_Volume applies to
     (abstract, system, device, bus access, connection);
