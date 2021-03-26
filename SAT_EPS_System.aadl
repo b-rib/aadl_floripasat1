@@ -111,12 +111,12 @@ public
 			Vp_1e: bus access BUS_SP_zm -> sens_I_sp_zm.power;
 			Vp_1f: bus access BUS_SP_yp -> sens_I_sp_yp.power;
 
-			Vp_0a: bus access BUS_SP_ym -> mppt_1.power;
-			Vp_0b: bus access BUS_SP_xp -> mppt_1.power;
-			Vp_0c: bus access BUS_SP_xm -> mppt_2.power;
-			Vp_0d: bus access BUS_SP_zp -> mppt_2.power;
-			Vp_0e: bus access BUS_SP_zm -> mppt_3.power;
-			Vp_0f: bus access BUS_SP_yp -> mppt_3.power;
+			Vp_0a: bus access BUS_SP_ym -> battery_monitor.power_sp;
+			Vp_0b: bus access BUS_SP_xp -> battery_monitor.power_sp;
+			Vp_0c: bus access BUS_SP_xm -> battery_monitor.power_sp;
+			Vp_0d: bus access BUS_SP_zp -> battery_monitor.power_sp;
+			Vp_0e: bus access BUS_SP_zm -> battery_monitor.power_sp;
+			Vp_0f: bus access BUS_SP_yp -> battery_monitor.power_sp;
 
 			Vp_2a: bus access BUS_SP_ym -> sens_V_sp_1.power;
 			Vp_2b: bus access BUS_SP_xp  -> sens_V_sp_1.power;
@@ -150,13 +150,13 @@ public
 --			Vb_0c: bus access mppt_3.power -> battery_monitor.power;
 
 			V3_2: bus access battery_charge.power -> battery.power;
-			V3_2a: bus access battery_monitor.power -> battery.power;
-			Vb_1: bus access battery_monitor.power -> DC_Antenna.power;
-			Vb_2: bus access battery_monitor.power -> DC_EPS_Beacon.power;
-			Vb_3: bus access battery_monitor.power -> DC_OBDH_TTC.power;
-			Vb_4: bus access battery_monitor.power -> DC_PA_Beacon.power;
-			Vb_5: bus access battery_monitor.power -> DC_Payloads.power;
---			Vb_6: bus access battery_monitor.power -> SP_Total_V.power;
+			V3_2a: bus access battery_monitor.power_bat -> battery.power;
+			Vb_1: bus access battery_monitor.power -> DC_Antenna.power_vbus;
+			Vb_2: bus access battery_monitor.power -> DC_EPS_Beacon.power_vbus;
+			Vb_3: bus access battery_monitor.power -> DC_OBDH_TTC.power_vbus;
+			Vb_4: bus access battery_monitor.power -> DC_PA_Beacon.power_vbus;
+			Vb_5: bus access battery_monitor.power -> DC_Payloads.power_vbus;
+			Vb_6: bus access battery_monitor.power -> SP_Total_V.power;
 			
 			-- Power Buses
 			

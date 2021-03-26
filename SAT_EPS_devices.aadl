@@ -20,6 +20,7 @@ public
 
 		properties
 			SEI::PowerCapacity => 2.4W; --(2270 ... 2400) W;
+			Device_Property::Mass => 65.0 g;
 			Device_Property::Power_Provide => 2.4W; -- (max), (min) 2.27 W
 			Electricity_Properties::VOH_min => 4.8 V;
 			Electricity_Properties::Output_Voltage => 4.8 V;
@@ -70,14 +71,16 @@ public
 --			vbus: provides bus access Buses::Power::Power_VBUS;
 --			power_solar_panels: requires bus access Buses::Power::Power_SP_MPPT;
 --			power_battery: requires bus access Buses::Power::Power_Battery;
-			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.0 mW;};
+			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 W;};
+			power_sp: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 2.0 W;};
+			power_bat: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 2.0 W;};
 	end battery_monitor;
 
 -- Battery charger
 	device battery_charger
 		features
 --			power_battery: requires bus access Buses::Power::Power_Battery;
-			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.000 W;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 300.0 mW;};
 	end battery_charger;
 
 -- Battery
@@ -130,7 +133,8 @@ public
 		features
 --			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
 --			power_V3: provides bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerSupply => 6.6 W;};
-			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
+			power: provides bus access Buses::Power::Power_Bus;
+			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 6.6w;
@@ -147,7 +151,8 @@ public
 		features
 --			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
 --			power_V3: provides bus access Buses::Power::Power_V3DC_Antenna{SEI::PowerSupply => 6.6 W;};
-			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
+			power: provides bus access Buses::Power::Power_Bus;
+			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 6.6w;
@@ -165,7 +170,8 @@ public
 			enable_in: in event port;
 --			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
 --			power_V3: provides bus access Buses::Power::Power_V5DC_Payloads;--{SEI::PowerSupply => 15.0 W;};
-			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
+			power: provides bus access Buses::Power::Power_Bus;
+			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 15.0 W;
@@ -183,7 +189,8 @@ public
 			enable_in: in event port;
 --			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
 --			power_V3: provides bus access Buses::Power::Power_V3DC_OBDH_TTC;--{SEI::PowerSupply => 3.3 W;};
-			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
+			power: provides bus access Buses::Power::Power_Bus;
+			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
 			SEI::PowerCapacity => 3.3 W;
@@ -201,7 +208,8 @@ public
 			enable_in: in event port;
 --			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
 --			power_V3: provides bus access Buses::Power::Power_V3DC_PA_TTC;--{SEI::PowerSupply => 16.5 W;};
-			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
+			power: provides bus access Buses::Power::Power_Bus;
+			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			SEI::PowerCapacity => 16.5W;
 			Electricity_Properties::Idle_Current => 5.0 A;
@@ -217,7 +225,8 @@ public
 			enable_in: in event port;
 --			vbus: requires bus access Buses::Power::Power_VBUS{SEI::PowerBudget => 22.2 mW;};
 --			power_V3: provides bus access Buses::Power::Power_V3DC_PA_Beacon;--{SEI::PowerSupply => 16.5 W;};
-			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};
+			power: provides bus access Buses::Power::Power_Bus;
+			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 			properties
 				SEI::PowerCapacity => 16.5W;
 			Electricity_Properties::Idle_Current => 5.0 A;
@@ -228,13 +237,14 @@ public
 --			Device_Property::Power_Consume => 16.5 W; -- convert to 3V3 @ 5A 
 	end TPS545401;
 
+---- MCU -----
 	processor MSP430F6659
 		features
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
 			uart_bus: requires bus access Buses::UART::UART.impl;
 			spi_bus: requires bus access Buses::SPI::SPI.impl;
 --			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon{SEI::PowerBudget => 0.01023 W;};
-			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 10.23 mW;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 0.01023W;};		
 		properties
 			Electricity_Properties::Idle_Current => 23.680 mA;
 			Electricity_Properties::Input_Voltage => 3.3 V;
