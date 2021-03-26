@@ -5,8 +5,8 @@ public
 	bus Radio
 		features
 			radio_bus: provides bus access Radio;
-		properties
-			SEI::PowerCapacity => 1.98W; -- Mean power consumption =  0.01916 W, Max consumption = 1.98W
+--		properties
+--			SEI::PowerCapacity => 1.98W; -- Mean power consumption =  0.01916 W, Max consumption = 1.98W
 	end Radio;
 
 	bus implementation Radio.impl
