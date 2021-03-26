@@ -53,9 +53,9 @@ public
 --			T1_4: bus access BUS_DC_PA_Beacon -> bus_3V3_PA_Beacon;
 --			T1_5: bus access BUS_DC_OBDH_TTC -> bus_3V3_OBDH_TTC;
 			-- Device power buses
-			T2_1: bus access mcu_ttc.power_V3 -> BUS_DC_EPS_Beacon;
-			T2_2: bus access main_radio.power_pa_ttc -> BUS_DC_PA_TTC;
-			T2_3: bus access beacon_radio.power_pa_beacon -> BUS_DC_PA_Beacon;
+			T2_1: bus access BUS_DC_EPS_Beacon-> mcu_ttc.power_V3 ;
+			T2_2: bus access BUS_DC_PA_TTC -> main_radio.power_pa_ttc;
+			T2_3: bus access BUS_DC_PA_Beacon -> beacon_radio.power_pa_beacon;
 
 			-- Connection MCU and transcievers
 			T3_1: bus access mcu_ttc.spi_bus <-> spi_bus;

@@ -80,6 +80,8 @@ public
 			power: provides bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 W;};
 			power_sp: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 2.0 W;};
 			power_bat: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 2.0 W;};
+		properties
+			SEI::PowerCapacity => 22.2 W;
 	end battery_monitor;
 
 -- Battery charger
@@ -115,7 +117,7 @@ public
 			data_out: out data port;
 --			vbus: requires bus access Buses::Power::Power_VBUS;
 --			power_V3: requires bus access Buses::Power::Power_V3DC_EPS_Beacon;
-			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 1.0 W;};
+			power: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 4.8 W;};
 	end heat_driver;
 
 	device implementation heat_driver.impl
@@ -145,7 +147,7 @@ public
 			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
-			SEI::PowerCapacity => 6.6w;
+--			SEI::PowerCapacity => 6.6w;
 			Electricity_Properties::Idle_Current => 2.0 A;
 			Electricity_Properties::VIH_min => 5.0 V;
 			Electricity_Properties::VOL_max => 3.3 V;
@@ -163,7 +165,7 @@ public
 			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
-			SEI::PowerCapacity => 6.6w;
+--			SEI::PowerCapacity => 6.6w;
 			Electricity_Properties::Idle_Current => 2.0 A;
 			Electricity_Properties::VIH_min => 5.0 V;
 			Electricity_Properties::VOL_max => 3.3 V;
@@ -182,7 +184,7 @@ public
 			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
-			SEI::PowerCapacity => 15.0 W;
+--			SEI::PowerCapacity => 15.0 W;
 			Electricity_Properties::Idle_Current => 3.0 A;
 			Electricity_Properties::VIH_min => 5.0 V;
 			Electricity_Properties::VOL_max => 3.3 V;
@@ -201,7 +203,7 @@ public
 			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
 			Device_Property::Temperature_Operation => (-40.0 C, 125.0 C);
-			SEI::PowerCapacity => 3.3 W;
+--			SEI::PowerCapacity => 3.3 W;
 			Electricity_Properties::Idle_Current => 1.0 A;
 			Electricity_Properties::VIH_min => 5.0 V;
 			Electricity_Properties::VOL_max => 3.3 V;
@@ -219,7 +221,7 @@ public
 			power: provides bus access Buses::Power::Power_Bus;
 			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 		properties
-			SEI::PowerCapacity => 16.5W;
+--			SEI::PowerCapacity => 16.5W;
 			Electricity_Properties::Idle_Current => 5.0 A;
 			Electricity_Properties::VIH_min => 5.0 V;
 			Electricity_Properties::VOL_max => 3.3 V;
@@ -236,7 +238,7 @@ public
 			power: provides bus access Buses::Power::Power_Bus;
 			power_vbus: requires bus access Buses::Power::Power_Bus{SEI::PowerBudget => 22.2 mW;};		
 			properties
-				SEI::PowerCapacity => 16.5W;
+--				SEI::PowerCapacity => 16.5W;
 			Electricity_Properties::Idle_Current => 5.0 A;
 			Electricity_Properties::VIH_min => 5.0 V;
 			Electricity_Properties::VOL_max => 3.3 V;
