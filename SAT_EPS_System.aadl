@@ -44,6 +44,7 @@ public
 		properties
 			SEI::GrossWeight => 0.091kg;
 			
+			
 	end EPS;
 
 	system implementation EPS.impl
