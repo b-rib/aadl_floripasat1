@@ -7,6 +7,7 @@ public
 	with Buses::UART;
 	with Buses::Radio;
 	with Buses::Power;
+	with SEI;
 
 	system TTC -- Top entity
 		features
@@ -25,7 +26,8 @@ public
 			BUS_DC_OBDH_TTC: requires bus access Buses::Power::Power_bus;
 			BUS_DC_PA_TTC: requires bus access Buses::Power::Power_bus;
 			BUS_DC_PA_Beacon: requires bus access Buses::Power::Power_bus;
-
+		properties
+			SEI::GrossWeight => 0.072kg;
 
 	end TTC;
 

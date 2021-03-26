@@ -68,6 +68,8 @@ public
 --			power_antenna: requires bus access Buses::Power::Power_V3DC_Antenna{SEI::PowerBudget => 2.5 W;};
 			power_antenna: requires bus access Buses::Power::Power_bus{SEI::PowerBudget => 2.5 W;};
 			i2c_bus: requires bus access Buses::I2C::I2C.impl;
+		properties
+			SEI::GrossWeight => 0.0445kg;
 	end Antenna;
 
 	device implementation Antenna.impl

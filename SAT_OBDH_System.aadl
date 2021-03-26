@@ -7,6 +7,7 @@ public
 	with Buses::Analog;
 	with SAT_OBDH_process;
 	with Buses::Power;
+	with SEI;
 
 	system OBDH
 		features
@@ -21,7 +22,8 @@ public
 			-- Power Buses
 --			BUS_DC_OBDH_TTC: requires bus access Buses::Power::Power_V3DC_OBDH_TTC;
 			BUS_DC_OBDH_TTC: requires bus access Buses::Power::Power_bus;
-
+		properties
+			SEI::GrossWeight => 0.046kg;
 	end OBDH;
 
 	system implementation OBDH.impl

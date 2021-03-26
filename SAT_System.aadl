@@ -3,6 +3,7 @@ public
 	with Buses::I2C, Buses::UART, Buses::SPI, Buses::Radio, Buses::Analog;
 	with SAT_EPS_devices, SAT_EPS_System, SAT_OBDH_System, SAT_Payloads;
 	with SAT_TTC_system, SAT_TTC_devices;
+	with SEI;
 
 	system FloripaSAT
 		-- BUSES
@@ -16,6 +17,9 @@ public
 --		BUS7: provides bus access Buses::Radio::Radio.impl;
 --		BUS8:provides bus access Buses::Analog::Analog.impl;
 --		BUS_JTAG: provides bus access Buses::UART::UART.impl;
+		properties
+			SEI::WeightLimit => 1.068kg;
+			SEI::NetWeight => 0.263kg;
 	end FloripaSAT;
 
 	system implementation FloripaSAT.impl

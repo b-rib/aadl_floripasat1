@@ -5,6 +5,7 @@ public
 	with Buses::UART;
 	with Buses::I2C;
 	with Buses::Power;
+	with SEI;
 
 	system EPS
 		features
@@ -39,7 +40,9 @@ public
 			BUS_SP_xm: requires bus access Buses::Power::Power_bus;
 			BUS_SP_zp: requires bus access Buses::Power::Power_bus;
 			BUS_SP_zm: requires bus access Buses::Power::Power_bus;
-			BUS_SP_yp: requires bus access Buses::Power::Power_bus;		
+			BUS_SP_yp: requires bus access Buses::Power::Power_bus;
+		properties
+			SEI::GrossWeight => 0.091kg;
 			
 	end EPS;
 

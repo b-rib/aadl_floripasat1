@@ -21,9 +21,12 @@ public
 		properties
 			SEI::PowerCapacity => 2.4W; --(2270 ... 2400) W;
 			Device_Property::Power_Provide => 2.4W; -- (max), (min) 2.27 W
+			
 			Electricity_Properties::VOH_min => 4.8 V;
 			Electricity_Properties::Output_Voltage => 4.8 V;
 			Electricity_Properties::Idle_Current => 0.5 A;
+			
+			SEI::GrossWeight => 0.0455kg;
 	end Solar_Panel;
 
 	-- Clock to MQTT
@@ -91,6 +94,8 @@ public
 			Electricity_Properties::Output_Voltage => 3.78 V;
 			Electricity_Properties::VOH_min => 3.78 V;
 			Electricity_Properties::Idle_Current => 2950.0 mA;
+			
+			SEI::GrossWeight => 0.021kg;
 	end battery;
 
 	device implementation battery.impl

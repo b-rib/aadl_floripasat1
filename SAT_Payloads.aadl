@@ -2,6 +2,7 @@ package SAT_Payloads
 public
 	with Buses::I2C, Buses::UART;
 	with Buses::Power;
+	with SEI;
 
 	-- Payload from RUSH
 	processor RUSH_payload
@@ -10,7 +11,8 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
 --			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
 			power_bus: requires bus access Buses::Power::Power_bus;
-
+		properties
+			SEI::GrossWeight => 0.067kg;
 	end RUSH_payload;
 
 	processor implementation RUSH_payload.impl
@@ -23,6 +25,8 @@ public
 			i2c_bus: requires bus access Buses::I2C::I2C.IMPL;
 --			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
 			power_bus: requires bus access Buses::Power::Power_bus;
+		properties
+			SEI::GrossWeight => 0.125kg;
 	end Joinville_Payload;
 
 	processor implementation Joinville_Payload.impl
