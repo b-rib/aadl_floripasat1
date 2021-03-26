@@ -38,6 +38,8 @@ public
 			uart_bus: requires bus access Buses::UART::UART.impl;
 --			power_bus: requires bus access Buses::Power::Power_V5DC_Payloads;
 			power_bus: requires bus access Buses::Power::Power_bus;
+		properties
+			SEI::GrossWeight => 0.021kg;
 
 	end FS_Interface;
 
